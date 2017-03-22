@@ -8,32 +8,32 @@ public class BinarySearchTree {
     TreeNode root;
 
     // Do nothing
-    public BinarySearchTree(){
+    public BinarySearchTree() {
     }
 
 
-    //
-    // Insert the node to the BST
-    //
-    // addTreeNode the value item into the BST
-    public TreeNode addTreeNode(int value){
-        //
-        return addTreeNode(this.root, value);
+    public void clear() {
+        this.root = null;
     }
 
     /**
-     *
      * 添加节点
      *
-     * @param root
      * @param value
      * @return
      */
-    private  TreeNode addTreeNode(TreeNode root, int value){
+    public TreeNode addTreeNode(int value) {
+        //
+        if (this.root == null) {
+            this.root = new TreeNode(value);
+        }
+
+        return addTreeNode(this.root, value);
+    }
+
+    private  TreeNode addTreeNode(TreeNode root, int value) {
         if (root == null){
-            this.root = new TreeNode();
-            this.root.data = value;
-            return this.root;
+            return new TreeNode(value);
         }
 
         int valueOfrootElement = root.data;
@@ -48,10 +48,6 @@ public class BinarySearchTree {
         return root;
     }
 
-    public TreeNode searchNode(int value){
-        return searchNode(this.root, value);
-    }
-
     /**
      *
      * 查找节点
@@ -60,7 +56,11 @@ public class BinarySearchTree {
      * @param value
      * @return
      */
-    private TreeNode searchNode(TreeNode root, int value){
+    public TreeNode searchNode(int value){
+        return searchNode(this.root, value);
+    }
+
+    private TreeNode searchNode(TreeNode root, int value) {
         // empty tree
         if (root == null){
             return null;
@@ -77,11 +77,18 @@ public class BinarySearchTree {
         return root;
     }
 
-    public TreeNode deleteNode(int value){
+    /**
+     *
+     * 删除节点
+     *
+     * @param value
+     * @return
+     */
+    public TreeNode deleteNode(int value) {
         return deleteNode(this.root, value);
     }
 
-    private  TreeNode deleteNode(TreeNode root, int value){
+    private  TreeNode deleteNode(TreeNode root, int value) {
         if (root == null) {
             return null;
         }
@@ -92,35 +99,34 @@ public class BinarySearchTree {
         } else if (value > rootValue) {
             root.rightChild = deleteNode(root.rightChild, value);
         } else {
-            if (root.leftChild != null && root.rightChild != null) {
-                // search for the min node in right child subtree,
-                // and then replace the current node.
-                //
-                TreeNode newRootNode = findMin(root.rightChild);
-                // remove from the previous right subtree
-                root.rightChild = deleteNode(newRootNode, newRootNode.data);
-                // replace the current node.
-                root.data = newRootNode.data;
-            } else if (root.leftChild == null  && root.rightChild != null){
-                root = root.rightChild;
-            } else if (root.rightChild == null && root.leftChild != null){
-                root = root.leftChild;
-            } else {
-                root = null;
+            if (root.leftChild == null) {
+                return root.rightChild;
             }
+
+            if (root.rightChild == null) {
+                return  root.leftChild;
+            }
+
+            // search for the min node in right child subtree,
+            // and then replace the current node.
+            //
+            TreeNode newRootNode = findMin(root.rightChild);
+            // replace the current node.
+            root.data = newRootNode.data;
+            // remove from the previous right subtree
+            root.rightChild = deleteNode(root.rightChild, newRootNode.data);
         }
 
        return root;
     }
 
-    //
-    private TreeNode findMin(TreeNode node){
+    private TreeNode findMin(TreeNode node) {
         if (node == null){
             return  null;
         }
         TreeNode leftNode = node.leftChild;
         return leftNode == null ?
-                leftNode: findMin(leftNode.leftChild);
+                node: findMin(leftNode.leftChild);
     }
 
 }

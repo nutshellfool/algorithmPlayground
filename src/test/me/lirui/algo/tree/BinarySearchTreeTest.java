@@ -88,27 +88,145 @@ public void testSearchNotExistedNode() throws Exception {
 public void testDeleteMinNode() throws Exception {
     TreeNode deletedNode = mTree.deleteNode(1);
     Assert.assertNotNull(deletedNode);
-    Assert.assertEquals(deletedNode.getData(), 4);
+    Assert.assertEquals(deletedNode.getData(), 2);
 }
 
-/** 
-* 
-* Method: findMin(TreeNode node) 
-* 
-*/ 
+
+// About the delete operation, we should consider these 4 cases:
+//  1. if the node is leaf
+//  2. if the node has left child, but no right child
+//  3. if the node has right child, but no left child
+//  4. if the node both has right child and left child.
+//
+
+/**
+ * Method: deleteNode(int value)
+ *
+ * @throws Exception
+ */
 @Test
-public void testFindMin() throws Exception { 
-//TODO: Test goes here... 
-/* 
-try { 
-   Method method = BinarySearchTree.getClass().getMethod("findMin", TreeNode.class); 
-   method.setAccessible(true); 
-   method.invoke(<Object>, <Parameters>); 
-} catch(NoSuchMethodException e) { 
-} catch(IllegalAccessException e) { 
-} catch(InvocationTargetException e) { 
-} 
-*/ 
-} 
+public void testDeleteNodeCase1() throws Exception {
+    // build a simple BST like this:
+    //
+    //          2
+    //         / \
+    //        1   3
+
+    // construct the tree.
+    mTree.clear();
+    mTree.addTreeNode(2);
+    mTree.addTreeNode(1);
+    mTree.addTreeNode(3);
+
+    TreeNode theSubstuitionNode = mTree.deleteNode(1);
+    Assert.assertNotNull(theSubstuitionNode);
+    Assert.assertEquals(2, theSubstuitionNode.getData());
+    Assert.assertNull(theSubstuitionNode.getLeftChild());
+}
+
+/**
+ *
+ * Method: deleteNode(int value)
+ * @throws Exception
+ */
+@Test
+public void testDeleteNodeCase2() throws Exception {
+    // build a BST like this:
+    //
+    //          2
+    //         / \
+    //        1   4
+    //           /
+    //          3
+
+    // construct the tree.
+    mTree.clear();
+    mTree.addTreeNode(2);
+    mTree.addTreeNode(1);
+    mTree.addTreeNode(4);
+    mTree.addTreeNode(3);
+
+    TreeNode theSubstuitionNode = mTree.deleteNode(4);
+    //
+    //          2
+    //         / \
+    //        1   3
+    //
+    Assert.assertNotNull(theSubstuitionNode);
+    Assert.assertEquals(2, theSubstuitionNode.getData());
+}
+
+
+/**
+ *
+ * Method: deleteNode(int value)
+ * @throws Exception
+ */
+@Test
+public void testDeleteNodeCase3() throws Exception {
+    // build a BST like this:
+    //
+    //          2
+    //         / \
+    //        1   3
+    //             \
+    //              4
+
+    // construct the tree.
+    mTree.clear();
+    mTree.addTreeNode(2);
+    mTree.addTreeNode(1);
+    mTree.addTreeNode(3);
+    mTree.addTreeNode(4);
+
+    TreeNode theSubstuitionNode = mTree.deleteNode(3);
+
+    //          2
+    //         / \
+    //        1   4
+    //
+    Assert.assertNotNull(theSubstuitionNode);
+    Assert.assertEquals(2, theSubstuitionNode.getData());
+    Assert.assertEquals(4, theSubstuitionNode.getRightChild().getData());
+    Assert.assertEquals(1,theSubstuitionNode.getLeftChild().getData());
+}
+
+/**
+ *
+ * Method: deleteNode(int value)
+ * @throws Exception
+ */
+@Test
+public void testDeleteNodeCase4() throws Exception {
+    // build a BST like this:
+    //
+    //          2
+    //         / \
+    //        1   4
+    //           / \
+    //          3   5
+
+    // construct the tree.
+    mTree.clear();
+    mTree.addTreeNode(2);
+    mTree.addTreeNode(1);
+    mTree.addTreeNode(4);
+    mTree.addTreeNode(3);
+    mTree.addTreeNode(5);
+
+    TreeNode theSubstuitionNode = mTree.deleteNode(4);
+
+    //
+    //          2
+    //         / \
+    //        1   5
+    //           /
+    //          3
+    Assert.assertNotNull(theSubstuitionNode);
+    Assert.assertEquals(2, theSubstuitionNode.getData());
+    Assert.assertEquals(1,theSubstuitionNode.getLeftChild().getData());
+    Assert.assertEquals(5,theSubstuitionNode.getRightChild().getData());
+    Assert.assertEquals(3, theSubstuitionNode.getRightChild().getLeftChild().getData());
+}
 
 } 
