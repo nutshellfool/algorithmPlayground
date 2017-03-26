@@ -1,7 +1,7 @@
 package me.lirui.algo.tree;
 
 /**
- * Created by RichardLee on 2017/3/21.
+ * Created by RichardLee on 2017/3/11.
  */
 public class TreeNode {
 

@@ -5,13 +5,15 @@ import me.lirui.algo.tree.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before; 
-import org.junit.After; 
+import org.junit.After;
+
+import java.util.ArrayList;
 
 /** 
 * BinarySearchTree Tester. 
 * 
 * @author <Authors name> 
-* @since <pre>三月 21, 2017</pre> 
+* @since <pre>三月 11, 2017</pre>
 * @version 1.0 
 */ 
 public class BinarySearchTreeTest {
@@ -113,6 +115,7 @@ public void testDeleteNodeCase1() throws Exception {
     //        1   3
 
     // construct the tree.
+    // TODO: the construct way may have opt space, refactoring it!
     mTree.clear();
     mTree.addTreeNode(2);
     mTree.addTreeNode(1);
@@ -229,4 +232,82 @@ public void testDeleteNodeCase4() throws Exception {
     Assert.assertEquals(3, theSubstuitionNode.getRightChild().getLeftChild().getData());
 }
 
-} 
+    @Test
+    public void testTheInorderTraversalOrderList() throws Exception {
+        mTree.clear();
+        mTree.addTreeNode(2);
+        mTree.addTreeNode(1);
+        mTree.addTreeNode(3);
+
+        ArrayList theInOutArray = new ArrayList();
+        mTree.theInorderTraversalOrderList(theInOutArray);
+
+        Assert.assertNotNull(theInOutArray);
+        Assert.assertEquals(3, theInOutArray.size());
+        Assert.assertEquals(1, theInOutArray.get(0));
+        Assert.assertEquals(2, theInOutArray.get(1));
+        Assert.assertEquals(3, theInOutArray.get(2));
+    }
+
+    @Test
+    public void testThePreOrderTraversalOrderList() throws Exception {
+        mTree.clear();
+        mTree.addTreeNode(2);
+        mTree.addTreeNode(1);
+        mTree.addTreeNode(3);
+
+        ArrayList theInOutArray = new ArrayList();
+        mTree.thePreOrderTraversalOrderList(theInOutArray);
+
+        Assert.assertNotNull(theInOutArray);
+        Assert.assertEquals(3, theInOutArray.size());
+        Assert.assertEquals(2, theInOutArray.get(0));
+        Assert.assertEquals(1, theInOutArray.get(1));
+        Assert.assertEquals(3, theInOutArray.get(2));
+    }
+
+    @Test
+    public void testThePostOrderTraversalOrderList() throws Exception {
+        mTree.clear();
+        mTree.addTreeNode(2);
+        mTree.addTreeNode(1);
+        mTree.addTreeNode(3);
+
+        ArrayList theInOutArray = new ArrayList();
+        mTree.thePostOrderTraversalOrderList(theInOutArray);
+
+        Assert.assertNotNull(theInOutArray);
+        Assert.assertEquals(3, theInOutArray.size());
+        Assert.assertEquals(3, theInOutArray.get(0));
+        Assert.assertEquals(2, theInOutArray.get(1));
+        Assert.assertEquals(1, theInOutArray.get(2));
+    }
+
+    @Test
+    public void testIsValidInHappyCase() throws Exception {
+        mTree.clear();
+        mTree.addTreeNode(2);
+        mTree.addTreeNode(1);
+        mTree.addTreeNode(3);
+
+        boolean isValidInRecurrence = mTree.isValid(true);
+        boolean isValidInNoRecurrence = mTree.isValid(false);
+
+        Assert.assertEquals(true, isValidInRecurrence);
+        Assert.assertEquals(true, isValidInNoRecurrence);
+    }
+
+    @Test
+    public void testIsValidInOtherCase() throws Exception {
+        mTree.clear();
+        mTree.addTreeNode(2);
+        mTree.addTreeNode(false, 1);
+        mTree.addTreeNode(false, 3);
+
+        boolean isValidInRecurrence = mTree.isValid(true);
+        boolean isValidInNoRecurrence = mTree.isValid(false);
+
+        Assert.assertEquals(false, isValidInRecurrence);
+        Assert.assertEquals(false, isValidInNoRecurrence);
+    }
+}
