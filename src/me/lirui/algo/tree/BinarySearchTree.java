@@ -34,8 +34,8 @@ public class BinarySearchTree {
         return addTreeNode(true, this.root, value);
     }
 
-    public TreeNode addTreeNode(boolean isBSTWay, int value) {
-        return addTreeNode(isBSTWay, this.root, value);
+    public TreeNode addTreeNodeInNoBSTWay(int value) {
+        return addTreeNode(false, this.root, value);
     }
 
     private  TreeNode addTreeNode(TreeNode root, int value) {
@@ -47,14 +47,14 @@ public class BinarySearchTree {
             return new TreeNode(value);
         }
 
-        int valueOfrootElement = root.data;
-        if (value < valueOfrootElement){
+        int valueOfRootElement = root.data;
+        if (value < valueOfRootElement){
             if (isBST) {
                 root.leftChild = addTreeNode(root.leftChild, value);
             } else {
                 root.rightChild = addTreeNode(root.rightChild, value);
             }
-        }else if (value > valueOfrootElement){
+        }else if (value > valueOfRootElement){
             if (isBST) {
                 root.rightChild = addTreeNode(root.rightChild, value);
             } else {
@@ -213,7 +213,7 @@ public class BinarySearchTree {
         // 2. judge the array is in right order?
         if (this.root == null) return true;
 
-        ArrayList theOrderList = new ArrayList();
+        ArrayList<Integer> theOrderList = new ArrayList<>();
         theInorderTraversalOrderList(theOrderList);
 
         // judge the array in the right order(ascend order)
@@ -223,7 +223,7 @@ public class BinarySearchTree {
 
 
     public boolean isArraySortedInAscendOrder(ArrayList<Integer> list) {
-        if (list == null && list.size() <= 1) return true;
+        if (list == null || list.size() <= 1) return true;
 
         int listSize = list.size();
         for (int i = 0; i < listSize - 1; i++) {
@@ -241,12 +241,12 @@ public class BinarySearchTree {
      *
      * @param theInOutList
      */
-    public void theInorderTraversalOrderList(ArrayList theInOutList) {
+    public void theInorderTraversalOrderList(ArrayList<Integer> theInOutList) {
 
         _inOrderTraversal(this.root, theInOutList);
     }
 
-    private void _inOrderTraversal(TreeNode node, ArrayList theInOutList) {
+    private void _inOrderTraversal(TreeNode node, ArrayList<Integer> theInOutList) {
         Assert.assertNotNull(theInOutList);
 
         if (node == null) return;
@@ -263,12 +263,12 @@ public class BinarySearchTree {
      *
      * @param thePreOrderList
      */
-    public void thePreOrderTraversalOrderList(ArrayList thePreOrderList) {
+    public void thePreOrderTraversalOrderList(ArrayList<Integer> thePreOrderList) {
         Assert.assertNotNull(thePreOrderList);
         _preOrderTraversal(this.root, thePreOrderList);
     }
 
-    private void _preOrderTraversal(TreeNode node, ArrayList theInOutList) {
+    private void _preOrderTraversal(TreeNode node, ArrayList<Integer> theInOutList) {
         Assert.assertNotNull(theInOutList);
 
         if (node == null) return;
@@ -283,18 +283,18 @@ public class BinarySearchTree {
      *
      * @param theInOutList
      */
-    public void thePostOrderTraversalOrderList(ArrayList theInOutList) {
+    public void thePostOrderTraversalOrderList(ArrayList<Integer> theInOutList) {
         Assert.assertNotNull(theInOutList);
         _postOrderTraversal(this.root, theInOutList);
     }
 
-    private void _postOrderTraversal(TreeNode node, ArrayList theInOutList) {
+    private void _postOrderTraversal(TreeNode node, ArrayList<Integer> theInOutList) {
         Assert.assertNotNull(theInOutList);
 
         if (node == null) return;
 
+        _postOrderTraversal(node.leftChild, theInOutList);
         _postOrderTraversal(node.rightChild, theInOutList);
         theInOutList.add(node.data);
-        _postOrderTraversal(node.leftChild, theInOutList);
     }
 }

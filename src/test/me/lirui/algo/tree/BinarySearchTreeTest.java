@@ -121,10 +121,10 @@ public void testDeleteNodeCase1() throws Exception {
     mTree.addTreeNode(1);
     mTree.addTreeNode(3);
 
-    TreeNode theSubstuitionNode = mTree.deleteNode(1);
-    Assert.assertNotNull(theSubstuitionNode);
-    Assert.assertEquals(2, theSubstuitionNode.getData());
-    Assert.assertNull(theSubstuitionNode.getLeftChild());
+    TreeNode theNode = mTree.deleteNode(1);
+    Assert.assertNotNull(theNode);
+    Assert.assertEquals(2, theNode.getData());
+    Assert.assertNull(theNode.getLeftChild());
 }
 
 /**
@@ -149,14 +149,14 @@ public void testDeleteNodeCase2() throws Exception {
     mTree.addTreeNode(4);
     mTree.addTreeNode(3);
 
-    TreeNode theSubstuitionNode = mTree.deleteNode(4);
+    TreeNode node = mTree.deleteNode(4);
     //
     //          2
     //         / \
     //        1   3
     //
-    Assert.assertNotNull(theSubstuitionNode);
-    Assert.assertEquals(2, theSubstuitionNode.getData());
+    Assert.assertNotNull(node);
+    Assert.assertEquals(2, node.getData());
 }
 
 
@@ -182,16 +182,16 @@ public void testDeleteNodeCase3() throws Exception {
     mTree.addTreeNode(3);
     mTree.addTreeNode(4);
 
-    TreeNode theSubstuitionNode = mTree.deleteNode(3);
+    TreeNode node = mTree.deleteNode(3);
 
     //          2
     //         / \
     //        1   4
     //
-    Assert.assertNotNull(theSubstuitionNode);
-    Assert.assertEquals(2, theSubstuitionNode.getData());
-    Assert.assertEquals(4, theSubstuitionNode.getRightChild().getData());
-    Assert.assertEquals(1,theSubstuitionNode.getLeftChild().getData());
+    Assert.assertNotNull(node);
+    Assert.assertEquals(2, node.getData());
+    Assert.assertEquals(4, node.getRightChild().getData());
+    Assert.assertEquals(1,node.getLeftChild().getData());
 }
 
 /**
@@ -217,7 +217,7 @@ public void testDeleteNodeCase4() throws Exception {
     mTree.addTreeNode(3);
     mTree.addTreeNode(5);
 
-    TreeNode theSubstuitionNode = mTree.deleteNode(4);
+    TreeNode node = mTree.deleteNode(4);
 
     //
     //          2
@@ -225,11 +225,11 @@ public void testDeleteNodeCase4() throws Exception {
     //        1   5
     //           /
     //          3
-    Assert.assertNotNull(theSubstuitionNode);
-    Assert.assertEquals(2, theSubstuitionNode.getData());
-    Assert.assertEquals(1,theSubstuitionNode.getLeftChild().getData());
-    Assert.assertEquals(5,theSubstuitionNode.getRightChild().getData());
-    Assert.assertEquals(3, theSubstuitionNode.getRightChild().getLeftChild().getData());
+    Assert.assertNotNull(node);
+    Assert.assertEquals(2, node.getData());
+    Assert.assertEquals(1,node.getLeftChild().getData());
+    Assert.assertEquals(5,node.getRightChild().getData());
+    Assert.assertEquals(3, node.getRightChild().getLeftChild().getData());
 }
 
     @Test
@@ -239,7 +239,7 @@ public void testDeleteNodeCase4() throws Exception {
         mTree.addTreeNode(1);
         mTree.addTreeNode(3);
 
-        ArrayList theInOutArray = new ArrayList();
+        ArrayList<Integer> theInOutArray = new ArrayList<>();
         mTree.theInorderTraversalOrderList(theInOutArray);
 
         Assert.assertNotNull(theInOutArray);
@@ -256,7 +256,7 @@ public void testDeleteNodeCase4() throws Exception {
         mTree.addTreeNode(1);
         mTree.addTreeNode(3);
 
-        ArrayList theInOutArray = new ArrayList();
+        ArrayList<Integer> theInOutArray = new ArrayList<>();
         mTree.thePreOrderTraversalOrderList(theInOutArray);
 
         Assert.assertNotNull(theInOutArray);
@@ -273,14 +273,14 @@ public void testDeleteNodeCase4() throws Exception {
         mTree.addTreeNode(1);
         mTree.addTreeNode(3);
 
-        ArrayList theInOutArray = new ArrayList();
+        ArrayList<Integer> theInOutArray = new ArrayList<>();
         mTree.thePostOrderTraversalOrderList(theInOutArray);
 
         Assert.assertNotNull(theInOutArray);
         Assert.assertEquals(3, theInOutArray.size());
-        Assert.assertEquals(3, theInOutArray.get(0));
-        Assert.assertEquals(2, theInOutArray.get(1));
-        Assert.assertEquals(1, theInOutArray.get(2));
+        Assert.assertEquals(1, theInOutArray.get(0));
+        Assert.assertEquals(3, theInOutArray.get(1));
+        Assert.assertEquals(2, theInOutArray.get(2));
     }
 
     @Test
@@ -301,8 +301,8 @@ public void testDeleteNodeCase4() throws Exception {
     public void testIsValidInOtherCase() throws Exception {
         mTree.clear();
         mTree.addTreeNode(2);
-        mTree.addTreeNode(false, 1);
-        mTree.addTreeNode(false, 3);
+        mTree.addTreeNodeInNoBSTWay(1);
+        mTree.addTreeNodeInNoBSTWay(3);
 
         boolean isValidInRecurrence = mTree.isValid(true);
         boolean isValidInNoRecurrence = mTree.isValid(false);
