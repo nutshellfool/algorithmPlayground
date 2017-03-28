@@ -103,4 +103,16 @@ public void testDeleteNodeLastNode() throws Exception {
     Assert.assertNotNull(mSingleLinkedList.searchNode(2));
     Assert.assertNull(mSingleLinkedList.searchNode(2).getNext());
 }
+
+@Test
+public void testHasCycleTrue1() throws Exception {
+    boolean hasCycle = mSingleLinkedList.hasCycle();
+    Assert.assertEquals(false, hasCycle);
+}
+
+@Test
+public void testHasCycleTrue2() throws Exception {
+    boolean hasCycle = mSingleLinkedList.hasCycle2();
+    Assert.assertEquals(false, hasCycle);
+}
 }
