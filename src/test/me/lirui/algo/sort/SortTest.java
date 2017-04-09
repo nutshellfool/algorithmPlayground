@@ -1,7 +1,6 @@
 package test.me.lirui.algo.sort; 
 
 import junit.framework.Assert;
-import me.lirui.algo.sort.BaseSort;
 import me.lirui.algo.sort.BubbleSort;
 import me.lirui.algo.sort.InsertionSort;
 import me.lirui.algo.sort.MergeSort;
@@ -67,23 +66,6 @@ public void testMergeSort() throws Exception {
     int[][][] array;
     mergeSort.doSort();
 }
-
-//@Test
-//public void testSortRank() throws Exception {
-//    BubbleSort bubbleSort = new BubbleSort();
-//    long bubbleTime = bubbleSort.doSort();
-//
-//    InsertionSort insertionSort = new InsertionSort();
-//    long insertionTime = insertionSort.doSort();
-//
-//    MergeSort mergeSort = new MergeSort();
-//    long mergeTime = mergeSort.doSort();
-//
-////    Assert.assertEquals(true, mergeTime <= insertionTime);
-////    Assert.assertEquals(true, mergeTime <= bubbleTime);
-////    Assert.assertEquals(insertionTime, bubbleTime);
-//}
-
 
 private boolean _isInAscendOrder(int[] array) {
     if (array == null || array.length == 0) return true;
