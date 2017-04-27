@@ -2,7 +2,7 @@ package me.lirui.algo.tree;
 
 import org.junit.Assert;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by RichardLee on 2017/3/11.
@@ -296,5 +296,55 @@ public class BinarySearchTree {
         _postOrderTraversal(node.leftChild, theInOutList);
         _postOrderTraversal(node.rightChild, theInOutList);
         theInOutList.add(node.data);
+    }
+
+    /**
+     * BFS the Binary Search Tree.
+     *
+     * @param inOutList
+     */
+    public void breathFirstSearch(ArrayList<Integer> inOutList) {
+        if (this.root == null) return;
+        Assert.assertNotNull(inOutList);
+        _bfs(inOutList);
+    }
+
+    private void _bfs(ArrayList<Integer> inoutList) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        Set<TreeNode> visited = new HashSet<TreeNode>();
+        queue.add(this.root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            visited.add(node);
+            inoutList.add(node.data);
+
+            if (node.leftChild != null && !visited.contains(node.leftChild)) queue.add(node.leftChild);
+            if (node.rightChild != null && !visited.contains(node.rightChild)) queue.add(node.rightChild);
+        }
+    }
+
+    /**
+     * DFS the Binary Search Tree
+     *
+     * @param inoutList
+     */
+    public void depthFirstSearch(ArrayList<Integer> inoutList) {
+        if (this.root == null) return;
+        Assert.assertNotNull(inoutList);
+        _dfs(inoutList);
+    }
+
+    private void _dfs(ArrayList<Integer> inoutList) {
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        Set<TreeNode> visited = new HashSet<TreeNode>();
+        stack.push(this.root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            visited.add(node);
+            inoutList.add(node.data);
+
+            if (node.leftChild != null && !visited.contains(node.leftChild)) stack.add(node.leftChild);
+            if (node.rightChild != null && !visited.contains(node.rightChild)) stack.add(node.rightChild);
+        }
     }
 }

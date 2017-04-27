@@ -310,4 +310,38 @@ public void testDeleteNodeCase4() throws Exception {
         Assert.assertEquals(false, isValidInRecurrence);
         Assert.assertEquals(false, isValidInNoRecurrence);
     }
+
+
+    @Test
+    public void testBFS() throws Exception {
+        generateCompleteBinarySearchTree(mTree);
+
+        ArrayList<Integer> result = new ArrayList<>();
+        mTree.breathFirstSearch(result);
+        Assert.assertEquals(result.get(0), 3);
+        Assert.assertEquals(result.get(1), 1);
+        Assert.assertEquals(result.get(2), 5);
+    }
+
+    @Test
+    public void testDFS() throws Exception {
+        generateCompleteBinarySearchTree(mTree);
+        ArrayList<Integer> result = new ArrayList<>();
+        mTree.depthFirstSearch(result);
+        Assert.assertEquals(result.get(0), 3);
+        Assert.assertEquals(result.get(1), 5);
+        Assert.assertEquals(result.get(2), 6);
+    }
+
+    private void generateCompleteBinarySearchTree(BinarySearchTree tree) {
+        tree.clear();
+        tree.addTreeNode(3);
+        tree.addTreeNode(1);
+        tree.addTreeNode(5);
+        tree.addTreeNode(0);
+        tree.addTreeNode(2);
+        tree.addTreeNode(4);
+        tree.addTreeNode(6);
+    }
+
 }
