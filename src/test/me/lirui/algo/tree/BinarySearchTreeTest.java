@@ -333,6 +333,20 @@ public void testDeleteNodeCase4() throws Exception {
         Assert.assertEquals(result.get(2), 6);
     }
 
+    @Test
+    public void testWFS() throws Exception {
+        generateCompleteBinarySearchTree(mTree);
+        ArrayList<Integer> result = new ArrayList<>();
+        mTree.weightFirstSearch(result);
+        Assert.assertEquals(result.get(0), 3);
+        Assert.assertEquals(result.get(1), 5);
+        Assert.assertEquals(result.get(2), 6);
+        Assert.assertEquals(result.get(3), 4);
+        Assert.assertEquals(result.get(4), 1);
+        Assert.assertEquals(result.get(5), 2);
+        Assert.assertEquals(result.get(6), 0);
+    }
+
     private void generateCompleteBinarySearchTree(BinarySearchTree tree) {
         tree.clear();
         tree.addTreeNode(3);
@@ -343,5 +357,4 @@ public void testDeleteNodeCase4() throws Exception {
         tree.addTreeNode(4);
         tree.addTreeNode(6);
     }
-
 }

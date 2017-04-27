@@ -347,4 +347,29 @@ public class BinarySearchTree {
             if (node.rightChild != null && !visited.contains(node.rightChild)) stack.add(node.rightChild);
         }
     }
+
+    /**
+     * Weight First Search (A Heuristic Search example)
+     *
+     * @param inoutList
+     */
+    public void weightFirstSearch(ArrayList<Integer> inoutList) {
+        if (this.root == null) return;
+        Assert.assertNotNull(inoutList);
+        _wfs(inoutList);
+    }
+
+    private void _wfs(ArrayList<Integer> inoutList) {
+        PriorityQueue<TreeNode> priorityQueue = new PriorityQueue<TreeNode>();
+//        PriorityQueue<TreeNode> priorityQueue = new PriorityQueue<TreeNode>((a,b) -> b.data - a.data);
+        Set<TreeNode> visited = new HashSet<>();
+        priorityQueue.add(this.root);
+        while (!priorityQueue.isEmpty()) {
+            TreeNode node = priorityQueue.poll();
+            visited.add(node);
+            inoutList.add(node.data);
+            if (node.leftChild != null && !visited.contains(node.leftChild)) priorityQueue.add(node.leftChild);
+            if (node.rightChild != null && !visited.contains(node.rightChild)) priorityQueue.add(node.rightChild);
+        }
+    }
 }

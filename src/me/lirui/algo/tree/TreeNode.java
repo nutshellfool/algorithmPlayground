@@ -3,7 +3,7 @@ package me.lirui.algo.tree;
 /**
  * Created by RichardLee on 2017/3/11.
  */
-public class TreeNode {
+public class TreeNode implements Comparable<TreeNode> {
 
     // left child node
     TreeNode leftChild;
@@ -35,4 +35,8 @@ public class TreeNode {
         this.data = value;
     }
 
+    @Override
+    public int compareTo(TreeNode o) {
+        return o.data - data;
+    }
 }
