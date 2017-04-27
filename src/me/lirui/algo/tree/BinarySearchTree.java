@@ -363,13 +363,13 @@ public class BinarySearchTree {
         PriorityQueue<TreeNode> priorityQueue = new PriorityQueue<TreeNode>();
 //        PriorityQueue<TreeNode> priorityQueue = new PriorityQueue<TreeNode>((a,b) -> b.data - a.data);
         Set<TreeNode> visited = new HashSet<>();
-        priorityQueue.add(this.root);
+        priorityQueue.offer(this.root);
         while (!priorityQueue.isEmpty()) {
             TreeNode node = priorityQueue.poll();
             visited.add(node);
             inoutList.add(node.data);
-            if (node.leftChild != null && !visited.contains(node.leftChild)) priorityQueue.add(node.leftChild);
-            if (node.rightChild != null && !visited.contains(node.rightChild)) priorityQueue.add(node.rightChild);
+            if (node.leftChild != null && !visited.contains(node.leftChild)) priorityQueue.offer(node.leftChild);
+            if (node.rightChild != null && !visited.contains(node.rightChild)) priorityQueue.offer(node.rightChild);
         }
     }
 }
