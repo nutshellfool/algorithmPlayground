@@ -1,4 +1,4 @@
-package test.me.lirui.algo.linkedlist; 
+package me.lirui.algo.linkedlist;
 
 import me.lirui.algo.linkedlist.SingleLinkedList;
 import me.lirui.algo.linkedlist.SingleLinkedNode;

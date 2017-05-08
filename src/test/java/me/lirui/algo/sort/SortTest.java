@@ -1,4 +1,4 @@
-package test.me.lirui.algo.sort; 
+package me.lirui.algo.sort;
 
 import junit.framework.Assert;
 import me.lirui.algo.sort.BubbleSort;

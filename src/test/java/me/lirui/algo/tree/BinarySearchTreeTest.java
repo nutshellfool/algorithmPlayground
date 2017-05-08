@@ -1,4 +1,4 @@
-package test.me.lirui.algo.tree; 
+package me.lirui.algo.tree;
 
 import me.lirui.algo.tree.BinarySearchTree;
 import me.lirui.algo.tree.TreeNode;
