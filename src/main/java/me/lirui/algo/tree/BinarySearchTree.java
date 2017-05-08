@@ -213,7 +213,7 @@ public class BinarySearchTree {
         // 2. judge the array is in right order?
         if (this.root == null) return true;
 
-        ArrayList<Integer> theOrderList = new ArrayList<>();
+        ArrayList<Integer> theOrderList = new ArrayList<Integer>();
         theInorderTraversalOrderList(theOrderList);
 
         // judge the array in the right order(ascend order)

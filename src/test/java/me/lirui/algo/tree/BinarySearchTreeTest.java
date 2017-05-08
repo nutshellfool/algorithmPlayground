@@ -239,7 +239,7 @@ public void testDeleteNodeCase4() throws Exception {
         mTree.addTreeNode(1);
         mTree.addTreeNode(3);
 
-        ArrayList<Integer> theInOutArray = new ArrayList<>();
+        ArrayList<Integer> theInOutArray = new ArrayList<Integer>();
         mTree.theInorderTraversalOrderList(theInOutArray);
 
         Assert.assertNotNull(theInOutArray);
@@ -256,7 +256,7 @@ public void testDeleteNodeCase4() throws Exception {
         mTree.addTreeNode(1);
         mTree.addTreeNode(3);
 
-        ArrayList<Integer> theInOutArray = new ArrayList<>();
+        ArrayList<Integer> theInOutArray = new ArrayList<Integer>();
         mTree.thePreOrderTraversalOrderList(theInOutArray);
 
         Assert.assertNotNull(theInOutArray);
@@ -273,7 +273,7 @@ public void testDeleteNodeCase4() throws Exception {
         mTree.addTreeNode(1);
         mTree.addTreeNode(3);
 
-        ArrayList<Integer> theInOutArray = new ArrayList<>();
+        ArrayList<Integer> theInOutArray = new ArrayList<Integer>();
         mTree.thePostOrderTraversalOrderList(theInOutArray);
 
         Assert.assertNotNull(theInOutArray);
@@ -316,7 +316,7 @@ public void testDeleteNodeCase4() throws Exception {
     public void testBFS() throws Exception {
         generateCompleteBinarySearchTree(mTree);
 
-        ArrayList<Integer> result = new ArrayList<>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
         mTree.breathFirstSearch(result);
         Assert.assertEquals(result.get(0), 3);
         Assert.assertEquals(result.get(1), 1);
@@ -326,7 +326,7 @@ public void testDeleteNodeCase4() throws Exception {
     @Test
     public void testDFS() throws Exception {
         generateCompleteBinarySearchTree(mTree);
-        ArrayList<Integer> result = new ArrayList<>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
         mTree.depthFirstSearch(result);
         Assert.assertEquals(result.get(0), 3);
         Assert.assertEquals(result.get(1), 5);
@@ -336,7 +336,7 @@ public void testDeleteNodeCase4() throws Exception {
     @Test
     public void testWFS() throws Exception {
         generateCompleteBinarySearchTree(mTree);
-        ArrayList<Integer> result = new ArrayList<>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
         mTree.weightFirstSearch(result);
         Assert.assertEquals(result.get(0), 3);
         Assert.assertEquals(result.get(1), 5);
