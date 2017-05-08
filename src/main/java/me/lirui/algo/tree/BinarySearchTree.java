@@ -310,7 +310,7 @@ public class BinarySearchTree {
     }
 
     private void _bfs(ArrayList<Integer> inoutList) {
-        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
         Set<TreeNode> visited = new HashSet<TreeNode>();
         queue.add(this.root);
         while (!queue.isEmpty()) {
@@ -362,7 +362,7 @@ public class BinarySearchTree {
     private void _wfs(ArrayList<Integer> inoutList) {
         PriorityQueue<TreeNode> priorityQueue = new PriorityQueue<TreeNode>();
 //        PriorityQueue<TreeNode> priorityQueue = new PriorityQueue<TreeNode>((a,b) -> b.data - a.data);
-        Set<TreeNode> visited = new HashSet<>();
+        Set<TreeNode> visited = new HashSet<TreeNode>();
         priorityQueue.offer(this.root);
         while (!priorityQueue.isEmpty()) {
             TreeNode node = priorityQueue.poll();
