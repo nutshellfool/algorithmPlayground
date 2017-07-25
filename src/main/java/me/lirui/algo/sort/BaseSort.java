@@ -1,25 +1,25 @@
 package me.lirui.algo.sort;
 
-/**
- * Created by RichardLee on 2017/4/2.
- */
+/** Created by RichardLee on 2017/4/2. */
 public abstract class BaseSort {
 
-    abstract public int[] onPrepareInputData();
-    abstract public void onDoSort(int[] inputData);
-    abstract public void onPostSort(String outPut, int[] resultData);
+  public abstract int[] onPrepareInputData();
 
-    public long doSort(){
-        int[] inputData = onPrepareInputData();
+  public abstract void onDoSort(int[] inputData);
 
-        long startTime = System.nanoTime();
-        onDoSort(inputData);
-        long endTime = System.nanoTime();
+  public abstract void onPostSort(String outPut, int[] resultData);
 
-        long excuteRunningTime = endTime - startTime;
-        String result = String.format("execution time: %d", excuteRunningTime);
-        System.out.println(result);
-        onPostSort(result, inputData);
-        return  excuteRunningTime;
-    }
+  public long doSort() {
+    int[] inputData = onPrepareInputData();
+
+    long startTime = System.nanoTime();
+    onDoSort(inputData);
+    long endTime = System.nanoTime();
+
+    long excuteRunningTime = endTime - startTime;
+    String result = String.format("execution time: %d", excuteRunningTime);
+    System.out.println(result);
+    onPostSort(result, inputData);
+    return excuteRunningTime;
+  }
 }
