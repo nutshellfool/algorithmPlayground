@@ -5,16 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * SingleLinkedList Tester.
- *
- * @author Richard Li
- * @since
- *     <pre>三月 21, 2017</pre>
- *
- * @version 1.0
- */
-public class SingleLinkedListTest {
+public class SingleLinkedListOneNodeTest {
 
   private SingleLinkedList mSingleLinkedList;
 
@@ -22,8 +13,6 @@ public class SingleLinkedListTest {
   public void before() {
     this.mSingleLinkedList = new SingleLinkedList();
     mSingleLinkedList.appendNodeToTail(1);
-    mSingleLinkedList.appendNodeToTail(2);
-    mSingleLinkedList.appendNodeToTail(3);
   }
 
   @After
@@ -42,17 +31,14 @@ public class SingleLinkedListTest {
   @Test
   public void testAppendNodeToTail() {
     mSingleLinkedList.appendNodeToTail(4);
-    Assert.assertEquals(4, mSingleLinkedList.getSize());
+    Assert.assertEquals(2, mSingleLinkedList.getSize());
   }
 
   /** Method: searchNode(int value) */
   @Test
   public void testSearchNodeExisted() {
-    SingleLinkedNode foundNode = mSingleLinkedList.searchNode(2);
+    SingleLinkedNode foundNode = mSingleLinkedList.searchNode(1);
     Assert.assertNotNull(foundNode);
-    Assert.assertEquals(2, foundNode.getValue());
-    Assert.assertNotNull(foundNode.getNext());
-    Assert.assertEquals(3, foundNode.getNext().getValue());
   }
 
   /** Method: searchNode(int value) */
@@ -62,22 +48,12 @@ public class SingleLinkedListTest {
     Assert.assertNull(foundNode);
   }
 
-  /** Method: deleteNode(int value) */
   @Test
   public void testDeleteNode1stNode() {
     mSingleLinkedList.deleteNode(1);
-    Assert.assertEquals(2, mSingleLinkedList.getSize());
+    Assert.assertEquals(0, mSingleLinkedList.getSize());
     Assert.assertNotNull(mSingleLinkedList.getHeadNode());
-    Assert.assertEquals(2, mSingleLinkedList.getHeadNode().getNext().getValue());
-  }
-
-  /** Method: deleteNode(int value) */
-  @Test
-  public void testDeleteNodeLastNode() {
-    mSingleLinkedList.deleteNode(3);
-    Assert.assertEquals(2, mSingleLinkedList.getSize());
-    Assert.assertNotNull(mSingleLinkedList.searchNode(2));
-    Assert.assertNull(mSingleLinkedList.searchNode(2).getNext());
+    Assert.assertNull(mSingleLinkedList.getHeadNode().getNext());
   }
 
   @Test
@@ -109,37 +85,13 @@ public class SingleLinkedListTest {
     SingleLinkedNode headNode = mSingleLinkedList.getHeadNode();
     SingleLinkedNode middleNode = mSingleLinkedList.middleNode(headNode.next);
     Assert.assertNotNull(middleNode);
-    Assert.assertEquals(2, middleNode.getValue());
-  }
-
-  @Test
-  public void testRemoveNthFromEnd() {
-    SingleLinkedNode headNode = mSingleLinkedList.getHeadNode();
-    SingleLinkedNode node = mSingleLinkedList.removeNthFromEnd(headNode.next, 2);
-    // [1,3]
-    Assert.assertNotNull(node);
-    Assert.assertEquals(1, node.getValue());
-    Assert.assertNotNull(node.next);
-    Assert.assertEquals(3, node.next.getValue());
-    Assert.assertNull(node.next.next);
+    Assert.assertEquals(1, middleNode.getValue());
   }
 
   private void _reverseListTestCase(SingleLinkedNode newHead, SingleLinkedList reversedList) {
     int listSize = reversedList.getSize();
-    Assert.assertEquals(listSize, 3);
+    Assert.assertEquals(listSize, 1);
     Assert.assertNotNull(newHead);
-    Assert.assertEquals(newHead.getValue(), 3);
-
-    SingleLinkedNode reversed2nd = newHead.next;
-    Assert.assertNotNull(reversed2nd);
-    Assert.assertEquals(reversed2nd.getValue(), 2);
-
-    SingleLinkedNode reversed3rd = reversed2nd.next;
-    Assert.assertNotNull(reversed3rd);
-    Assert.assertEquals(reversed3rd.getValue(), 1);
-
-    SingleLinkedNode reversedEnd = reversed3rd.next;
-    Assert.assertNotNull(reversedEnd);
-    Assert.assertNull(reversedEnd.next);
+    Assert.assertEquals(newHead.getValue(), 1);
   }
 }

@@ -3,9 +3,9 @@ package me.lirui.algo.linkedlist;
 /** Created by RichardLee on 2017/3/21. */
 public class SingleLinkedNode {
   private int value;
-  private SingleLinkedNode next;
+  SingleLinkedNode next;
 
-  public SingleLinkedNode() {}
+  SingleLinkedNode() {}
 
   public SingleLinkedNode(int value, SingleLinkedNode next) {
     super();
@@ -13,19 +13,19 @@ public class SingleLinkedNode {
     this.next = next;
   }
 
-  public int getValue() {
+  int getValue() {
     return value;
   }
 
-  public void setValue(int value) {
+  void setValue(int value) {
     this.value = value;
   }
 
-  public SingleLinkedNode getNext() {
+  SingleLinkedNode getNext() {
     return next;
   }
 
-  public void setNext(SingleLinkedNode next) {
+  void setNext(SingleLinkedNode next) {
     this.next = next;
   }
 }

@@ -8,7 +8,7 @@ import org.junit.Test;
 /**
  * MergeSort Tester.
  *
- * @author <Authors name>
+ * @author Richard Li
  * @since
  *     <pre>四月 9, 2017</pre>
  *
@@ -17,30 +17,30 @@ import org.junit.Test;
 public class SortTest {
 
   @Before
-  public void before() throws Exception {}
+  public void before() {}
 
   @After
-  public void after() throws Exception {}
+  public void after() {}
 
   @Test
-  public void testBubbleSort() throws Exception {
+  public void testBubbleSort() {
     BubbleSort bubbleSort =
         new BubbleSort() {
           @Override
           public void onPostSort(String outPut, int[] resultData) {
-            Assert.assertEquals(true, _isInAscendOrder(resultData));
+            Assert.assertTrue(_isInAscendOrder(resultData));
           }
         };
     bubbleSort.doSort();
   }
 
   @Test
-  public void testInsertionSort() throws Exception {
+  public void testInsertionSort() {
     InsertionSort insertionSort =
         new InsertionSort() {
           @Override
           public void onPostSort(String outPut, int[] result) {
-            Assert.assertEquals(true, _isInAscendOrder(result));
+            Assert.assertTrue(_isInAscendOrder(result));
           }
         };
     insertionSort.doSort();
@@ -48,16 +48,15 @@ public class SortTest {
 
   /** Method: onDoSort(int[] inputData) */
   @Test
-  public void testMergeSort() throws Exception {
+  public void testMergeSort() {
     MergeSort mergeSort =
         new MergeSort() {
           @Override
           public void onPostSort(String outPut, int[] result) {
-            Assert.assertEquals(true, _isInAscendOrder(result));
+            Assert.assertTrue(_isInAscendOrder(result));
           }
         };
 
-    int[][][] array;
     mergeSort.doSort();
   }
 
