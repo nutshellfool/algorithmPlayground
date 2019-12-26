@@ -88,6 +88,14 @@ public class SingleLinkedListOneNodeTest {
     Assert.assertEquals(1, middleNode.getValue());
   }
 
+  @Test
+  public void testRemoveNthFromEnd() {
+    SingleLinkedNode headNode = mSingleLinkedList.getHeadNode();
+    SingleLinkedNode node = mSingleLinkedList.removeNthFromEnd(headNode.next, 1);
+    // [1,3]
+    Assert.assertNull(node);
+  }
+
   private void _reverseListTestCase(SingleLinkedNode newHead, SingleLinkedList reversedList) {
     int listSize = reversedList.getSize();
     Assert.assertEquals(listSize, 1);

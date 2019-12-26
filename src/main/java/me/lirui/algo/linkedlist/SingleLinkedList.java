@@ -219,10 +219,11 @@ public class SingleLinkedList {
       fast = fast.next;
     }
 
-    // Here may cause NullPointerException, but in this implementation will never cause this.
-    // parameter that greater or equal than the listNode size boundary case is considered in first
-    // line.
-    prev.next = prev.next.next;
+    if (prev == null) {
+      headNode = headNode.next;
+    } else {
+      prev.next = prev.next.next;
+    }
 
     return headNode;
   }
