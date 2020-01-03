@@ -1,5 +1,6 @@
 package me.lirui.algo.map;
 
+import java.util.Arrays;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -110,8 +111,6 @@ public class LeetCodeHashMapSolutionTest {
 
   @Test
   public void isAnagramFinalAllNullParams() {
-    String s = null;
-    String t = null;
     Boolean isAnagram = mSolution.isAnagramFinal(null, null);
     Assert.assertTrue(isAnagram);
   }
@@ -155,4 +154,30 @@ public class LeetCodeHashMapSolutionTest {
   //  Valid Anagram - https://leetcode.com/problems/valid-anagram/
   //  End
   //
+
+  @Test
+  public void twoSum() {
+    int[] arr = {2, 7, 11, 15};
+    int[] tar = {1, 0};
+    int[] res = mSolution.twoSum(arr, 9);
+
+    Arrays.sort(res);
+    Arrays.sort(tar);
+
+    Assert.assertNotNull(res);
+    Assert.assertTrue(Arrays.equals(res, tar));
+  }
+
+  @Test
+  public void twoSumBrutalforceWay() {
+    int[] arr = {2, 7, 11, 15};
+    int[] tar = {0, 1};
+    int[] res = mSolution.twoSumInBrutalForceWay(arr, 9);
+
+    Arrays.sort(tar);
+    Arrays.sort(res);
+
+    Assert.assertNotNull(res);
+    Assert.assertTrue(Arrays.equals(res, tar));
+  }
 }

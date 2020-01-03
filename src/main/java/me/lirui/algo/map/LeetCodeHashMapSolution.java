@@ -3,7 +3,7 @@ package me.lirui.algo.map;
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class LeetCodeHashMapSolution {
+class LeetCodeHashMapSolution {
 
   //
   //  Valid Anagram - https://leetcode.com/problems/valid-anagram/
@@ -72,5 +72,36 @@ public class LeetCodeHashMapSolution {
   //  Valid Anagram - https://leetcode.com/problems/valid-anagram/
   //  End
   //
+
+  int[] twoSum(int[] nums, int target) {
+    if (nums == null) return null;
+
+    HashMap<Integer, Integer> map = new HashMap<>();
+    int count = nums.length;
+    for (int i = 0; i < count; i++) {
+      if ( map.get(target - nums[i]) != null && map.get(target - nums[i]) != i) {
+        return new int[] {i, map.get(target - nums[i])};
+      }
+
+      map.put(nums[i], i);
+    }
+
+    return null;
+  }
+
+  int[] twoSumInBrutalForceWay(int[] nums, int target) {
+    if (nums == null) return null;
+
+    int count = nums.length;
+    for (int i = 0; i < count; i++) {
+      for (int j = 0; j < count; j++) {
+        if (nums[i] + nums[j] == target && i != j) {
+          return new int[]{i, j};
+        }
+      }
+    }
+
+    return null;
+  }
 
 }
