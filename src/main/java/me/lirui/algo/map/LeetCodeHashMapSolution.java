@@ -1,4 +1,4 @@
-package me.lirui.algo.hashmap;
+package me.lirui.algo.map;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,9 +8,9 @@ public class LeetCodeHashMapSolution {
   //
   //  Valid Anagram - https://leetcode.com/problems/valid-anagram/
   //
-  public boolean isAnagramFinal(String s, String t) {
+  boolean isAnagramFinal(String s, String t) {
     if ((s == null && t != null) || (s != null && t == null)) return false;
-    if (s == null && t == null) return true;
+    if (s == null & t == null) return true;
     if (s.length() != t.length()) return false;
 
     int[] counter = new int[26];
@@ -26,10 +26,10 @@ public class LeetCodeHashMapSolution {
     return true;
   }
 
-  public boolean isAnagram(String s, String t) {
+  boolean isAnagram(String s, String t) {
 
     if ((s == null && t != null) || (s != null && t == null)) return false;
-    if (s == null && t == null) return true;
+    if (s == null & t == null) return true;
     if (s.length() != t.length()) return false;
 
     HashMap<Character, Integer> sWordMap = new HashMap<>();
@@ -44,9 +44,9 @@ public class LeetCodeHashMapSolution {
     return sWordMap.equals(tWordMap);
   }
 
-  public boolean isAnagramSort(String s, String t) {
+  boolean isAnagramSort(String s, String t) {
     if ((s == null && t != null) || (s != null && t == null)) return false;
-    if (s == null && t == null) return true;
+    if (s == null & t == null) return true;
     if (s.length() != t.length()) return false;
 
     char[] sArray = s.toCharArray();

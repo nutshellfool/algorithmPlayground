@@ -1,4 +1,4 @@
-package me.lirui.algo.hashmap;
+package me.lirui.algo.map;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class LeetCodeHashMapSolutionTest {
 
-  LeetCodeHashMapSolution mSolution = new LeetCodeHashMapSolution();
+  private LeetCodeHashMapSolution mSolution = new LeetCodeHashMapSolution();
 
   @Before
   public void setUp() {}
@@ -68,49 +68,43 @@ public class LeetCodeHashMapSolutionTest {
 
   @Test
   public void isAnagramFinalNullParams() {
-    String s = null;
     String t = "rat";
-    Boolean isAnagram = mSolution.isAnagramFinal(s, t);
+    Boolean isAnagram = mSolution.isAnagramFinal(null, t);
     Assert.assertFalse(isAnagram);
   }
 
   @Test
   public void isAnagramNullParams() {
-    String s = null;
     String t = "rat";
-    Boolean isAnagram = mSolution.isAnagram(s, t);
+    Boolean isAnagram = mSolution.isAnagram(null, t);
     Assert.assertFalse(isAnagram);
   }
 
   @Test
   public void isAnagramSortNullParams() {
-    String s = null;
     String t = "hat";
-    Boolean isAnagram = mSolution.isAnagramSort(s, t);
+    Boolean isAnagram = mSolution.isAnagramSort(null, t);
     Assert.assertFalse(isAnagram);
   }
 
   @Test
   public void isAnagramFinalNullParamt() {
     String s = "art";
-    String t = null;
-    Boolean isAnagram = mSolution.isAnagramFinal(s, t);
+    Boolean isAnagram = mSolution.isAnagramFinal(s, null);
     Assert.assertFalse(isAnagram);
   }
 
   @Test
   public void isAnagramNullParamt() {
     String s = "art";
-    String t = null;
-    Boolean isAnagram = mSolution.isAnagram(s, t);
+    Boolean isAnagram = mSolution.isAnagram(s, null);
     Assert.assertFalse(isAnagram);
   }
 
   @Test
   public void isAnagramSortNullParamt() {
     String s = "art";
-    String t = null;
-    Boolean isAnagram = mSolution.isAnagramSort(s, t);
+    Boolean isAnagram = mSolution.isAnagramSort(s, null);
     Assert.assertFalse(isAnagram);
   }
 
@@ -118,23 +112,19 @@ public class LeetCodeHashMapSolutionTest {
   public void isAnagramFinalAllNullParams() {
     String s = null;
     String t = null;
-    Boolean isAnagram = mSolution.isAnagramFinal(s, t);
+    Boolean isAnagram = mSolution.isAnagramFinal(null, null);
     Assert.assertTrue(isAnagram);
   }
 
   @Test
   public void isAnagramAllNullParams() {
-    String s = null;
-    String t = null;
-    Boolean isAnagram = mSolution.isAnagram(s, t);
+    Boolean isAnagram = mSolution.isAnagram(null, null);
     Assert.assertTrue(isAnagram);
   }
 
   @Test
   public void isAnagramSortAllNullParams() {
-    String s = null;
-    String t = null;
-    Boolean isAnagram = mSolution.isAnagramSort(s, t);
+    Boolean isAnagram = mSolution.isAnagramSort(null, null);
     Assert.assertTrue(isAnagram);
   }
 
