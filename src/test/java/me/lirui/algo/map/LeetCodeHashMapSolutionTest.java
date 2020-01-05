@@ -1,6 +1,9 @@
 package me.lirui.algo.map;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -155,6 +158,9 @@ public class LeetCodeHashMapSolutionTest {
   //  End
   //
 
+  //
+  //  Two Sum - https://leetcode.com/problems/two-sum/
+  //
   @Test
   public void twoSum() {
     int[] arr = {2, 7, 11, 15};
@@ -180,4 +186,77 @@ public class LeetCodeHashMapSolutionTest {
     Assert.assertNotNull(res);
     Assert.assertTrue(Arrays.equals(res, tar));
   }
+
+  //
+  //  Two Sum - https://leetcode.com/problems/two-sum/
+  //  End
+
+  //
+  //  3Sum - https://leetcode.com/problems/3sum/
+  //
+  @Test
+  public void threeSum() {
+    int[] arr = {-1, 0, 1, 2, -1, -4};
+
+    List<List<Integer>> res = mSolution.threeSum(arr);
+
+    Assert.assertNotNull(res);
+    Assert.assertEquals(2, res.size());
+    Set<List<Integer>> resultSet = new HashSet<>(res);
+    Set<List<Integer>> expected = new HashSet<>();
+    Integer[] a = {-1, -1, 2};
+    expected.add(Arrays.asList(a));
+    Integer[] b = {-1, 0, 1};
+    expected.add(Arrays.asList(b));
+
+    Assert.assertEquals(expected, resultSet);
+    //    Assert.assertTrue(resultSet.contains(a));
+    //    Assert.assertTrue(resultSet.contains(b));
+    //    System.out.printf(res.toString());
+    //    System.out.printf("\n");
+  }
+
+  @Test
+  public void threeSumWithMap() {
+    int[] arr = {-1, 0, 1, 2, -1, -4};
+
+    List<List<Integer>> res = mSolution.threeSumWithMap(arr);
+
+    Assert.assertNotNull(res);
+    Assert.assertEquals(2, res.size());
+    Set<List<Integer>> resultSet = new HashSet<>(res);
+    Set<List<Integer>> expected = new HashSet<>();
+    Integer[] a = {-1, -1, 2};
+    expected.add(Arrays.asList(a));
+    Integer[] b = {-1, 0, 1};
+    expected.add(Arrays.asList(b));
+
+    Assert.assertEquals(expected, resultSet);
+    //    System.out.printf(res.toString());
+    //    System.out.printf("\n");
+  }
+
+  @Test
+  public void threeSumInBrutalForceWay() {
+    int[] arr = {-1, 0, 1, 2, -1, -4};
+
+    List<List<Integer>> res = mSolution.threeSumInBrutalForceWay(arr);
+
+    Assert.assertNotNull(res);
+    Assert.assertEquals(2, res.size());
+    Set<List<Integer>> resultSet = new HashSet<>(res);
+    Set<List<Integer>> expected = new HashSet<>();
+    Integer[] a = {-1, -1, 2};
+    expected.add(Arrays.asList(a));
+    Integer[] b = {-1, 0, 1};
+    expected.add(Arrays.asList(b));
+
+    Assert.assertEquals(expected, resultSet);
+    //    System.out.printf(res.toString());
+    //    System.out.printf("\n");
+  }
+
+  //
+  //  3Sum - https://leetcode.com/problems/3sum/
+  //  End
 }
