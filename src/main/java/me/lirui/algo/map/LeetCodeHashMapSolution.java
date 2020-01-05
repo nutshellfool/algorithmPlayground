@@ -123,7 +123,7 @@ class LeetCodeHashMapSolution {
     List<List<Integer>> result = new ArrayList<>();
     Arrays.sort(nums);
     int length = nums.length;
-    for (int i = 0; i < length - 1; i++) {
+    for (int i = 0; i < length; i++) {
       if (i > 0 && nums[i] == nums[i - 1]) continue;
       int a = nums[i];
       int left = i + 1;
@@ -162,9 +162,11 @@ class LeetCodeHashMapSolution {
       map.put(nums[i], i);
     }
 
-    Set<List<Integer>> result = new HashSet<>();
+    List<List<Integer>> result = new ArrayList<>();
     for (int i = 0; i < length; i++) {
+      if (i > 0 && nums[i] == nums[i - 1]) continue;
       for (int j = i + 1; j < length; j++) {
+        if (j > i + 1 && nums[j] == nums[j - 1]) continue;
         if (map.containsKey(0 - nums[i] - nums[j])
             && (map.get(-nums[i] - nums[j]) != i)
             && (map.get(-nums[i] - nums[j]) != j)) {
@@ -179,11 +181,11 @@ class LeetCodeHashMapSolution {
       }
     }
 
-    return new ArrayList<>(result);
+    return result;
   }
 
   List<List<Integer>> threeSumInBrutalForceWay(int[] nums) {
-    if (nums == null || nums.length < 3) return null;
+    if (nums == null || nums.length < 3) return new ArrayList<>();
 
     Set<List<Integer>> result = new HashSet<>();
     Arrays.sort(nums);
@@ -206,5 +208,116 @@ class LeetCodeHashMapSolution {
   }
   //
   //  3Sum - https://leetcode.com/problems/3sum/
+  //  End
+
+  //
+  //  4Sum - https://leetcode.com/problems/4sum/
+  //
+  List<List<Integer>> fourSum(int[] nums, int target) {
+    if (nums == null || nums.length < 4) return new ArrayList<>();
+    List<List<Integer>> result = new ArrayList<>();
+    Arrays.sort(nums);
+    int length = nums.length;
+
+    for (int i = 0; i < length; i++) {
+      if (i > 0 && nums[i] == nums[i - 1]) continue;
+      for (int j = i + 1; j < length; j++) {
+        if (j > i + 1 && nums[j] == nums[j - 1]) continue;
+        int a = nums[i];
+        int b = nums[j];
+        int left = j + 1;
+        int right = length - 1;
+        while (left < right) {
+          if (a + b + nums[left] + nums[right] > target) right--;
+          else if (a + b + nums[left] + nums[right] < target) left++;
+          else {
+            List<Integer> resultItem = new ArrayList<>(4);
+            resultItem.add(a);
+            resultItem.add(b);
+            resultItem.add(nums[left]);
+            resultItem.add(nums[right]);
+            result.add(resultItem);
+            while (left < right && nums[left] == nums[left + 1]) left++;
+            while (left < right && nums[right] == nums[right - 1]) right--;
+            left++;
+            right--;
+          }
+        }
+      }
+    }
+
+    return result;
+  }
+
+  List<List<Integer>> fourSumWithMap(int[] nums, int target) {
+    if (nums == null || nums.length < 4) return new ArrayList<>();
+
+    Arrays.sort(nums);
+    int length = nums.length;
+    List<List<Integer>> result = new ArrayList<>();
+
+    Map<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i < length; i++) {
+      map.put(nums[i], i);
+    }
+
+    for (int i = 0; i < length; i++) {
+      if (i > 0 && nums[i] == nums[i - 1]) continue;
+      for (int j = i + 1; j < length; j++) {
+        if (j > i + 1 && nums[j] == nums[j - 1]) continue;
+        for (int k = j + 1; k < length; k++) {
+          if (k > j + 1 && nums[k] == nums[k - 1]) continue;
+          int complementation = target - nums[i] - nums[j] - nums[k];
+          if (map.containsKey(complementation)
+              && (i != map.get(complementation)
+                  && j != map.get(complementation)
+                  && k != map.get(complementation))) {
+            if (nums[i] <= nums[j] && nums[j] <= nums[k] && nums[k] <= complementation) {
+              List<Integer> resultItem = new ArrayList<>(4);
+              resultItem.add(nums[i]);
+              resultItem.add(nums[j]);
+              resultItem.add(nums[k]);
+              resultItem.add(target - nums[i] - nums[j] - nums[k]);
+              result.add(resultItem);
+            }
+          }
+        }
+      }
+    }
+
+    return result;
+  }
+
+  List<List<Integer>> fourSumInBrutalForceWay(int[] nums, int target) {
+    if (nums == null || nums.length < 4) return new ArrayList<>();
+
+    Arrays.sort(nums);
+
+    List<List<Integer>> result = new ArrayList<>();
+    int length = nums.length;
+    for (int i = 0; i < length; i++) {
+      if (i > 0 && nums[i] == nums[i - 1]) continue;
+      for (int j = i + 1; j < length; j++) {
+        if (j > i + 1 && nums[j] == nums[j - 1]) continue;
+        for (int k = j + 1; k < length; k++) {
+          if (k > j + 1 && nums[k] == nums[k - 1]) continue;
+          for (int l = k + 1; l < length; l++) {
+            if (l > k + 1 && nums[l] == nums[l - 1]) continue;
+            if (nums[i] + nums[j] + nums[k] + nums[l] == target) {
+              List<Integer> resultItem = new ArrayList<>(4);
+              resultItem.add(nums[i]);
+              resultItem.add(nums[j]);
+              resultItem.add(nums[k]);
+              resultItem.add(nums[l]);
+              result.add(resultItem);
+            }
+          }
+        }
+      }
+    }
+    return result;
+  }
+  //
+  //  4Sum - https://leetcode.com/problems/4sum/
   //  End
 }

@@ -259,4 +259,70 @@ public class LeetCodeHashMapSolutionTest {
   //
   //  3Sum - https://leetcode.com/problems/3sum/
   //  End
+
+  //
+  //  4Sum - https://leetcode.com/problems/4sum/
+  //
+  @Test
+  public void fourSum() {
+    int[] arr = {1, 0, -1, 0, -2, 2};
+
+    List<List<Integer>> res = mSolution.fourSum(arr, 0);
+    Assert.assertNotNull(res);
+    Assert.assertEquals(3, res.size());
+    Set<List<Integer>> resultSet = new HashSet<>(res);
+
+    Set<List<Integer>> expected = new HashSet<>();
+    Integer[] a = {-2, -1, 1, 2};
+    expected.add(Arrays.asList(a));
+    Integer[] b = {-2, 0, 0, 2};
+    expected.add(Arrays.asList(b));
+    Integer[] c = {-1, 0, 0, 1};
+    expected.add(Arrays.asList(c));
+
+    Assert.assertEquals(expected, resultSet);
+  }
+
+  @Test
+  public void fourSumWithMap() {
+    int[] arr = {1, 0, -1, 0, -2, 2};
+
+    List<List<Integer>> res = mSolution.fourSumWithMap(arr, 0);
+    Assert.assertNotNull(res);
+    Assert.assertEquals(3, res.size());
+    Set<List<Integer>> resultSet = new HashSet<>(res);
+
+    Set<List<Integer>> expected = new HashSet<>();
+    Integer[] a = {-2, -1, 1, 2};
+    expected.add(Arrays.asList(a));
+    Integer[] b = {-2, 0, 0, 2};
+    expected.add(Arrays.asList(b));
+    Integer[] c = {-1, 0, 0, 1};
+    expected.add(Arrays.asList(c));
+
+    Assert.assertEquals(expected, resultSet);
+  }
+
+  @Test
+  public void fourSumInBrutalForceWay() {
+    int[] arr = {1, 0, -1, 0, -2, 2};
+
+    List<List<Integer>> res = mSolution.fourSumInBrutalForceWay(arr, 0);
+    Assert.assertNotNull(res);
+    Assert.assertEquals(3, res.size());
+    Set<List<Integer>> resultSet = new HashSet<>(res);
+
+    Set<List<Integer>> expected = new HashSet<>();
+    Integer[] a = {-2, -1, 1, 2};
+    expected.add(Arrays.asList(a));
+    Integer[] b = {-2, 0, 0, 2};
+    expected.add(Arrays.asList(b));
+    Integer[] c = {-1, 0, 0, 1};
+    expected.add(Arrays.asList(c));
+
+    Assert.assertEquals(expected, resultSet);
+  }
+  //
+  //  4Sum - https://leetcode.com/problems/4sum/
+  //  End
 }
