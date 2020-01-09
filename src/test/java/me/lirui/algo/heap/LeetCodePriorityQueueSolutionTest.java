@@ -37,4 +37,51 @@ public class LeetCodePriorityQueueSolutionTest {
   //  Kth Largest Element in a Stream -
   // https://leetcode.com/problems/kth-largest-element-in-a-stream/
   // End
+
+  //
+  //  Kth Largest Element in an Array -
+  // https://leetcode.com/problems/kth-largest-element-in-an-array/
+  //
+  @Test
+  public void findKthLargest() {
+    int[] array = {3, 2, 1, 5, 6, 4};
+
+    int secondLargest = mSolution.findKthLargest(array, 2);
+    Assert.assertEquals(5, secondLargest);
+  }
+
+  @Test
+  public void findKthLargestDuplicated() {
+    int[] array = {3, 2, 3, 1, 2, 4, 5, 5, 6};
+
+    int fourthLargest = mSolution.findKthLargest(array, 4);
+    Assert.assertEquals(4, fourthLargest);
+  }
+
+  @Test
+  public void findKthLargestNull() {
+    int result = mSolution.findKthLargest(null, 4);
+    Assert.assertEquals(Integer.MIN_VALUE, result);
+  }
+
+  @Test
+  public void findKthLargestInvalidK() {
+    int[] array = {3, 2, 1, 5, 6, 4};
+
+    int result = mSolution.findKthLargest(array, 7);
+    Assert.assertEquals(Integer.MIN_VALUE, result);
+  }
+
+  @Test
+  public void findKthLargestInvalidKBoundary() {
+    int[] array = {3, 2, 1, 5, 6, 4};
+
+    int result = mSolution.findKthLargest(array, 6);
+    Assert.assertEquals(1, result);
+  }
+  //
+  //  Kth Largest Element in an Array -
+  // https://leetcode.com/problems/kth-largest-element-in-an-array/
+  // End
+
 }

@@ -45,4 +45,30 @@ class LeetCodePriorityQueueSolution {
   // https://leetcode.com/problems/kth-largest-element-in-a-stream/
   // End
 
+  //
+  //  Kth Largest Element in an Array -
+  // https://leetcode.com/problems/kth-largest-element-in-an-array/
+  //
+  int findKthLargest(int[] nums, int k) {
+    if (nums == null || (k < 0 || k > nums.length)) return Integer.MIN_VALUE;
+
+    PriorityQueue<Integer> pq = new PriorityQueue<>(k);
+    for (int numItem : nums) {
+      if (pq.size() < k) {
+        pq.offer(numItem);
+      } else {
+        if (Objects.requireNonNull(pq.peek(), "unboxing caused NPE") < numItem) {
+          pq.poll();
+          pq.offer(numItem);
+        }
+      }
+    }
+
+    return Objects.requireNonNull(pq.peek(), "unboxing caused NPE");
+  }
+  //
+  //  Kth Largest Element in an Array -
+  // https://leetcode.com/problems/kth-largest-element-in-an-array/
+  // End
+
 }
