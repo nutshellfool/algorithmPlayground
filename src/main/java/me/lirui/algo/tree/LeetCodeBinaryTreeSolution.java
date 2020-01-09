@@ -62,7 +62,12 @@ public class LeetCodeBinaryTreeSolution {
   // https://leetcode.com/problems/binary-tree-level-order-traversal/
   //  End
 
-  public int maxDepth(TreeNode root) {
-    return -1;
+  //
+  //  Maximum Depth of Binary Tree -
+  // https://leetcode.com/problems/maximum-depth-of-binary-tree/
+  //
+  int maxDepth(TreeNode root) {
+    if (root == null) return 0;
+    return Math.max(maxDepth(root.leftChild), maxDepth(root.rightChild)) + 1;
   }
 }
