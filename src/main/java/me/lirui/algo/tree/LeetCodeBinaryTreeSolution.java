@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
 
-public class LeetCodeBinaryTreeSolution {
+class LeetCodeBinaryTreeSolution {
 
   //
   //  Binary Tree Level Order Traversal -
@@ -70,4 +70,25 @@ public class LeetCodeBinaryTreeSolution {
     if (root == null) return 0;
     return Math.max(maxDepth(root.leftChild), maxDepth(root.rightChild)) + 1;
   }
+  //
+  //  Maximum Depth of Binary Tree -
+  // https://leetcode.com/problems/maximum-depth-of-binary-tree/
+  //  End
+
+  //
+  //  Minimum Depth of Binary Tree -
+  // https://leetcode.com/problems/minimum-depth-of-binary-tree/
+  //
+  int minDepth(TreeNode root) {
+    if (root == null) return 0;
+    if (root.leftChild == null) return minDepth(root.rightChild) + 1;
+    if (root.rightChild == null) return minDepth(root.leftChild) + 1;
+
+    return Math.min(minDepth(root.leftChild), minDepth(root.rightChild)) + 1;
+  }
+  //
+  //  Minimum Depth of Binary Tree -
+  // https://leetcode.com/problems/minimum-depth-of-binary-tree/
+  //  End
+
 }
