@@ -11,7 +11,7 @@ import org.junit.Test;
 
 public class LeetCodeHashMapSolutionTest {
 
-  private LeetCodeHashMapSolution mSolution = new LeetCodeHashMapSolution();
+  private final LeetCodeHashMapSolution mSolution = new LeetCodeHashMapSolution();
 
   @Before
   public void setUp() {}

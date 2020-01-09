@@ -3,6 +3,7 @@ package me.lirui.algo.tree;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
@@ -10,24 +11,24 @@ import java.util.Stack;
 import org.junit.Assert;
 
 /** Created by RichardLee on 2017/3/11. */
-public class BinarySearchTree {
+class BinarySearchTree {
   // root node
   TreeNode root;
 
   // Do nothing
-  public BinarySearchTree() {}
+  BinarySearchTree() {}
 
-  public void clear() {
+  void clear() {
     this.root = null;
   }
 
   /**
    * Add the node
    *
-   * @param value
-   * @return
+   * @param value value
+   * @return root value
    */
-  public TreeNode addTreeNode(int value) {
+  TreeNode addTreeNode(int value) {
     if (this.root == null) {
       this.root = new TreeNode(value);
     }
@@ -35,7 +36,7 @@ public class BinarySearchTree {
     return addTreeNode(true, this.root, value);
   }
 
-  public TreeNode addTreeNodeInNoBSTWay(int value) {
+  TreeNode addTreeNodeInNoBSTWay(int value) {
     return addTreeNode(false, this.root, value);
   }
 
@@ -71,10 +72,10 @@ public class BinarySearchTree {
   /**
    * Search the Node by its value
    *
-   * @param value
-   * @return
+   * @param value target value
+   * @return the target node
    */
-  public TreeNode searchNode(int value) {
+  TreeNode searchNode(int value) {
     return searchNode(this.root, value);
   }
 
@@ -98,10 +99,10 @@ public class BinarySearchTree {
   /**
    * Delete the node by its value
    *
-   * @param value
-   * @return
+   * @param value target value
+   * @return root node
    */
-  public TreeNode deleteNode(int value) {
+  TreeNode deleteNode(int value) {
     return deleteNode(this.root, value);
   }
 
@@ -148,10 +149,10 @@ public class BinarySearchTree {
   /**
    * Judge the BST is valid
    *
-   * @param isRecurrenceVersion
-   * @return
+   * @param isRecurrenceVersion is implemented by recursion
+   * @return is valid
    */
-  public boolean isValid(boolean isRecurrenceVersion) {
+  boolean isValid(boolean isRecurrenceVersion) {
     return isRecurrenceVersion
         ? isValid(this.root, Long.MAX_VALUE, Long.MIN_VALUE)
         : isValidInNoRecurrenceVersion();
@@ -170,7 +171,7 @@ public class BinarySearchTree {
    * @param node rootVersion
    * @param max maxValue in tree
    * @param min minValue in tree
-   * @return
+   * @return is valid
    */
   private boolean isValid(TreeNode node, long max, long min) {
     if (node == null) return true;
@@ -194,7 +195,7 @@ public class BinarySearchTree {
    *
    * <p>2. the space complexity auxiliary space is used: an N length array
    *
-   * @return
+   * @return is valid
    */
   private boolean isValidInNoRecurrenceVersion() {
     // Basic Idea is
@@ -202,7 +203,7 @@ public class BinarySearchTree {
     // 2. judge the array is in right order?
     if (this.root == null) return true;
 
-    ArrayList<Integer> theOrderList = new ArrayList<Integer>();
+    ArrayList<Integer> theOrderList = new ArrayList<>();
     theInorderTraversalOrderList(theOrderList);
 
     // judge the array in the right order(ascend order)
@@ -210,7 +211,7 @@ public class BinarySearchTree {
     return isArraySortedInAscendOrder(theOrderList);
   }
 
-  public boolean isArraySortedInAscendOrder(ArrayList<Integer> list) {
+  private boolean isArraySortedInAscendOrder(ArrayList<Integer> list) {
     if (list == null || list.size() <= 1) return true;
 
     int listSize = list.size();
@@ -226,9 +227,9 @@ public class BinarySearchTree {
   /**
    * Traversal the tree with the Inorder way
    *
-   * @param theInOutList
+   * @param theInOutList the traversal result
    */
-  public void theInorderTraversalOrderList(ArrayList<Integer> theInOutList) {
+  void theInorderTraversalOrderList(ArrayList<Integer> theInOutList) {
 
     _inOrderTraversal(this.root, theInOutList);
   }
@@ -247,9 +248,9 @@ public class BinarySearchTree {
   /**
    * Traversal the tree with the preorder way
    *
-   * @param thePreOrderList
+   * @param thePreOrderList the traversal result
    */
-  public void thePreOrderTraversalOrderList(ArrayList<Integer> thePreOrderList) {
+  void thePreOrderTraversalOrderList(ArrayList<Integer> thePreOrderList) {
     Assert.assertNotNull(thePreOrderList);
     _preOrderTraversal(this.root, thePreOrderList);
   }
@@ -267,9 +268,9 @@ public class BinarySearchTree {
   /**
    * Traversal the tree with the postorder way
    *
-   * @param theInOutList
+   * @param theInOutList the traversal result
    */
-  public void thePostOrderTraversalOrderList(ArrayList<Integer> theInOutList) {
+  void thePostOrderTraversalOrderList(ArrayList<Integer> theInOutList) {
     Assert.assertNotNull(theInOutList);
     _postOrderTraversal(this.root, theInOutList);
   }
@@ -287,22 +288,22 @@ public class BinarySearchTree {
   /**
    * BFS the Binary Search Tree.
    *
-   * @param inOutList
+   * @param inOutList the traversal result
    */
-  public void breathFirstSearch(ArrayList<Integer> inOutList) {
+  void breathFirstSearch(ArrayList<Integer> inOutList) {
     if (this.root == null) return;
     Assert.assertNotNull(inOutList);
     _bfs(inOutList);
   }
 
   private void _bfs(ArrayList<Integer> inoutList) {
-    Queue<TreeNode> queue = new LinkedList<TreeNode>();
-    Set<TreeNode> visited = new HashSet<TreeNode>();
+    Queue<TreeNode> queue = new LinkedList<>();
+    Set<TreeNode> visited = new HashSet<>();
     queue.add(this.root);
     while (!queue.isEmpty()) {
       TreeNode node = queue.poll();
       visited.add(node);
-      inoutList.add(node.data);
+      inoutList.add(Objects.requireNonNull(node).data);
 
       if (node.leftChild != null && !visited.contains(node.leftChild)) queue.add(node.leftChild);
       if (node.rightChild != null && !visited.contains(node.rightChild)) queue.add(node.rightChild);
@@ -312,17 +313,17 @@ public class BinarySearchTree {
   /**
    * DFS the Binary Search Tree
    *
-   * @param inoutList
+   * @param inoutList the traversal result
    */
-  public void depthFirstSearch(ArrayList<Integer> inoutList) {
+  void depthFirstSearch(ArrayList<Integer> inoutList) {
     if (this.root == null) return;
     Assert.assertNotNull(inoutList);
     _dfs(inoutList);
   }
 
   private void _dfs(ArrayList<Integer> inoutList) {
-    Stack<TreeNode> stack = new Stack<TreeNode>();
-    Set<TreeNode> visited = new HashSet<TreeNode>();
+    Stack<TreeNode> stack = new Stack<>();
+    Set<TreeNode> visited = new HashSet<>();
     stack.push(this.root);
     while (!stack.isEmpty()) {
       TreeNode node = stack.pop();
@@ -337,35 +338,27 @@ public class BinarySearchTree {
   /**
    * Weight First Search (A Heuristic Search example)
    *
-   * @param inoutList
+   * @param inoutList the traversal result
    */
-  public void weightFirstSearch(ArrayList<Integer> inoutList) {
+  void weightFirstSearch(ArrayList<Integer> inoutList) {
     if (this.root == null) return;
     Assert.assertNotNull(inoutList);
     _wfs(inoutList);
   }
 
   private void _wfs(ArrayList<Integer> inoutList) {
-    PriorityQueue<TreeNode> priorityQueue = new PriorityQueue<TreeNode>();
+    PriorityQueue<TreeNode> priorityQueue = new PriorityQueue<>();
     //        PriorityQueue<TreeNode> priorityQueue = new PriorityQueue<TreeNode>((a,b) -> b.data - a.data);
-    Set<TreeNode> visited = new HashSet<TreeNode>();
+    Set<TreeNode> visited = new HashSet<>();
     priorityQueue.offer(this.root);
     while (!priorityQueue.isEmpty()) {
       TreeNode node = priorityQueue.poll();
       visited.add(node);
-      inoutList.add(node.data);
+      inoutList.add(Objects.requireNonNull(node).data);
       if (node.leftChild != null && !visited.contains(node.leftChild))
         priorityQueue.offer(node.leftChild);
       if (node.rightChild != null && !visited.contains(node.rightChild))
         priorityQueue.offer(node.rightChild);
-    }
-  }
-
-  private void _test() {
-    boolean hasA = true;
-    boolean hasB = true;
-    if (hasA & hasB) {
-      System.out.printf("this");
     }
   }
 }

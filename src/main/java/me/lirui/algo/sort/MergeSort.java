@@ -22,7 +22,6 @@ public class MergeSort extends SortStub {
   public void onDoSort(int[] inputData) {
     super.onDoSort(inputData);
     _mergeSort(inputData);
-    System.out.println("");
   }
 
   private void _mergeSort(int[] array) {
@@ -41,11 +40,9 @@ public class MergeSort extends SortStub {
   private void _mergeArrarys(int[] array, int[] leftArray, int[] rightArray) {
     if (array == null) return;
     if (leftArray == null) {
-      array = rightArray;
       return;
     }
     if (rightArray == null) {
-      array = leftArray;
       return;
     }
 

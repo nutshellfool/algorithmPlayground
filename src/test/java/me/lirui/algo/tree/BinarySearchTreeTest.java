@@ -19,7 +19,7 @@ public class BinarySearchTreeTest {
   private BinarySearchTree mTree;
 
   @Before
-  public void before() throws Exception {
+  public void before() {
     if (mTree == null) {
       mTree = new BinarySearchTree();
 
@@ -31,27 +31,27 @@ public class BinarySearchTreeTest {
   }
 
   @After
-  public void after() throws Exception {
+  public void after() {
     mTree = null;
   }
 
   /** Method: addTreeNode(int value) */
   @Test
-  public void testAddNotExistedTreeNode() throws Exception {
+  public void testAddNotExistedTreeNode() {
     TreeNode theAddedNode = mTree.addTreeNode(6);
     Assert.assertNotNull(theAddedNode);
   }
 
   /** Method: addTreeNode(int value) */
   @Test
-  public void testAddExistedTreeNode() throws Exception {
+  public void testAddExistedTreeNode() {
     TreeNode theAddedNode = mTree.addTreeNode(3);
     Assert.assertNotNull(theAddedNode);
   }
 
   /** Method: searchNode(int value) */
   @Test
-  public void testSearchExistedNode() throws Exception {
+  public void testSearchExistedNode() {
     mTree.addTreeNode(3);
     TreeNode foundedTreeNode = mTree.searchNode(3);
     Assert.assertNotNull(foundedTreeNode);
@@ -59,14 +59,14 @@ public class BinarySearchTreeTest {
 
   /** Method: searchNode(int value) */
   @Test
-  public void testSearchNotExistedNode() throws Exception {
+  public void testSearchNotExistedNode() {
     TreeNode foundedTreeNode = mTree.searchNode(7);
     Assert.assertNull(foundedTreeNode);
   }
 
   /** Method: deleteNode(int value) */
   @Test
-  public void testDeleteMinNode() throws Exception {
+  public void testDeleteMinNode() {
     TreeNode deletedNode = mTree.deleteNode(1);
     Assert.assertNotNull(deletedNode);
     Assert.assertEquals(deletedNode.getData(), 2);
@@ -82,10 +82,9 @@ public class BinarySearchTreeTest {
   /**
    * Method: deleteNode(int value)
    *
-   * @throws Exception
    */
   @Test
-  public void testDeleteNodeCase1() throws Exception {
+  public void testDeleteNodeCase1() {
     // build a simple BST like this:
     //
     //          2
@@ -108,10 +107,9 @@ public class BinarySearchTreeTest {
   /**
    * Method: deleteNode(int value)
    *
-   * @throws Exception
    */
   @Test
-  public void testDeleteNodeCase2() throws Exception {
+  public void testDeleteNodeCase2() {
     // build a BST like this:
     //
     //          2
@@ -140,10 +138,9 @@ public class BinarySearchTreeTest {
   /**
    * Method: deleteNode(int value)
    *
-   * @throws Exception
    */
   @Test
-  public void testDeleteNodeCase3() throws Exception {
+  public void testDeleteNodeCase3() {
     // build a BST like this:
     //
     //          2
@@ -174,10 +171,9 @@ public class BinarySearchTreeTest {
   /**
    * Method: deleteNode(int value)
    *
-   * @throws Exception
    */
   @Test
-  public void testDeleteNodeCase4() throws Exception {
+  public void testDeleteNodeCase4() {
     // build a BST like this:
     //
     //          2
@@ -210,13 +206,13 @@ public class BinarySearchTreeTest {
   }
 
   @Test
-  public void testTheInorderTraversalOrderList() throws Exception {
+  public void testTheInorderTraversalOrderList() {
     mTree.clear();
     mTree.addTreeNode(2);
     mTree.addTreeNode(1);
     mTree.addTreeNode(3);
 
-    ArrayList<Integer> theInOutArray = new ArrayList<Integer>();
+    ArrayList<Integer> theInOutArray = new ArrayList<>();
     mTree.theInorderTraversalOrderList(theInOutArray);
 
     Assert.assertNotNull(theInOutArray);
@@ -227,13 +223,13 @@ public class BinarySearchTreeTest {
   }
 
   @Test
-  public void testThePreOrderTraversalOrderList() throws Exception {
+  public void testThePreOrderTraversalOrderList() {
     mTree.clear();
     mTree.addTreeNode(2);
     mTree.addTreeNode(1);
     mTree.addTreeNode(3);
 
-    ArrayList<Integer> theInOutArray = new ArrayList<Integer>();
+    ArrayList<Integer> theInOutArray = new ArrayList<>();
     mTree.thePreOrderTraversalOrderList(theInOutArray);
 
     Assert.assertNotNull(theInOutArray);
@@ -244,13 +240,13 @@ public class BinarySearchTreeTest {
   }
 
   @Test
-  public void testThePostOrderTraversalOrderList() throws Exception {
+  public void testThePostOrderTraversalOrderList() {
     mTree.clear();
     mTree.addTreeNode(2);
     mTree.addTreeNode(1);
     mTree.addTreeNode(3);
 
-    ArrayList<Integer> theInOutArray = new ArrayList<Integer>();
+    ArrayList<Integer> theInOutArray = new ArrayList<>();
     mTree.thePostOrderTraversalOrderList(theInOutArray);
 
     Assert.assertNotNull(theInOutArray);
@@ -261,7 +257,7 @@ public class BinarySearchTreeTest {
   }
 
   @Test
-  public void testIsValidInHappyCase() throws Exception {
+  public void testIsValidInHappyCase() {
     mTree.clear();
     mTree.addTreeNode(2);
     mTree.addTreeNode(1);
@@ -270,12 +266,12 @@ public class BinarySearchTreeTest {
     boolean isValidInRecurrence = mTree.isValid(true);
     boolean isValidInNoRecurrence = mTree.isValid(false);
 
-    Assert.assertEquals(true, isValidInRecurrence);
-    Assert.assertEquals(true, isValidInNoRecurrence);
+    Assert.assertTrue(isValidInRecurrence);
+    Assert.assertTrue(isValidInNoRecurrence);
   }
 
   @Test
-  public void testIsValidInOtherCase() throws Exception {
+  public void testIsValidInOtherCase() {
     mTree.clear();
     mTree.addTreeNode(2);
     mTree.addTreeNodeInNoBSTWay(1);
@@ -284,15 +280,15 @@ public class BinarySearchTreeTest {
     boolean isValidInRecurrence = mTree.isValid(true);
     boolean isValidInNoRecurrence = mTree.isValid(false);
 
-    Assert.assertEquals(false, isValidInRecurrence);
-    Assert.assertEquals(false, isValidInNoRecurrence);
+    Assert.assertFalse(isValidInRecurrence);
+    Assert.assertFalse(isValidInNoRecurrence);
   }
 
   @Test
-  public void testBFS() throws Exception {
+  public void testBFS() {
     generateCompleteBinarySearchTree(mTree);
 
-    ArrayList<Integer> result = new ArrayList<Integer>();
+    ArrayList<Integer> result = new ArrayList<>();
     mTree.breathFirstSearch(result);
     Assert.assertEquals(result.get(0), 3);
     Assert.assertEquals(result.get(1), 1);
@@ -300,9 +296,9 @@ public class BinarySearchTreeTest {
   }
 
   @Test
-  public void testDFS() throws Exception {
+  public void testDFS() {
     generateCompleteBinarySearchTree(mTree);
-    ArrayList<Integer> result = new ArrayList<Integer>();
+    ArrayList<Integer> result = new ArrayList<>();
     mTree.depthFirstSearch(result);
     Assert.assertEquals(result.get(0), 3);
     Assert.assertEquals(result.get(1), 5);
@@ -310,9 +306,9 @@ public class BinarySearchTreeTest {
   }
 
   @Test
-  public void testWFS() throws Exception {
+  public void testWFS() {
     generateCompleteBinarySearchTree(mTree);
-    ArrayList<Integer> result = new ArrayList<Integer>();
+    ArrayList<Integer> result = new ArrayList<>();
     mTree.weightFirstSearch(result);
     Assert.assertEquals(result.get(0), 3);
     Assert.assertEquals(result.get(1), 5);
