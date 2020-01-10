@@ -1,5 +1,6 @@
 package me.lirui.algo.heap;
 
+import java.util.Arrays;
 import me.lirui.algo.heap.LeetCodePriorityQueueSolution.KthLargest;
 import org.junit.Assert;
 import org.junit.Before;
@@ -82,6 +83,67 @@ public class LeetCodePriorityQueueSolutionTest {
   //
   //  Kth Largest Element in an Array -
   // https://leetcode.com/problems/kth-largest-element-in-an-array/
+  // End
+
+  //
+  //  Sliding Window Maximum -
+  // https://leetcode.com/problems/sliding-window-maximum/
+  //
+  @Test
+  public void maxSlidingWindow() {
+    int[] expect = {3, 3, 5, 5, 6, 7};
+    int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
+    int[] result = mSolution.maxSlidingWindowHeap(array, 3);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(6, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void maxSlidingWindowExtremeBoundaryCase() {
+    int[] expect = {1, -1};
+    int[] array = {1, -1};
+    int[] result = mSolution.maxSlidingWindowHeap(array, 1);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(2, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void maxSlidingWindowBoundaryCase() {
+    int[] expect = {7};
+    int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
+    int[] result = mSolution.maxSlidingWindowHeap(array, 8);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(1, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void maxSlidingWindowNull() {
+    int[] result = mSolution.maxSlidingWindowHeap(null, 0);
+    Assert.assertNull(result);
+  }
+
+  @Test
+  public void maxSlidingWindowEmpty() {
+    int[] array = new int[] {};
+    int[] result = mSolution.maxSlidingWindowHeap(array, 0);
+    Assert.assertTrue(Arrays.equals(array, result));
+  }
+
+  @Test
+  public void maxSlidingWindowKSizeOverFlow() {
+    int[] expect = {7};
+    int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
+    int[] result = mSolution.maxSlidingWindowHeap(array, 9);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(1, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+  //
+  //  Sliding Window Maximum -
+  // https://leetcode.com/problems/sliding-window-maximum/
   // End
 
 }

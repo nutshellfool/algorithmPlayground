@@ -1,5 +1,7 @@
 package me.lirui.algo.heap;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Objects;
 import java.util.PriorityQueue;
 
@@ -67,8 +69,43 @@ class LeetCodePriorityQueueSolution {
     return Objects.requireNonNull(pq.peek(), "unboxing caused NPE");
   }
   //
-  //  Kth Largest Element in an Array -
-  // https://leetcode.com/problems/kth-largest-element-in-an-array/
+  //  Sliding Window Maximum -
+  // https://leetcode.com/problems/sliding-window-maximum/
+  //
+  int[] maxSlidingWindowHeap(int[] nums, int k) {
+    if (nums == null || nums.length == 0 || k < 0) return nums;
+    //
+    // - Seems that if window size oversize the array
+    // return the maximum element in array reasonable.
+    //
+    // - Actually in practical engineering, return null is also reasonable.
+    if (k > nums.length) {
+      Arrays.sort(nums);
+      return new int[] {nums[nums.length - 1]};
+    }
+
+    int[] result = new int[nums.length - k + 1];
+    PriorityQueue<Integer> priorityQueue =
+        new PriorityQueue<>(k, Collections.<Integer>reverseOrder());
+
+    for (int i = 0; i < k; i++) {
+      priorityQueue.offer(nums[i]);
+    }
+
+    result[0] = Objects.requireNonNull(priorityQueue.peek());
+    priorityQueue.size();
+
+    for (int j = k; j < nums.length; j++) {
+      priorityQueue.offer(nums[j]);
+      priorityQueue.remove(nums[j - k]);
+      result[j - k + 1] = Objects.requireNonNull(priorityQueue.peek());
+    }
+
+    return result;
+  }
+  //
+  //  Sliding Window Maximum -
+  // https://leetcode.com/problems/sliding-window-maximum/
   // End
 
 }
