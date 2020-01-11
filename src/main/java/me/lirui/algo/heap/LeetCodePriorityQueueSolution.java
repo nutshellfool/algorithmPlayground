@@ -108,4 +108,68 @@ class LeetCodePriorityQueueSolution {
   // https://leetcode.com/problems/sliding-window-maximum/
   // End
 
+  //
+  //  Sliding Window Median -
+  // https://leetcode.com/problems/sliding-window-median/
+  //
+  double[] medianSlidingWindow(int[] nums, int k) {
+    if (nums == null || nums.length == 0 || k < 0 || nums.length < k) return new double[] {};
+    long[] input = new long[nums.length];
+    for (int i = 0; i < nums.length; i++) {
+      input[i] = nums[i];
+    }
+    return medianSlidingWindowLong(input, k);
+  }
+
+  private double[] medianSlidingWindowLong(long[] nums, int k) {
+    if (nums == null || nums.length == 0 || k < 0 || nums.length < k) return new double[] {};
+    int length = nums.length;
+    double[] result = new double[length - k + 1];
+    PriorityQueue<Long> minHeap = new PriorityQueue<>();
+    PriorityQueue<Long> maxHeap = new PriorityQueue<>(k, Collections.reverseOrder());
+
+    for (int i = 0; i < length; i++) {
+      if (maxHeap.size() == 0 || nums[i] <= maxHeap.peek()) {
+        maxHeap.offer(nums[i]);
+      } else {
+        minHeap.offer(nums[i]);
+      }
+      // heap maintain
+      heapsBanlancefy(maxHeap, minHeap);
+
+      if (i - k >= 0) {
+        if (nums[i - k] > maxHeap.peek()) {
+          minHeap.remove(nums[i - k]);
+        } else {
+          maxHeap.remove(nums[i - k]);
+        }
+      }
+
+      heapsBanlancefy(maxHeap, minHeap);
+
+      if (i >= k - 1) {
+        if (k % 2 == 0) {
+          result[i - k + 1] = (maxHeap.peek() + minHeap.peek()) / 2.0;
+        } else {
+          result[i - k + 1] = maxHeap.peek();
+        }
+      }
+    }
+
+    return result;
+  }
+
+  private void heapsBanlancefy(PriorityQueue<Long> maxHeap, PriorityQueue<Long> minHeap) {
+    while (maxHeap.size() < minHeap.size()) {
+      maxHeap.offer(minHeap.poll());
+    }
+
+    while (minHeap.size() < maxHeap.size() - 1) {
+      minHeap.offer(maxHeap.poll());
+    }
+  }
+  //
+  //  Sliding Window Median -
+  // https://leetcode.com/problems/sliding-window-median/
+  // End
 }

@@ -146,4 +146,84 @@ public class LeetCodePriorityQueueSolutionTest {
   // https://leetcode.com/problems/sliding-window-maximum/
   // End
 
+  //
+  //  Sliding Window Median -
+  // https://leetcode.com/problems/sliding-window-median/
+  //
+  @Test
+  public void medianSlidingWindow() {
+    double[] expect = {1.0, -1.0, -1.0, 3.0, 5.0, 6.0};
+    int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
+    double[] result = mSolution.medianSlidingWindow(array, 3);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(6, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void medianSlidingWindowExtremeBoundaryCase() {
+    double[] expect = {1, -1};
+    int[] array = {1, -1};
+    double[] result = mSolution.medianSlidingWindow(array, 1);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(2, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void medianSlidingWindowBoundaryCase() {
+    double[] expect = {3};
+    int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
+    double[] result = mSolution.medianSlidingWindow(array, 8);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(1, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void medianSlidingWindowBoundaryCaseEven() {
+    double[] expect = {2.5};
+    int[] array = {1, 4, 2, 3};
+    double[] result = mSolution.medianSlidingWindow(array, 4);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(1, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void medianSlidingWindowBoundaryCaseLargeElement() {
+    double[] expect = {2147483647.0};
+    int[] array = {2147483647, 2147483647};
+    double[] result = mSolution.medianSlidingWindow(array, 2);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(1, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void medianSlidingWindowNull() {
+    double[] result = mSolution.medianSlidingWindow(null, 0);
+    Assert.assertNotNull(result);
+    Assert.assertTrue(Arrays.equals(new double[] {}, result));
+  }
+
+  @Test
+  public void medianSlidingWindowEmpty() {
+    int[] array = new int[] {};
+    double[] result = mSolution.medianSlidingWindow(array, 0);
+    Assert.assertNotNull(result);
+    Assert.assertTrue(Arrays.equals(new double[] {}, result));
+  }
+
+  @Test
+  public void medianSlidingWindowKSizeOverFlow() {
+    int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
+    double[] result = mSolution.medianSlidingWindow(array, 9);
+    Assert.assertNotNull(result);
+    Assert.assertTrue(Arrays.equals(new double[] {}, result));
+  }
+  //
+  //  Sliding Window Median -
+  // https://leetcode.com/problems/sliding-window-median/
+  // End
 }
