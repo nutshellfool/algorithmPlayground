@@ -2,6 +2,7 @@ package me.lirui.algo.heap;
 
 import java.util.Arrays;
 import me.lirui.algo.heap.LeetCodePriorityQueueSolution.KthLargest;
+import me.lirui.algo.heap.LeetCodePriorityQueueSolution.MedianFinder;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -225,5 +226,36 @@ public class LeetCodePriorityQueueSolutionTest {
   //
   //  Sliding Window Median -
   // https://leetcode.com/problems/sliding-window-median/
+  // End
+  //
+  //   Find Median from Data Stream -
+  // https://leetcode.com/problems/find-median-from-data-stream/
+  //
+  @Test
+  public void findMedianFromDataStream() {
+    MedianFinder finder = mSolution.new MedianFinder();
+    finder.addNum(1);
+    finder.addNum(2);
+    double median1 = finder.findMedian();
+    finder.addNum(3);
+    double median2 = finder.findMedian();
+    Assert.assertEquals(1.5, median1);
+    Assert.assertEquals(2.0, median2);
+  }
+
+  @Test
+  public void findMedianFromDataStreamLargeNum() {
+    MedianFinder finder = mSolution.new MedianFinder();
+    finder.addNum(2147483647);
+    finder.addNum(2147483647);
+    double median1 = finder.findMedian();
+    finder.addNum(2147483647);
+    double median2 = finder.findMedian();
+    Assert.assertEquals(2147483647.0, median1);
+    Assert.assertEquals(2147483647.0, median2);
+  }
+  //
+  //   Find Median from Data Stream -
+  // https://leetcode.com/problems/find-median-from-data-stream/
   // End
 }

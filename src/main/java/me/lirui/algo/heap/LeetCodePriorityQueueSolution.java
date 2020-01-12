@@ -172,4 +172,37 @@ class LeetCodePriorityQueueSolution {
   //  Sliding Window Median -
   // https://leetcode.com/problems/sliding-window-median/
   // End
+
+  //   Find Median from Data Stream -
+  // https://leetcode.com/problems/find-median-from-data-stream/
+  //
+  class MedianFinder {
+
+    final PriorityQueue<Long> minHeap;
+    final PriorityQueue<Long> maxHeap;
+
+    /** initialize your data structure here. */
+    MedianFinder() {
+      maxHeap = new PriorityQueue<>();
+      minHeap = new PriorityQueue<>(100, Collections.<Long>reverseOrder());
+    }
+
+    void addNum(int num) {
+      maxHeap.offer((long) num);
+      minHeap.offer(maxHeap.poll());
+
+      while (maxHeap.size() < minHeap.size()) maxHeap.offer(minHeap.poll());
+      while (minHeap.size() < maxHeap.size() - 1) minHeap.offer(maxHeap.poll());
+    }
+
+    double findMedian() {
+      return maxHeap.size() > minHeap.size()
+          ? maxHeap.peek()
+          : (maxHeap.peek() + minHeap.peek()) / 2.0;
+    }
+  }
+  //
+  //   Find Median from Data Stream -
+  // https://leetcode.com/problems/find-median-from-data-stream/
+  // End
 }
