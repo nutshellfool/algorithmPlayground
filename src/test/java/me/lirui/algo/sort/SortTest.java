@@ -60,6 +60,18 @@ public class SortTest {
     mergeSort.doSort();
   }
 
+  @Test
+  public void testHeapSort() {
+    HeapSort heapSort =
+        new HeapSort() {
+          @Override
+          public void onPostSort(String outPut, int[] result) {
+            Assert.assertTrue(_isInAscendOrder(result));
+          }
+        };
+    heapSort.doSort();
+  }
+
   private boolean _isInAscendOrder(int[] array) {
     if (array == null || array.length == 0) return true;
 
