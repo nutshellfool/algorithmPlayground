@@ -182,8 +182,8 @@ class LeetCodePriorityQueueSolution {
 
     /** initialize your data structure here. */
     MedianFinder() {
-      maxHeap = new PriorityQueue<>();
-      minHeap = new PriorityQueue<>(100, Collections.<Long>reverseOrder());
+      minHeap = new PriorityQueue<>();
+      maxHeap = new PriorityQueue<>(100, Collections.<Long>reverseOrder());
     }
 
     void addNum(int num) {
