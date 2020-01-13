@@ -9,17 +9,21 @@ public abstract class BaseSort {
 
   public abstract void onPostSort(String outPut, int[] resultData);
 
-  public long doSort() {
+  public void doSort() {
     int[] inputData = onPrepareInputData();
 
     long startTime = System.nanoTime();
     onDoSort(inputData);
     long endTime = System.nanoTime();
 
-    long excuteRunningTime = endTime - startTime;
-    String result = String.format("execution time: %d", excuteRunningTime);
-    System.out.println(result);
+    long timeElapsedInNanoSecs = endTime - startTime;
+    String result = String.format("execution time: %d", timeElapsedInNanoSecs);
+
+    System.out.print("============== >");
+    System.out.print(getClass().getName());
+    System.out.print("< ============== ");
+    System.out.println(result + "\n");
+
     onPostSort(result, inputData);
-    return excuteRunningTime;
   }
 }

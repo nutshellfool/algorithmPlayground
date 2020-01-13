@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * An Implementation of merge sort
  *
- * <p>Complexity Analysis: Time complexity : O(N log N) Space complexity : No auxiliary space
+ * <p>Complexity Analysis: Time complexity : O(N log N) Space complexity : O(N)
  *
  * <p>Pseudo Code: merge-sort(A, p, r) if p < r q = [(p+r) / 2] merge-sort(A, p, q) merge-sort(A, q
  * + 1, r) Merge(A, p, q, r )
@@ -13,10 +13,6 @@ import java.util.Arrays;
  * <p>Created by RichardLee on 2017/4/2.
  */
 public class MergeSort extends SortStub {
-  @Override
-  public int[] onPrepareInputData() {
-    return new int[] {4, 3, 2, 1};
-  }
 
   @Override
   public void onDoSort(int[] inputData) {
