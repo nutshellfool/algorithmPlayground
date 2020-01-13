@@ -93,7 +93,6 @@ class LeetCodePriorityQueueSolution {
     }
 
     result[0] = Objects.requireNonNull(priorityQueue.peek());
-    priorityQueue.size();
 
     for (int j = k; j < nums.length; j++) {
       priorityQueue.offer(nums[j]);
