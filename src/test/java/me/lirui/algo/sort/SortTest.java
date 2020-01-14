@@ -61,6 +61,19 @@ public class SortTest {
   }
 
   @Test
+  public void testQuickSort() {
+    QuickSort quickSort =
+        new QuickSort() {
+          @Override
+          public void onPostSort(String outPut, int[] result) {
+            super.onPostSort(outPut, result);
+            Assert.assertTrue(_isInAscendOrder(result));
+          }
+        };
+    quickSort.doSort();
+  }
+
+  @Test
   public void testHeapSort() {
     HeapSort heapSort =
         new HeapSort() {

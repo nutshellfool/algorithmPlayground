@@ -1,7 +1,7 @@
 package me.lirui.algo.sort;
 
 /**
- * An implementation of quicksort algorithm.
+ * An implementation of quick-sort algorithm.
  *
  * <p>complexity analysis: Time complexity: O(n*log n) Space complexity: n length auxiliary space or
  * no auxiliary space (in-place version)
@@ -26,5 +26,36 @@ public class QuickSort extends SortStub {
   @Override
   public void onDoSort(int[] inputData) {
     super.onDoSort(inputData);
+    quickSortRe(inputData, 0, inputData.length - 1);
+  }
+
+  private void quickSortRe(int[] array, int p, int r) {
+    if (p >= r) return;
+
+    int q = partition(array, p, r);
+    quickSortRe(array, p, q - 1);
+    quickSortRe(array, q + 1, r);
+  }
+
+  private int partition(int[] array, int p, int r) {
+    int pivot = array[r];
+    int i = p;
+    for (int j = p; j < r; ++j) {
+      if (array[j] < pivot) {
+        if (i == j) {
+          ++i;
+        } else {
+          int tmp = array[i];
+          array[i++] = array[j];
+          array[j] = tmp;
+        }
+      }
+    }
+
+    int tmp = array[i];
+    array[i] = array[r];
+    array[r] = tmp;
+
+    return i;
   }
 }
