@@ -70,6 +70,47 @@ class LeetCodeBinaryTreeSolution {
     if (root == null) return 0;
     return Math.max(maxDepth(root.leftChild), maxDepth(root.rightChild)) + 1;
   }
+
+  int maxDepthBFS(TreeNode root) {
+    if (root == null) return 0;
+
+    int minDepth = 0, maxDepth = 0;
+    int currentDepth = 0;
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
+    while (!queue.isEmpty()) {
+      currentDepth++;
+      int batchSize = queue.size();
+      for (int i = 0; i < batchSize; i++) {
+        TreeNode node = queue.poll();
+        if (node.leftChild == null && node.rightChild == null) {
+          minDepth = Math.min(minDepth, currentDepth);
+          maxDepth = Math.max(maxDepth, currentDepth);
+        }
+
+        if (node.leftChild != null) queue.offer(node.leftChild);
+        if (node.rightChild != null) queue.offer(node.rightChild);
+      }
+    }
+    return maxDepth;
+  }
+
+  int maxDepthDFS(TreeNode root) {
+    if (root == null) return 0;
+    int[] result = new int[1];
+    _dfs(root, 0, result);
+    return result[0];
+  }
+
+  private void _dfs(TreeNode root, int level, int[] result) {
+    if (root == null) return;
+
+    if (root.leftChild == null && root.rightChild == null) {
+      result[0] = Math.max(result[0], level + 1);
+    }
+    _dfs(root.leftChild, level + 1, result);
+    _dfs(root.rightChild, level + 1, result);
+  }
   //
   //  Maximum Depth of Binary Tree -
   // https://leetcode.com/problems/maximum-depth-of-binary-tree/
@@ -85,6 +126,44 @@ class LeetCodeBinaryTreeSolution {
     if (root.rightChild == null) return minDepth(root.leftChild) + 1;
 
     return Math.min(minDepth(root.leftChild), minDepth(root.rightChild)) + 1;
+  }
+
+  int minDepthBFS(TreeNode root) {
+    if (root == null) return 0;
+
+    int currentDepth = 0;
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
+    while (!queue.isEmpty()) {
+      currentDepth++;
+      int batchSize = queue.size();
+      for (int i = 0; i < batchSize; i++) {
+        TreeNode node = queue.poll();
+        if (node.leftChild == null && node.rightChild == null) return currentDepth;
+
+        if (node.leftChild != null) queue.offer(node.leftChild);
+        if (node.rightChild != null) queue.offer(node.rightChild);
+      }
+    }
+
+    return 0;
+  }
+
+  int minDepthDFS(TreeNode root) {
+    if (root == null) return 0;
+
+    int[] result = new int[1];
+    _dfsMin(root, 0, result);
+    return result[0];
+  }
+
+  private void _dfsMin(TreeNode root, int level, int[] result) {
+    if (root == null) return;
+    if (root.leftChild == null && root.rightChild == null) {
+      result[0] = result[0] == 0 ? level + 1 : Math.min(result[0], level + 1);
+    }
+    _dfsMin(root.leftChild, level + 1, result);
+    _dfsMin(root.rightChild, level + 1, result);
   }
   //
   //  Minimum Depth of Binary Tree -

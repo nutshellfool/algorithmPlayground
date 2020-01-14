@@ -37,8 +37,32 @@ public class LeetCodeBinaryTreeSolutionEmptyTreeTest {
   }
 
   @Test
+  public void maxDepthBFS() {
+    int maxDepth = mSolution.maxDepthBFS(mTree.root);
+    Assert.assertEquals(0, maxDepth);
+  }
+
+  @Test
+  public void maxDepthDFS() {
+    int maxDepth = mSolution.maxDepthDFS(mTree.root);
+    Assert.assertEquals(0, maxDepth);
+  }
+
+  @Test
   public void minDepth() {
     int minDepth = mSolution.minDepth(mTree.root);
+    Assert.assertEquals(0, minDepth);
+  }
+
+  @Test
+  public void minDepthBFS() {
+    int minDepth = mSolution.minDepthBFS(mTree.root);
+    Assert.assertEquals(0, minDepth);
+  }
+
+  @Test
+  public void minDepthDFS() {
+    int minDepth = mSolution.minDepthDFS(mTree.root);
     Assert.assertEquals(0, minDepth);
   }
 }
