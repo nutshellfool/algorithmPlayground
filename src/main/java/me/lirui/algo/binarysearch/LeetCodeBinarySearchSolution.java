@@ -95,6 +95,40 @@ class LeetCodeBinarySearchSolution {
 
     return Float.NEGATIVE_INFINITY;
   }
+
+  /**
+   * Using isaac newton iterative method (Mathematical way) to compute the square root for given
+   * target number.
+   *
+   * <p>In computing mathematics(precisely speaking: numerical analysis): isaac newton iterative
+   * method:
+   *
+   * <p>$x_{n + 1} = x_n - \frac{f(x_n)}{f^\prime (x_n)}$
+   *
+   * @param x the target number
+   * @return the square root of the target number
+   */
+  int sqrtNewton(int x) {
+    if (x < 0) return -1;
+    if (x == 0 || x == 1) return x;
+    int result = x;
+    while (result > x / result) {
+      result = (result + x / result) / 2;
+    }
+
+    return result;
+  }
+
+  float sqrtNewton(int x, double epsilon) {
+    if (x < 0) return Float.NaN;
+    if (x == 0 || x == 1) return x;
+
+    float iterativeResult = x;
+    while (Math.abs(iterativeResult - x / iterativeResult) > epsilon / iterativeResult) {
+      iterativeResult = (x / iterativeResult + iterativeResult) / 2;
+    }
+    return iterativeResult;
+  }
   //
   //  int Sqrt(x, precision)
   // End
