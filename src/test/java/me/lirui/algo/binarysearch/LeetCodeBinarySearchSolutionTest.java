@@ -113,14 +113,14 @@ public class LeetCodeBinarySearchSolutionTest {
   public void myNewtonSqrtFragRound() {
     float sqr = mSolution.sqrtNewton(8, 0.00001);
     Assert.assertTrue(Math.abs(sqr - 2.82843) <= 0.00001);
-//    Assert.assertEquals(2, sqr);
+    //    Assert.assertEquals(2, sqr);
   }
 
   @Test
   public void myNewtonSqrtFragZero() {
     float sqr = mSolution.sqrtNewton(0, 0.00001);
     Assert.assertTrue(Math.abs(sqr - 0) <= 0.00001);
-//    Assert.assertEquals(2, sqr);
+    //    Assert.assertEquals(2, sqr);
   }
 
   @Test
@@ -133,5 +133,45 @@ public class LeetCodeBinarySearchSolutionTest {
   public void myNewtonSqrtFragInvalid() {
     float sqr = mSolution.sqrtNewton(-1, 0.00001);
     Assert.assertEquals(Float.NaN, sqr);
+  }
+
+  @Test
+  public void divide() {
+    int result = mSolution.divide(4, 2);
+    Assert.assertEquals(2, result);
+  }
+
+  @Test
+  public void divideRound() {
+    int result = mSolution.divide(10, 3);
+    Assert.assertEquals(3, result);
+  }
+
+  @Test(expected = RuntimeException.class)
+  public void divideDivisorZero() {
+    mSolution.divide(10, 0);
+  }
+
+  @Test
+  public void divideDivisorSpecialCase() {
+    int result = mSolution.divide(0, 100);
+    Assert.assertEquals(0, result);
+  }
+
+  @Test
+  public void divideDivisorSpecialCase1() {
+    int result = mSolution.divide(100, 1);
+    Assert.assertEquals(100, result);
+  }
+
+  @Test
+  public void divideBigInteger() {
+    int result = mSolution.divide(2147395599, 3);
+    Assert.assertEquals(715798533, result);
+  }
+
+  @Test(expected = RuntimeException.class)
+  public void divideMinInteger() {
+    mSolution.divide(Integer.MIN_VALUE, -1);
   }
 }

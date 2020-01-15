@@ -132,4 +132,74 @@ class LeetCodeBinarySearchSolution {
   //
   //  int Sqrt(x, precision)
   // End
+
+  //  Divide Two Integers
+  //  https://leetcode.com/problems/divide-two-integers/
+  //
+  //  public int divide(int dividend, int divisor) {
+  //    if (divisor == 0) throw new RuntimeException("divided by zero");
+  //    if (dividend == 0 || divisor == 1) return dividend;
+  //
+  //    int left = 0;
+  //    int right = dividend;
+  //    int result = 0;
+  //
+  //    while (left <= right) {
+  //      int mid = left + (right - left) / 2;
+  //      if (_multiOp(mid, divisor) == dividend) return mid;
+  //      else if (_multiOp(mid, divisor) > dividend) right = mid - 1;
+  //      else {
+  //        left = mid + 1;
+  //        result = mid;
+  //      }
+  //    }
+  //
+  //    return result;
+  //  }
+  //
+  //  private int _multiOp(int base, int times) {
+  //    int result = 0;
+  //    for (int i = 0; i < times; i ++) {
+  //      result += base;
+  //    }
+  //
+  //    return result;
+  //  }
+
+  int divide(int dividend, int divisor) {
+    if (divisor == 0) throw new RuntimeException("divided by zero");
+    if (dividend == 0 || divisor == 1) return dividend;
+    if (dividend == Integer.MIN_VALUE && divisor == -1)
+      throw new RuntimeException("integer overflow");
+
+    // Actually, I think above result make reasonable
+    // because Integer.MIN_VALUE = -2 ^ 31 and Integer.MAX_VALUE = 2^31 - 1
+    // so the real result should be Integer.MAX_VALUE + 1 NOT Integer.MAX_VALUE.
+    // but in LeetCode testcase, the below code is correct one.
+    //
+    // An Suggestion Here:
+    //    under interview situation, this case should negotiation with interviewer.
+
+    //    if (dividend == Integer.MIN_VALUE && divisor == -1) return Integer.MAX_VALUE;
+
+    boolean isNeg = (dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0);
+    long dividendLongAbs = Math.abs((long) dividend);
+    long divisorLongAbs = Math.abs((long) divisor);
+    int result = 0;
+
+    while (dividendLongAbs >= divisorLongAbs) {
+      int shift = 0;
+      while (dividendLongAbs >= divisorLongAbs << shift) {
+        shift++;
+      }
+      dividendLongAbs = dividendLongAbs - (divisorLongAbs << (shift - 1));
+      result = result + (1 << (shift - 1));
+    }
+
+    return isNeg ? -result : result;
+  }
+  //  Divide Two Integers
+  //  https://leetcode.com/problems/divide-two-integers/
+  // End
+
 }
