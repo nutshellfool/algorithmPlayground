@@ -55,16 +55,23 @@ class LeetCodeBinarySearchSolution {
   // ---------------
 
   int mySqrt(int x) {
-    if (x < 0) return -1;
-    if (x == 0 || x == 1) return x;
+    if (x < 0) {
+      return -1;
+    }
+    if (x == 0 || x == 1) {
+      return x;
+    }
+
     int left = 0;
     int right = x;
     int result = 0;
     while (left <= right) {
       int mid = left + (right - left) / 2;
-      if (mid == x / mid) return mid;
-      else if (mid > x / mid) right = mid - 1;
-      else {
+      if (mid == x / mid) {
+        return mid;
+      } else if (mid > x / mid) {
+        right = mid - 1;
+      } else {
         left = mid + 1;
         result = mid;
       }
@@ -82,15 +89,23 @@ class LeetCodeBinarySearchSolution {
   //  float Sqrt(x, epsilon)
   //
   float mSqrt(int x, double epsilon) {
-    if (x < 0) return -1;
-    if (x == 0 || x == 1) return x;
+    if (x < 0) {
+      return -1;
+    }
+    if (x == 0 || x == 1) {
+      return x;
+    }
 
     float left = 0, right = x;
     while (left <= right) {
       float mid = left + (right - left) / 2;
-      if (Math.abs(mid - x / mid) < epsilon) return mid;
-      if (mid < x / mid) left = mid;
-      if (mid > x / mid) right = mid;
+      if (Math.abs(mid - x / mid) < epsilon) {
+        return mid;
+      } else if (mid < x / mid) {
+        left = mid;
+      } else {
+        right = mid;
+      }
     }
 
     return Float.NEGATIVE_INFINITY;
@@ -109,8 +124,13 @@ class LeetCodeBinarySearchSolution {
    * @return the square root of the target number
    */
   int sqrtNewton(int x) {
-    if (x < 0) return -1;
-    if (x == 0 || x == 1) return x;
+    if (x < 0) {
+      return -1;
+    }
+    if (x == 0 || x == 1) {
+      return x;
+    }
+
     int result = x;
     while (result > x / result) {
       result = (result + x / result) / 2;
@@ -120,8 +140,12 @@ class LeetCodeBinarySearchSolution {
   }
 
   float sqrtNewton(int x, double epsilon) {
-    if (x < 0) return Float.NaN;
-    if (x == 0 || x == 1) return x;
+    if (x < 0) {
+      return Float.NaN;
+    }
+    if (x == 0 || x == 1) {
+      return x;
+    }
 
     float iterativeResult = x;
     while (Math.abs(iterativeResult - x / iterativeResult) > epsilon / iterativeResult) {
@@ -167,10 +191,15 @@ class LeetCodeBinarySearchSolution {
   //  }
 
   int divide(int dividend, int divisor) {
-    if (divisor == 0) throw new RuntimeException("divided by zero");
-    if (dividend == 0 || divisor == 1) return dividend;
-    if (dividend == Integer.MIN_VALUE && divisor == -1)
+    if (divisor == 0) {
+      throw new RuntimeException("divided by zero");
+    }
+    if (dividend == 0 || divisor == 1) {
+      return dividend;
+    }
+    if (dividend == Integer.MIN_VALUE && divisor == -1) {
       throw new RuntimeException("integer overflow");
+    }
 
     // Actually, I think above result make reasonable
     // because Integer.MIN_VALUE = -2 ^ 31 and Integer.MAX_VALUE = 2^31 - 1
