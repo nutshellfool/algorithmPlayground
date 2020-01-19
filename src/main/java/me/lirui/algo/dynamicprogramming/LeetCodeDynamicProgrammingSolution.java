@@ -141,8 +141,32 @@ class LeetCodeDynamicProgrammingSolution {
 
     return dp[0][0];
   }
-
   // Climbing Stairs
   // https://leetcode.com/problems/climbing-stairs/
+  // End
+
+  // Maximum Product Subarray
+  // https://leetcode.com/problems/maximum-product-subarray/
+  int maxProduct(int[] nums) {
+    if (nums == null || nums.length == 0) return -1;
+
+    int[] dpPositive = new int[nums.length];
+    int[] dpNegative = new int[nums.length];
+    dpNegative[0] = nums[0];
+    dpPositive[0] = nums[0];
+    int result = nums[0];
+
+    for (int i = 1; i < nums.length; i++) {
+      dpPositive[i] =
+          Math.max(Math.max(dpPositive[i - 1] * nums[i], dpNegative[i - 1] * nums[i]), nums[i]);
+      dpNegative[i] =
+          Math.min(Math.min(dpPositive[i - 1] * nums[i], dpNegative[i - 1] * nums[i]), nums[i]);
+      result = Math.max(result, dpPositive[i]);
+    }
+
+    return result;
+  }
+  // Maximum Product Subarray
+  // https://leetcode.com/problems/maximum-product-subarray/
   // End
 }

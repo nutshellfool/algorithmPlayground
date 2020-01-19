@@ -166,4 +166,37 @@ public class LeetCodeDynamicProgrammingSolutionTest {
     int minPathSum = mSolution.minimumTotal(triangle);
     Assert.assertEquals(11, minPathSum);
   }
+
+  // Maximum Product Subarray
+  // https://leetcode.com/problems/maximum-product-subarray/
+  @Test
+  public void maxProduct() {
+    int [] array = {2, 3, -1, 4};
+    int max = mSolution.maxProduct(array);
+    Assert.assertEquals(6, max);
+  }
+
+  @Test
+  public void maxProduct1() {
+    int [] array = {-2, -3, -1, -4};
+    int max = mSolution.maxProduct(array);
+    Assert.assertEquals(24, max);
+  }
+
+  @Test
+  public void maxProduct3() {
+    int [] array = {0, 2};
+    int max = mSolution.maxProduct(array);
+    Assert.assertEquals(2, max);
+  }
+
+  @Test
+  public void maxProduct4() {
+    int [] array = {0, 0};
+    int max = mSolution.maxProduct(array);
+    Assert.assertEquals(0, max);
+  }
+  // Maximum Product Subarray
+  // https://leetcode.com/problems/maximum-product-subarray/
+  // End
 }
