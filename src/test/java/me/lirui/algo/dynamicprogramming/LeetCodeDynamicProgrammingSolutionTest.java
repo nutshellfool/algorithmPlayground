@@ -1,5 +1,7 @@
 package me.lirui.algo.dynamicprogramming;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -137,5 +139,31 @@ public class LeetCodeDynamicProgrammingSolutionTest {
   public void climbStairsDynamicProgrammingWith1SpaceBigInt() {
     int cs = mSolution.climbStairsDynamicProgrammingWith1Space(30);
     Assert.assertEquals(1346269, cs);
+  }
+
+  @Test
+  public void minimumTotal() {
+    List<List<Integer>> triangle = new ArrayList<>();
+    List<Integer> level0 = new ArrayList<>();
+    level0.add(2);
+    List<Integer> level1 = new ArrayList<>();
+    level1.add(3);
+    level1.add(4);
+    List<Integer> level2 = new ArrayList<>();
+    level2.add(6);
+    level2.add(5);
+    level2.add(7);
+    List<Integer> level3 = new ArrayList<>();
+    level3.add(4);
+    level3.add(1);
+    level3.add(8);
+    level3.add(3);
+    triangle.add(level0);
+    triangle.add(level1);
+    triangle.add(level2);
+    triangle.add(level3);
+
+    int minPathSum = mSolution.minimumTotal(triangle);
+    Assert.assertEquals(11, minPathSum);
   }
 }

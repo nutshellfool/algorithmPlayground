@@ -1,5 +1,7 @@
 package me.lirui.algo.dynamicprogramming;
 
+import java.util.List;
+
 class LeetCodeDynamicProgrammingSolution {
   // Fibonacci Number
   // https://leetcode.com/problems/fibonacci-number/
@@ -112,6 +114,34 @@ class LeetCodeDynamicProgrammingSolution {
 
     return second;
   }
+  // Climbing Stairs
+  // https://leetcode.com/problems/climbing-stairs/
+  // End
+
+  // Climbing Stairs
+  // https://leetcode.com/problems/climbing-stairs/
+  //
+  int minimumTotal(List<List<Integer>> triangle) {
+    int lineSize = triangle.size();
+    int colMaxSize = triangle.get(lineSize - 1).size();
+
+    int[][] dp = new int[lineSize][colMaxSize];
+    for (int k = 0; k < colMaxSize; k++) {
+      dp[lineSize - 1][k] = triangle.get(lineSize - 1).get(k);
+    }
+
+    for (int i = lineSize - 2; i >= 0; i--) {
+      int columnSize = triangle.get(i).size();
+      for (int j = 0; j <= columnSize - 1; j++) {
+        dp[i][j] = Math.min(dp[i + 1][j], dp[i + 1][j + 1]) + triangle.get(i).get(j);
+        //        System.out.printf("triangle (%d , %d) = %d \n", i, j, triangle.get(i).get(j));
+        //        System.out.printf("dp[%d][%d] = %d \n", i, j, dp[i][j]);
+      }
+    }
+
+    return dp[0][0];
+  }
+
   // Climbing Stairs
   // https://leetcode.com/problems/climbing-stairs/
   // End
