@@ -238,4 +238,49 @@ public class LeetCodeDynamicProgrammingSolutionTest {
   //  Longest Increasing Subsequence
   // https://leetcode.com/problems/longest-increasing-subsequence/
   // End
+
+  // Coin Change
+  // https://leetcode.com/problems/coin-change/
+  //
+  @Test
+  public void coinChange() {
+    int[] coins = {1, 2, 5};
+    int amount = 11;
+    int coinCount = mSolution.coinChange(coins, amount);
+    Assert.assertEquals(3, coinCount);
+  }
+
+  @Test
+  public void coinChangeNotAvailable() {
+    int[] coins = {2};
+    int amount = 3;
+    int coinCount = mSolution.coinChange(coins, amount);
+    Assert.assertEquals(-1, coinCount);
+  }
+
+  @Test
+  public void coinChangeInvalidAmount() {
+    int[] coins = {2};
+    int amount = -1;
+    int coinCount = mSolution.coinChange(coins, amount);
+    Assert.assertEquals(-2, coinCount);
+  }
+
+  @Test
+  public void coinChangeEmptyCoins() {
+    int[] coins = {};
+    int amount = 1;
+    int coinCount = mSolution.coinChange(coins, amount);
+    Assert.assertEquals(-2, coinCount);
+  }
+
+  @Test
+  public void coinChangeNullCoins() {
+    int amount = 1;
+    int coinCount = mSolution.coinChange(null, amount);
+    Assert.assertEquals(-2, coinCount);
+  }
+  // Coin Change
+  // https://leetcode.com/problems/coin-change/
+  // End
 }
