@@ -171,32 +171,71 @@ public class LeetCodeDynamicProgrammingSolutionTest {
   // https://leetcode.com/problems/maximum-product-subarray/
   @Test
   public void maxProduct() {
-    int [] array = {2, 3, -1, 4};
+    int[] array = {2, 3, -1, 4};
     int max = mSolution.maxProduct(array);
     Assert.assertEquals(6, max);
   }
 
   @Test
   public void maxProduct1() {
-    int [] array = {-2, -3, -1, -4};
+    int[] array = {-2, -3, -1, -4};
     int max = mSolution.maxProduct(array);
     Assert.assertEquals(24, max);
   }
 
   @Test
   public void maxProduct3() {
-    int [] array = {0, 2};
+    int[] array = {0, 2};
     int max = mSolution.maxProduct(array);
     Assert.assertEquals(2, max);
   }
 
   @Test
   public void maxProduct4() {
-    int [] array = {0, 0};
+    int[] array = {0, 0};
     int max = mSolution.maxProduct(array);
     Assert.assertEquals(0, max);
   }
   // Maximum Product Subarray
   // https://leetcode.com/problems/maximum-product-subarray/
+  // End
+
+  //  Longest Increasing Subsequence
+  // https://leetcode.com/problems/longest-increasing-subsequence/
+  @Test
+  public void lengthOfLIS() {
+    int[] array = {10, 9, 2, 5, 3, 7, 101, 18};
+    int lengthLIS = mSolution.lengthOfLIS(array);
+    Assert.assertEquals(4, lengthLIS);
+  }
+
+  @Test
+  public void lengthOfLISDES() {
+    int[] array = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    int lengthLIS = mSolution.lengthOfLIS(array);
+    Assert.assertEquals(1, lengthLIS);
+  }
+
+  @Test
+  public void lengthOfLISSame() {
+    int[] array = {9, 9, 9, 9, 9, 9, 9, 9, 9, 9};
+    int lengthLIS = mSolution.lengthOfLIS(array);
+    Assert.assertEquals(1, lengthLIS);
+  }
+
+  @Test
+  public void lengthOfLISEmpty() {
+    int[] array = {};
+    int lengthLIS = mSolution.lengthOfLIS(array);
+    Assert.assertEquals(0, lengthLIS);
+  }
+
+  @Test
+  public void lengthOfLISNull() {
+    int lengthLIS = mSolution.lengthOfLIS(null);
+    Assert.assertEquals(0, lengthLIS);
+  }
+  //  Longest Increasing Subsequence
+  // https://leetcode.com/problems/longest-increasing-subsequence/
   // End
 }
