@@ -224,4 +224,30 @@ class LeetCodeDynamicProgrammingSolution {
   // Coin Change
   // https://leetcode.com/problems/coin-change/
   // End
+  // Best Time to Buy and Sell Stock
+  // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+  // End
+  int maxProfit(int[] prices) {
+    if (prices == null || prices.length == 0) {
+      return 0;
+    }
+
+    int res = 0;
+    int[][] mp = new int[prices.length][3];
+    mp[0][0] = 0;
+    mp[0][1] = -prices[0];
+    mp[0][2] = 0;
+
+    for (int i = 1; i < prices.length; i++) {
+      mp[i][0] = mp[i - 1][0];
+      mp[i][1] = Math.max(mp[i - 1][1], mp[i - 1][0] - prices[i]);
+      mp[i][2] = mp[i - 1][1] + prices[i];
+      res = Math.max(res, Math.max(mp[i][0], Math.max(mp[i][1], mp[i][2])));
+    }
+
+    return res;
+  }
+  // Best Time to Buy and Sell Stock
+  // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+  // End
 }

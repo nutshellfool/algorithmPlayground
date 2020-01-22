@@ -283,4 +283,24 @@ public class LeetCodeDynamicProgrammingSolutionTest {
   // Coin Change
   // https://leetcode.com/problems/coin-change/
   // End
+
+  // Best Time to Buy and Sell Stock
+  // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+  // End
+  @Test
+  public void maxProfit() {
+    int[] prices = {7, 1, 5, 3, 6, 4};
+    int maxProfit = mSolution.maxProfit(prices);
+    Assert.assertEquals(5, maxProfit);
+  }
+
+  @Test
+  public void maxProfitNoResult() {
+    int[] prices = {7, 6, 5, 4, 3, 1};
+    int maxProfit = mSolution.maxProfit(prices);
+    Assert.assertEquals(0, maxProfit);
+  }
+  // Best Time to Buy and Sell Stock
+  // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+  // End
 }
