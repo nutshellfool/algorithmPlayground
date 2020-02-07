@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/nutshellfool/algorithmShare.svg?branch=master)](https://travis-ci.org/nutshellfool/algorithmShare)
+[![Build Status](https://travis-ci.org/nutshellfool/algorithmPlayground.svg?branch=master)](https://travis-ci.org/nutshellfool/algorithmPlayground)
 # Algorithm Playground
 ## a open source edition of algorithm data structure code sets
 This is a java language edition, and Python edition also available [algorithmShare python](https://github.com/nutshellfool/algorithmShare_python).  
