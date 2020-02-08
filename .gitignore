@@ -112,3 +112,6 @@ Temporary Items
 #.idea/checkstyle-idea.xml
 #.idea/codeStyles/
 src/main/resources/
+.settings
+.classpath
+.project
