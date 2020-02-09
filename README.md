@@ -1,12 +1,13 @@
-[![Build Status](https://travis-ci.org/nutshellfool/algorithmPlayground.svg?branch=master)](https://travis-ci.org/nutshellfool/algorithmPlayground)
+
 # Algorithm Playground
-## a open source edition of algorithm data structure code sets
+
+[![Build Status](https://travis-ci.org/nutshellfool/algorithmPlayground.svg?branch=master)](https://travis-ci.org/nutshellfool/algorithmPlayground)
+
 This is a java language edition, and Python edition also available [algorithmShare python](https://github.com/nutshellfool/algorithmShare_python).  
 
 Currently, this is a maven project which supports the IntelliJ IDE, so you can feel free to open this project in IntelliJ IDE.  
 
-We use junit as the project unit test framework, as for the maven project structure, so you can run all test case by execute shell command  `mvn test -B` 
-
+We use junit as the project unit test framework, as for the maven project structure, so you can run all test case by execute shell command  `mvn test -B`
 
 ## Algorithm & Data Structure problem / solution sets
 
@@ -122,7 +123,7 @@ We use junit as the project unit test framework, as for the maven project struct
 
 ### Bitmap
 
-### Bloom-filter 
+### Bloom-filter
 
 ### Bitwise
 
