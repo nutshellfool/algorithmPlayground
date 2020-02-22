@@ -10,12 +10,15 @@ import java.util.TreeSet;
 
 // Design Twitter
 // https://leetcode.com/problems/design-twitter/
+
 /**
  * Your Twitter object will be instantiated and called as such: Twitter obj = new Twitter();
  * obj.postTweet(userId,tweetId); List<Integer> param_2 = obj.getNewsFeed(userId);
  * obj.follow(followerId,followeeId); obj.unfollow(followerId,followeeId);
  */
 class Twitter {
+
+  private static final int NUMBER_OF_TWEET_LIMIT = 10;
 
   // Actually, this implementation is a "pull on demand" mode,
   // "push on change" mode is another topic.
@@ -82,7 +85,7 @@ class Twitter {
     }
 
     List<Integer> newsFeeds = new ArrayList<>(maxHeap.size());
-    while (newsFeeds.size() < 10 && !maxHeap.isEmpty()) {
+    while (newsFeeds.size() < NUMBER_OF_TWEET_LIMIT && !maxHeap.isEmpty()) {
       newsFeeds.add(maxHeap.poll().tweetId);
     }
 
