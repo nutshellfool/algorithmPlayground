@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/nutshellfool/algorithmPlayground.svg?branch=master)](https://travis-ci.org/nutshellfool/algorithmPlayground)
 
-This is a java language edition, and Python edition also available [algorithmShare python](https://github.com/nutshellfool/algorithmShare_python).  
+This is a Java Language edition, and Python edition also available [algorithmPlayground_python](https://github.com/nutshellfool/algorithmPlayground_python).  
 
 Currently, this is a maven project which supports the IntelliJ IDE, so you can feel free to open this project in IntelliJ IDE.  
 
