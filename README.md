@@ -5,8 +5,6 @@
 
 This is a Java Language edition, and Python edition also available [algorithmPlayground_python](https://github.com/nutshellfool/algorithmPlayground_python).  
 
-Currently, this is a maven project which supports the IntelliJ IDE, so you can feel free to open this project in IntelliJ IDE.  
-
 We use junit as the project unit test framework, as for the maven project structure, so you can run all test case by execute shell command  `mvn test -B`
 
 ## Algorithm & Data Structure problem / solution sets
@@ -140,3 +138,9 @@ We use junit as the project unit test framework, as for the maven project struct
 ##### LRU Cache
 
 - [x] [LRU Cache](https://leetcode.com/problems/lru-cache/)
+
+### Design Twitter (news feed system)
+the full system design solution could be found in this blog(Chinese) [如何设计一个精简版的微博（或者Twitter）？](https://blogs.lirui.me/posts/b637e0c8/)  
+and part of the code design problem:
+- [x] [Design Twitter](https://leetcode.com/problems/design-twitter/)
+
