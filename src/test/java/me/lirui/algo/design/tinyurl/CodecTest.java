@@ -31,9 +31,9 @@ public class CodecTest {
   }
 
   @Test(expected = RuntimeException.class)
-  public void negtiveValueHexDecimalToBase62Test() {
-    int negtive1 = -1;
-    mTinyURL.hexDecimalTo62BaseDecimal(negtive1);
+  public void negativeValueHexDecimalToBase62Test() {
+    int negative1 = -1;
+    mTinyURL.hexDecimalTo62BaseDecimal(negative1);
   }
 
   @Test
