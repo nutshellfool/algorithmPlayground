@@ -140,7 +140,18 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [LRU Cache](https://leetcode.com/problems/lru-cache/)
 
 ### Design Twitter (news feed system)
-the full system design solution could be found in this blog(Chinese) [如何设计一个精简版的微博（或者Twitter）？](https://blogs.lirui.me/posts/b637e0c8/)  
+
+the full system design solution could be found in this blog(Mandarin) [如何设计一个精简版的微博（或者Twitter）？](https://blogs.lirui.me/posts/b637e0c8/)  
 and part of the code design problem:
+
 - [x] [Design Twitter](https://leetcode.com/problems/design-twitter/)
+
+### Design TinyURL
+
+The solution could be found in this blog(Mandarin)[如何设计一个短网址服务](https://blogs.lirui.me/posts/63f58b56/)
+and part of the code design problem:
+
+#### Encode and Decode TinyURL
+
+- [x] [Encode and Decode TinyURL](https://leetcode.com/problems/encode-and-decode-tinyurl/)
 
