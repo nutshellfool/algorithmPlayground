@@ -78,4 +78,103 @@ public class LeetCodeArraySolutionTest {
     int maxArea = mSolution.maxArea(height);
     Assert.assertEquals(5, maxArea);
   }
+
+  @Test
+  public void trapInBrutalForceWayHappyCase() {
+    int[] height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    int unitOfTrappedWater = mSolution.trapInBrutalForceWay(height);
+    Assert.assertEquals(6, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapInBrutalForceNullInput() {
+    int unitOfTrappedWater = mSolution.trapInBrutalForceWay(null);
+    Assert.assertEquals(0, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapInBrutalForceEmptyInput() {
+    int unitOfTrappedWater = mSolution.trapInBrutalForceWay(new int[]{});
+    Assert.assertEquals(0, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapInBrutalForceInputLengthLessThan3() {
+    int[] height = {1, 2};
+    int unitOfTrappedWater = mSolution.trapInBrutalForceWay(height);
+    Assert.assertEquals(0, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapInBrutalForceInputEqual3() {
+    int[] height = {2, 0, 2};
+    int unitOfTrappedWater = mSolution.trapInBrutalForceWay(height);
+    Assert.assertEquals(2, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapDynamicProgrammingSolutionHappyCase() {
+    int[] height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    int unitOfTrappedWater = mSolution.trapDynamicProgrammingSolution(height);
+    Assert.assertEquals(6, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapDynamicProgrammingSolutionNullInput() {
+    int unitOfTrappedWater = mSolution.trapDynamicProgrammingSolution(null);
+    Assert.assertEquals(0, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapDynamicProgrammingSolutionEmptyInput() {
+    int unitOfTrappedWater = mSolution.trapDynamicProgrammingSolution(new int[]{});
+    Assert.assertEquals(0, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapDynamicProgrammingSolutionInputLengthLessThan3() {
+    int[] height = {1, 2};
+    int unitOfTrappedWater = mSolution.trapDynamicProgrammingSolution(height);
+    Assert.assertEquals(0, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapDynamicProgrammingSolutionInputEqual3() {
+    int[] height = {2, 0, 2};
+    int unitOfTrappedWater = mSolution.trapDynamicProgrammingSolution(height);
+    Assert.assertEquals(2, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapHappyCase() {
+    int[] height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    int unitOfTrappedWater = mSolution.trap(height);
+    Assert.assertEquals(6, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapNullInput() {
+    int unitOfTrappedWater = mSolution.trap(null);
+    Assert.assertEquals(0, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapEmptyInput() {
+    int unitOfTrappedWater = mSolution.trap(new int[]{});
+    Assert.assertEquals(0, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapInputLengthLessThan3() {
+    int[] height = {1, 2};
+    int unitOfTrappedWater = mSolution.trap(height);
+    Assert.assertEquals(0, unitOfTrappedWater);
+  }
+
+  @Test
+  public void trapInputEqual3() {
+    int[] height = {2, 0, 2};
+    int unitOfTrappedWater = mSolution.trap(height);
+    Assert.assertEquals(2, unitOfTrappedWater);
+  }
 }
