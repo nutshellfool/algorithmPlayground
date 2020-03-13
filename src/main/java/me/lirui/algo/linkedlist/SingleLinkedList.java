@@ -3,17 +3,19 @@ package me.lirui.algo.linkedlist;
 import java.util.Arrays;
 import java.util.HashMap;
 
-/** Created by RichardLee on 2017/3/28. */
+/**
+ * Created by RichardLee on 2017/3/28.
+ */
 public class SingleLinkedList {
 
   private SingleLinkedNode mHeadNode;
   private int mSize = 0;
 
-  public SingleLinkedList() {
+  SingleLinkedList() {
     super();
   }
 
-  public SingleLinkedNode getHeadNode() {
+  SingleLinkedNode getHeadNode() {
     return mHeadNode;
   }
 
@@ -21,7 +23,7 @@ public class SingleLinkedList {
     return mSize;
   }
 
-  public void clearList() {
+  void clearList() {
     this.mHeadNode = null;
   }
 
@@ -30,7 +32,7 @@ public class SingleLinkedList {
    *
    * @param value value
    */
-  public void appendNodeToTail(int value) {
+  void appendNodeToTail(int value) {
     if (this.mHeadNode == null) {
       this.mHeadNode = new SingleLinkedNode();
     }
@@ -52,8 +54,10 @@ public class SingleLinkedList {
    * @param value value
    * @return the target node
    */
-  public SingleLinkedNode searchNode(int value) {
-    if (this.mHeadNode == null) return null;
+  SingleLinkedNode searchNode(int value) {
+    if (this.mHeadNode == null) {
+      return null;
+    }
 
     SingleLinkedNode n = this.mHeadNode;
 
@@ -69,8 +73,10 @@ public class SingleLinkedList {
    *
    * @param value value
    */
-  public void deleteNode(int value) {
-    if (this.mHeadNode == null) return;
+  void deleteNode(int value) {
+    if (this.mHeadNode == null) {
+      return;
+    }
 
     SingleLinkedNode n = this.mHeadNode;
 
@@ -90,14 +96,18 @@ public class SingleLinkedList {
    *
    * @return has cycle or not
    */
-  public boolean hasCycle() {
-    if (mHeadNode == null) return false;
+  boolean hasCycle() {
+    if (mHeadNode == null) {
+      return false;
+    }
     SingleLinkedNode normal = mHeadNode;
     SingleLinkedNode fast = mHeadNode;
     while (normal.getNext() != null && fast.getNext() != null && fast.getNext().getNext() != null) {
       normal = normal.getNext();
       fast = fast.getNext().getNext();
-      if (normal == fast) return true;
+      if (normal == fast) {
+        return true;
+      }
     }
 
     return false;
@@ -108,8 +118,10 @@ public class SingleLinkedList {
    *
    * @return has cycle or not
    */
-  public boolean hasCycle2() {
-    if (mHeadNode == null) return false;
+  boolean hasCycle2() {
+    if (mHeadNode == null) {
+      return false;
+    }
     HashMap<SingleLinkedNode, SingleLinkedNode> tempMap = new HashMap<>();
     SingleLinkedNode p = mHeadNode;
 
@@ -123,7 +135,9 @@ public class SingleLinkedList {
       //            SingleLinkedNode value = tempMap.get(p) == null ? tempMap.put(p,p) :
       // tempMap.remove(p);
 
-      if (tempMap.size() == 0) return true;
+      if (tempMap.size() == 0) {
+        return true;
+      }
 
       p = p.getNext();
     }
@@ -131,7 +145,7 @@ public class SingleLinkedList {
     return false;
   }
 
-  public SingleLinkedNode reverseLinkList() {
+  SingleLinkedNode reverseLinkList() {
     // boundary cases:
     if (mHeadNode == null) {
       return null;
@@ -150,7 +164,7 @@ public class SingleLinkedList {
     return previousNode;
   }
 
-  public SingleLinkedNode reverseLinkList_recursion() {
+  SingleLinkedNode reverseLinkList_recursion() {
     return _reverseList_recur_helper(mHeadNode);
   }
 
@@ -171,10 +185,14 @@ public class SingleLinkedList {
     return newHeadNode;
   }
 
-  public SingleLinkedNode middleNode(SingleLinkedNode head) {
+  SingleLinkedNode middleNode(SingleLinkedNode head) {
 
-    if (head == null) return null;
-    if (head.next == null) return head;
+    if (head == null) {
+      return null;
+    }
+    if (head.next == null) {
+      return head;
+    }
 
     SingleLinkedNode slow = head;
     SingleLinkedNode fast = head;
@@ -202,9 +220,13 @@ public class SingleLinkedList {
   //    return headNode;
   //  }
 
-  public SingleLinkedNode removeNthFromEnd(SingleLinkedNode headNode, int n) {
-    if (n <= 0 || n > mSize) return null;
-    if (headNode == null) return null;
+  SingleLinkedNode removeNthFromEnd(SingleLinkedNode headNode, int n) {
+    if (n <= 0 || n > mSize) {
+      return null;
+    }
+    if (headNode == null) {
+      return null;
+    }
 
     SingleLinkedNode fast = headNode;
     for (int i = 1; i < n; i++) {
@@ -228,10 +250,14 @@ public class SingleLinkedList {
     return headNode;
   }
 
-  public static SingleLinkedNode mergeTwoLists(SingleLinkedNode l1, SingleLinkedNode l2) {
+  static SingleLinkedNode mergeTwoLists(SingleLinkedNode l1, SingleLinkedNode l2) {
 
-    if (l1 == null) return l2;
-    if (l2 == null) return l1;
+    if (l1 == null) {
+      return l2;
+    }
+    if (l2 == null) {
+      return l1;
+    }
 
     SingleLinkedNode newHeadNode;
     if (l1.getValue() < l2.getValue()) {
@@ -245,10 +271,14 @@ public class SingleLinkedList {
     return newHeadNode;
   }
 
-  public static SingleLinkedNode mergeTwoListsSimpleLoopImpl(
+  static SingleLinkedNode mergeTwoListsSimpleLoopImpl(
       SingleLinkedNode l1, SingleLinkedNode l2) {
-    if (l1 == null) return l2;
-    if (l2 == null) return l1;
+    if (l1 == null) {
+      return l2;
+    }
+    if (l2 == null) {
+      return l1;
+    }
 
     SingleLinkedNode newHead = new SingleLinkedNode();
     SingleLinkedNode node = newHead;
@@ -270,9 +300,13 @@ public class SingleLinkedList {
     return newHead.next;
   }
 
-  public static SingleLinkedNode mergeKLists(SingleLinkedNode[] lists) {
-    if (lists == null || lists.length == 0) return null;
-    if (lists.length == 1) return lists[0];
+  static SingleLinkedNode mergeKLists(SingleLinkedNode[] lists) {
+    if (lists == null || lists.length == 0) {
+      return null;
+    }
+    if (lists.length == 1) {
+      return lists[0];
+    }
 
     int length = lists.length;
     int mid = length / 2;
