@@ -98,21 +98,18 @@ class LeetCodeArraySolution {
     int[] rightMax = new int[length];
 
     leftMax[0] = height[0];
-    rightMax[0] = height[length - 1];
+    rightMax[length - 1] = height[length - 1];
     for (int i = 1; i < length; i++) {
-      leftMax[i] = Math.max(leftMax[i - 1], height[i - 1]);
+      leftMax[i] = Math.max(leftMax[i - 1], height[i]);
     }
 
     for (int j = length - 1 - 1; j >= 0; j--) {
-      rightMax[j] = Math.max(rightMax[j + 1], height[j + 1]);
+      rightMax[j] = Math.max(rightMax[j + 1], height[j]);
     }
 
     for (int i = 1; i < length - 1; i++) {
       int bucketMin = Math.min(leftMax[i], rightMax[i]);
-
-      if (height[i] < bucketMin) {
-        unitOfTrapped += bucketMin - height[i];
-      }
+      unitOfTrapped += bucketMin - height[i];
     }
 
     return unitOfTrapped;

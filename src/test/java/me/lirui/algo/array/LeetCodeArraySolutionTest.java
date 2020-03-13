@@ -120,6 +120,13 @@ public class LeetCodeArraySolutionTest {
   }
 
   @Test
+  public void trapDynamicProgrammingSolutionHappyCase1() {
+    int[] height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 3};
+    int unitOfTrappedWater = mSolution.trapDynamicProgrammingSolution(height);
+    Assert.assertEquals(9, unitOfTrappedWater);
+  }
+
+  @Test
   public void trapDynamicProgrammingSolutionNullInput() {
     int unitOfTrappedWater = mSolution.trapDynamicProgrammingSolution(null);
     Assert.assertEquals(0, unitOfTrappedWater);
