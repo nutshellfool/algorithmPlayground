@@ -27,7 +27,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 - [x] [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
 - [ ] [Reorder List](https://leetcode.com/problems/reorder-list/)
-- [ ] [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
+- [x] [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
 - [ ] [Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)
 
 ### Stack & Queue
