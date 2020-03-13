@@ -9,7 +9,13 @@ We use junit as the project unit test framework, as for the maven project struct
 
 ## Algorithm & Data Structure problem / solution sets
 
-### Array & Linked List
+### Array
+
+- [x] [Container With Most Water](https://leetcode.com/problems/container-with-most-water)
+- [x] [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
+- [ ] [Maximum Swap](https://leetcode.com/problems/maximum-swap/)
+
+###Linked List
 
 - [x] [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)  
 - [ ] [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/)
@@ -20,8 +26,9 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 - [x] [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 - [x] [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
-- [x] [Container With Most Water](https://leetcode.com/problems/container-with-most-water)
-- [x] [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
+- [ ] [Reorder List](https://leetcode.com/problems/reorder-list/)
+- [ ] [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
+- [ ] [Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)
 
 ### Stack & Queue
 
@@ -58,6 +65,10 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
 - [x] [Sliding Window Median](https://leetcode.com/problems/sliding-window-median/)
 
+**possible**
+- [ ] [Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers/)
+- [ ] [K-th Smallest in Lexicographical Order](https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/)
+
 ### Binary Search
 
 - [x] [Pow(x, n)](https://leetcode.com/problems/powx-n/)
@@ -68,6 +79,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
 - [x] [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
 - [x] [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
+- [ ] [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
 
 ### Depth First Search
 
@@ -75,6 +87,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
 - [x] [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
 - [x] [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
+- [ ] [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
 
 ## Basic algorithm thinking
 
@@ -83,7 +96,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Pow(x, n)](https://leetcode.com/problems/powx-n/)
 - [x] [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
 
-### Divid & Conquer
+### Divide & Conquer
 
 - [x] [Pow(x, n)](https://leetcode.com/problems/powx-n/)
 - [x] [Majority Element](https://leetcode.com/problems/majority-element/)
@@ -92,7 +105,12 @@ We use junit as the project unit test framework, as for the maven project struct
 
 ### Greedy
 
+- [ ] [Candy](https://leetcode.com/problems/candy/)
+
 ### Backtracking
+
+- [ ] [Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/)
+- [ ] [Android Unlock Patterns](https://leetcode.com/problems/android-unlock-patterns/)
 
 ### Dynamic Programming
 
@@ -109,6 +127,8 @@ We use junit as the project unit test framework, as for the maven project struct
 - [ ] [Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
 - [x] [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
 - [x] [Coin Change](https://leetcode.com/problems/coin-change/)
+- [x] [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
+- [ ] [Android Unlock Patterns](https://leetcode.com/problems/android-unlock-patterns/)
 
 ## Advanced data structure & algorithm
 
@@ -130,6 +150,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)
 - [x] [Power of Two](https://leetcode.com/problems/power-of-two/)
 - [x] [Counting Bits](https://leetcode.com/problems/counting-bits/)
+- [ ] [UTF-8 Validation](https://leetcode.com/problems/utf-8-validation/)
 
 ## System design Problem / Solution sets
 
