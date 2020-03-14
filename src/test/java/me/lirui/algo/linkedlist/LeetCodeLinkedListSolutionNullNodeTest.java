@@ -38,4 +38,30 @@ public class LeetCodeLinkedListSolutionNullNodeTest {
     Assert.assertNotNull(node);
     Assert.assertEquals(1, node.getValue());
   }
+
+  @Test
+  public void addTwoNumbers2() {
+    SingleLinkedNode node = mSolution.addTwoNumbers2(null, null);
+    Assert.assertNull(node);
+  }
+
+  @Test
+  public void addTwoNumbers2Node1Null() {
+    SingleLinkedList list = new SingleLinkedList();
+    list.appendNodeToTail(2);
+
+    SingleLinkedNode node = mSolution.addTwoNumbers2(null, list.getHeadNode().next);
+    Assert.assertNotNull(node);
+    Assert.assertEquals(2, node.getValue());
+  }
+
+  @Test
+  public void addTwoNumbers2Node2Null() {
+    SingleLinkedList list1 = new SingleLinkedList();
+    list1.appendNodeToTail(1);
+
+    SingleLinkedNode node = mSolution.addTwoNumbers2(list1.getHeadNode().next, null);
+    Assert.assertNotNull(node);
+    Assert.assertEquals(1, node.getValue());
+  }
 }
