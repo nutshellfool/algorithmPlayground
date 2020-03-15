@@ -18,7 +18,7 @@ We use junit as the project unit test framework, as for the maven project struct
 ###Linked List
 
 - [x] [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)  
-- [ ] [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/)
+- [x] [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/)
 - [x] [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
 - [ ] [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
 - [x] [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
@@ -26,9 +26,10 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 - [x] [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 - [x] [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
-- [ ] [Reorder List](https://leetcode.com/problems/reorder-list/)
 - [x] [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
 - [x] [Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)
+- [ ] [Reorder List](https://leetcode.com/problems/reorder-list/)
+
 
 ### Stack & Queue
 

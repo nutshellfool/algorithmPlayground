@@ -64,4 +64,30 @@ public class LeetCodeLinkedListSolutionNullNodeTest {
     Assert.assertNotNull(node);
     Assert.assertEquals(1, node.getValue());
   }
+
+  @Test
+  public void swapPairsNullHeadNode() {
+    SingleLinkedNode node = mSolution.swapPairs(null);
+    Assert.assertNull(node);
+  }
+
+  @Test
+  public void swapPairsSoloNode() {
+    SingleLinkedNode dummyNode = new SingleLinkedNode();
+    SingleLinkedNode node = mSolution.swapPairs(dummyNode);
+    Assert.assertEquals(node, dummyNode);
+  }
+
+  @Test
+  public void swapPairsIterationNullHeadNode() {
+    SingleLinkedNode node = mSolution.swapPairsIterationImpl(null);
+    Assert.assertNull(node);
+  }
+
+  @Test
+  public void swapPairsIterationSoloNode() {
+    SingleLinkedNode dummyNode = new SingleLinkedNode();
+    SingleLinkedNode node = mSolution.swapPairsIterationImpl(dummyNode);
+    Assert.assertEquals(node, dummyNode);
+  }
 }

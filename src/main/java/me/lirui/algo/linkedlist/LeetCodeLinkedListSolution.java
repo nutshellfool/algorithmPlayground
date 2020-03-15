@@ -73,4 +73,45 @@ class LeetCodeLinkedListSolution {
   // Add Two Numbers II
   // https://leetcode.com/problems/add-two-numbers-ii/
   // End
+
+  // Swap Nodes in Pairs
+  // https://leetcode.com/problems/swap-nodes-in-pairs/
+  SingleLinkedNode swapPairs(SingleLinkedNode head) {
+    if (head == null || head.next == null) {
+      return head;
+    }
+
+    SingleLinkedNode node = head.next;
+    head.next = swapPairs(head.next.next);
+    node.next = head;
+    return node;
+  }
+
+  SingleLinkedNode swapPairsIterationImpl(SingleLinkedNode head) {
+    if (head == null || head.next == null) {
+      return head;
+    }
+
+    SingleLinkedNode dummyNode = new SingleLinkedNode();
+    dummyNode.next = head;
+
+    SingleLinkedNode prevNode = dummyNode;
+
+    while (head != null && head.next != null) {
+      SingleLinkedNode firstNode = head;
+      SingleLinkedNode secondNode = head.next;
+
+      prevNode.next = secondNode;
+      firstNode.next = secondNode.next;
+      secondNode.next = firstNode;
+
+      prevNode = firstNode;
+      head = firstNode.next;
+    }
+
+    return dummyNode.next;
+  }
+  // Swap Nodes in Pairs
+  // https://leetcode.com/problems/swap-nodes-in-pairs/
+  // End
 }
