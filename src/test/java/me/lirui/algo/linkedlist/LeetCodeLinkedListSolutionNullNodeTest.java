@@ -90,4 +90,18 @@ public class LeetCodeLinkedListSolutionNullNodeTest {
     SingleLinkedNode node = mSolution.swapPairsIterationImpl(dummyNode);
     Assert.assertEquals(node, dummyNode);
   }
+
+  @Test
+  public void reverseKGroup() {
+    SingleLinkedNode node = mSolution.reverseKGroup(null, 2);
+    Assert.assertNull(node);
+  }
+
+  @Test
+  public void reverseKGroupSoloNode() {
+    SingleLinkedNode dummyNode = new SingleLinkedNode();
+    SingleLinkedNode node = mSolution.reverseKGroup(dummyNode, 2);
+    Assert.assertNotNull(node);
+    Assert.assertEquals(dummyNode, node);
+  }
 }

@@ -114,4 +114,49 @@ class LeetCodeLinkedListSolution {
   // Swap Nodes in Pairs
   // https://leetcode.com/problems/swap-nodes-in-pairs/
   // End
+
+  // Reverse Nodes in k-Group
+  // https://leetcode.com/problems/reverse-nodes-in-k-group/
+  SingleLinkedNode reverseKGroup(SingleLinkedNode head, int k) {
+    SingleLinkedNode dummy = new SingleLinkedNode();
+    dummy.next = head;
+
+    SingleLinkedNode pre = dummy;
+    SingleLinkedNode end = dummy;
+
+    while (end.next != null) {
+      for (int i = 0; i < k && end != null; i++) end = end.next;
+      if (end == null) break;
+      SingleLinkedNode start = pre.next;
+      SingleLinkedNode next = end.next;
+      end.next = null;
+      pre.next = reverse(start);
+      start.next = next;
+      pre = start;
+
+      end = pre;
+    }
+    return dummy.next;
+  }
+
+  private SingleLinkedNode reverse(SingleLinkedNode node) {
+    if (node == null) {
+      return node;
+    }
+
+    SingleLinkedNode currentNode = node;
+    SingleLinkedNode previousNode = null;
+
+    SingleLinkedNode tempNodeForCurNext;
+    while (currentNode != null) {
+      tempNodeForCurNext = currentNode.next;
+      currentNode.next = previousNode;
+      previousNode = currentNode;
+      currentNode = tempNodeForCurNext;
+    }
+    return previousNode;
+  }
+  // Reverse Nodes in k-Group
+  // https://leetcode.com/problems/reverse-nodes-in-k-group/
+  // End
 }

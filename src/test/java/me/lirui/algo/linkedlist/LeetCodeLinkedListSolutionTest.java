@@ -130,4 +130,63 @@ public class LeetCodeLinkedListSolutionTest {
     Assert.assertEquals(9, newHead.getValue());
     Assert.assertNull(newHead.next);
   }
+
+  @Test
+  public void reverseKGroup() {
+    SingleLinkedList list = new SingleLinkedList();
+    list.appendNodeToTail(6);
+    list.appendNodeToTail(5);
+    list.appendNodeToTail(4);
+    list.appendNodeToTail(3);
+    list.appendNodeToTail(2);
+    list.appendNodeToTail(1);
+
+    SingleLinkedNode head = mSolution.reverseKGroup(list.getHeadNode().next, 3);
+    Assert.assertNotNull(head);
+    Assert.assertEquals(4, head.getValue());
+    Assert.assertEquals(5, head.next.getValue());
+    Assert.assertEquals(6, head.next.next.getValue());
+    Assert.assertEquals(1, head.next.next.next.getValue());
+    Assert.assertEquals(2, head.next.next.next.next.getValue());
+    Assert.assertEquals(3, head.next.next.next.next.next.getValue());
+    Assert.assertNull(head.next.next.next.next.next.next);
+  }
+
+  @Test
+  public void reverseKGroup3Nodes1Group() {
+    SingleLinkedList list = new SingleLinkedList();
+    list.appendNodeToTail(5);
+    list.appendNodeToTail(4);
+    list.appendNodeToTail(3);
+    list.appendNodeToTail(2);
+    list.appendNodeToTail(1);
+
+    SingleLinkedNode head = mSolution.reverseKGroup(list.getHeadNode().next, 3);
+    Assert.assertNotNull(head);
+    Assert.assertEquals(3, head.getValue());
+    Assert.assertEquals(4, head.next.getValue());
+    Assert.assertEquals(5, head.next.next.getValue());
+    Assert.assertEquals(2, head.next.next.next.getValue());
+    Assert.assertEquals(1, head.next.next.next.next.getValue());
+    Assert.assertNull(head.next.next.next.next.next);
+  }
+
+  @Test
+  public void reverseKGroup2Nodes1Group() {
+    SingleLinkedList list = new SingleLinkedList();
+    list.appendNodeToTail(5);
+    list.appendNodeToTail(4);
+    list.appendNodeToTail(3);
+    list.appendNodeToTail(2);
+    list.appendNodeToTail(1);
+
+    SingleLinkedNode head = mSolution.reverseKGroup(list.getHeadNode().next, 2);
+    Assert.assertNotNull(head);
+    Assert.assertEquals(4, head.getValue());
+    Assert.assertEquals(5, head.next.getValue());
+    Assert.assertEquals(2, head.next.next.getValue());
+    Assert.assertEquals(3, head.next.next.next.getValue());
+    Assert.assertEquals(1, head.next.next.next.next.getValue());
+    Assert.assertNull(head.next.next.next.next.next);
+  }
 }
