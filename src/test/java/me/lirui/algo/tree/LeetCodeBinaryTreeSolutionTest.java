@@ -33,7 +33,8 @@ public class LeetCodeBinaryTreeSolutionTest {
   }
 
   @After
-  public void tearDown() {}
+  public void tearDown() {
+  }
 
   @Test
   public void levelOrder() {
@@ -99,5 +100,13 @@ public class LeetCodeBinaryTreeSolutionTest {
   public void minDepthDFS() {
     int minDepth = mSolution.minDepthDFS(mTree.root);
     Assert.assertEquals(2, minDepth);
+  }
+
+  @Test
+  public void lowestCommonAncestor() {
+    TreeNode lca = mSolution
+        .lowestCommonAncestor(mTree.root, mTree.root.leftChild, mTree.root.rightChild);
+    Assert.assertNotNull(lca);
+    Assert.assertEquals(2, mTree.root.data);
   }
 }
