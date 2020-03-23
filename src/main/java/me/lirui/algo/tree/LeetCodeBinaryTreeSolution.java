@@ -226,4 +226,19 @@ class LeetCodeBinaryTreeSolution {
   // https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
   // End
 
+  //
+  //  Lowest Common Ancestor of a Binary Search Tree
+  //  https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+  TreeNode lowestCommonAncestorBST(TreeNode root, TreeNode p, TreeNode q) {
+    if (root.data < p.data && root.data < q.data) {
+      return lowestCommonAncestorBST(root.rightChild, p, q);
+    } else if (root.data > p.data && root.data > q.data) {
+      return lowestCommonAncestorBST(root.leftChild, p, q);
+    }
+    return root;
+  }
+  //  Lowest Common Ancestor of a Binary Search Tree
+  //  https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+  // End
+
 }

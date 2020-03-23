@@ -109,4 +109,12 @@ public class LeetCodeBinaryTreeSolutionTest {
     Assert.assertNotNull(lca);
     Assert.assertEquals(2, mTree.root.data);
   }
+
+  @Test
+  public void lowestCommonAncestorBST() {
+    TreeNode lca = mSolution
+        .lowestCommonAncestorBST(mTree.root, mTree.root.leftChild, mTree.root.rightChild);
+    Assert.assertNotNull(lca);
+    Assert.assertEquals(2, mTree.root.data);
+  }
 }
