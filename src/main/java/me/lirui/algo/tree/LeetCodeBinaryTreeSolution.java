@@ -281,4 +281,41 @@ class LeetCodeBinaryTreeSolution {
   // https://leetcode.com/problems/binary-tree-inorder-traversal/
   // End
 
+  // Binary Tree Preorder Traversal
+  // https://leetcode.com/problems/binary-tree-preorder-traversal/
+  List<Integer> preOrderTraversal(TreeNode root) {
+    ArrayList<Integer> result = new ArrayList<>();
+    _treePreOrderTraversal(root, result);
+    return result;
+  }
+
+
+  private void _treePreOrderTraversal(TreeNode node, ArrayList<Integer> result) {
+    if (node == null) {
+      return;
+    }
+
+    result.add(node.data);
+    _treePreOrderTraversal(node.leftChild, result);
+    _treeInorderTraversal(node.rightChild, result);
+  }
+
+  List<Integer> preOrderTraversalIteration(TreeNode root) {
+    ArrayList<Integer> result = new ArrayList<>();
+    Stack<TreeNode> stack = new Stack<>();
+    stack.add(root);
+    while (!stack.isEmpty()) {
+      TreeNode node = stack.pop();
+      if (node != null) {
+        result.add(node.data);
+        stack.push(node.rightChild);
+        stack.push(node.leftChild);
+      }
+    }
+    return result;
+  }
+  // Binary Tree Preorder Traversal
+  // https://leetcode.com/problems/binary-tree-preorder-traversal/
+  // End
+
 }
