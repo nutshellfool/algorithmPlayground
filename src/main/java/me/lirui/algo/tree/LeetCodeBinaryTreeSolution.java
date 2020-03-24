@@ -1,6 +1,7 @@
 package me.lirui.algo.tree;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -318,4 +319,40 @@ class LeetCodeBinaryTreeSolution {
   // https://leetcode.com/problems/binary-tree-preorder-traversal/
   // End
 
+  // Binary Tree Postorder Traversal
+  // https://leetcode.com/problems/binary-tree-postorder-traversal/
+  List<Integer> postOrderTraversal(TreeNode root) {
+    ArrayList<Integer> result = new ArrayList<>();
+    _treePostOrderTraversal(root, result);
+    return result;
+  }
+
+  private void _treePostOrderTraversal(TreeNode node, ArrayList<Integer> result) {
+    if (node == null) {
+      return;
+    }
+    _treePostOrderTraversal(node.leftChild, result);
+    _treePostOrderTraversal(node.rightChild, result);
+    result.add(node.data);
+  }
+
+  List<Integer> postOrderTraversalIteration(TreeNode root) {
+    ArrayList<Integer> result = new ArrayList<>();
+    Stack<TreeNode> stack = new Stack<>();
+    stack.push(root);
+    while (!stack.isEmpty()) {
+      TreeNode node = stack.pop();
+      if (node != null) {
+        result.add(node.data);
+        stack.push(node.leftChild);
+        stack.push(node.rightChild);
+      }
+    }
+
+    Collections.reverse(result);
+    return result;
+  }
+  // Binary Tree Postorder Traversal
+  // https://leetcode.com/problems/binary-tree-postorder-traversal/
+  // End
 }
