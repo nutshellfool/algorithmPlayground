@@ -117,4 +117,24 @@ public class LeetCodeBinaryTreeSolutionTest {
     Assert.assertNotNull(lca);
     Assert.assertEquals(2, mTree.root.data);
   }
+
+  @Test
+  public void inorderTraversal() {
+    List<Integer> traversalList = mSolution.inorderTraversal(mTree.root);
+    Assert.assertNotNull(traversalList);
+    Assert.assertEquals(5, traversalList.size());
+    for (int i = 0 ; i < traversalList.size(); i++) {
+      Assert.assertEquals(i + 1, traversalList.get(i));
+    }
+  }
+
+  @Test
+  public void inorderTraversalIteration() {
+    List<Integer> traversalList = mSolution.inorderTraversalIteration(mTree.root);
+    Assert.assertNotNull(traversalList);
+    Assert.assertEquals(5, traversalList.size());
+    for (int i = 0 ; i < traversalList.size(); i++) {
+      Assert.assertEquals(i + 1, traversalList.get(i));
+    }
+  }
 }

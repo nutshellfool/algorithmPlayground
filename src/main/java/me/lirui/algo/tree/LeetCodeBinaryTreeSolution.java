@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
+import java.util.Stack;
 
 class LeetCodeBinaryTreeSolution {
 
@@ -239,6 +240,45 @@ class LeetCodeBinaryTreeSolution {
   }
   //  Lowest Common Ancestor of a Binary Search Tree
   //  https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+  // End
+
+  // Binary Tree Inorder Traversal
+  // https://leetcode.com/problems/binary-tree-inorder-traversal/
+  List<Integer> inorderTraversal(TreeNode root) {
+    ArrayList<Integer> result = new ArrayList<>();
+    _treeInorderTraversal(root, result);
+    return result;
+  }
+
+  private void _treeInorderTraversal(TreeNode root, ArrayList<Integer> result) {
+    if (root == null) {
+      return;
+    }
+
+    _treeInorderTraversal(root.leftChild, result);
+    result.add(root.data);
+    _treeInorderTraversal(root.rightChild, result);
+  }
+
+  List<Integer> inorderTraversalIteration(TreeNode root) {
+    ArrayList<Integer> result = new ArrayList<>();
+    Stack<TreeNode> stack = new Stack<>();
+    TreeNode current = root;
+    while (!stack.isEmpty() || current != null) {
+      while (current != null) {
+        stack.add(current);
+        current = current.leftChild;
+      }
+
+      current = stack.pop();
+      result.add(current.data);
+      current = current.rightChild;
+    }
+
+    return result;
+  }
+  // Binary Tree Inorder Traversal
+  // https://leetcode.com/problems/binary-tree-inorder-traversal/
   // End
 
 }
