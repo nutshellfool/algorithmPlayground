@@ -1,5 +1,6 @@
 package me.lirui.algo.bitwise;
 
+import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,6 +51,7 @@ public class LeetCodeBitwiseSolutionTest {
     int countOf1Bits = mSolution.hammingWeightBrutalForce(Integer.MAX_VALUE);
     Assert.assertEquals(31, countOf1Bits);
   }
+
   //  Number of 1 Bits
   //  https://leetcode.com/problems/number-of-1-bits/
   //  End
@@ -118,4 +120,24 @@ public class LeetCodeBitwiseSolutionTest {
   //  Power of Two
   //  https://leetcode.com/problems/number-of-1-bits/
   //  End
+
+  @Test
+  public void countBits() {
+    int[] array = mSolution.countBits(4);
+    int[] expected = new int[]{0, 1, 1, 2, 1};
+    Assert.assertNotNull(array);
+    Assert.assertEquals(5, array.length);
+//    Assert.assertEquals(expected, array);
+    Assert.assertTrue(Arrays.equals(expected, array));
+  }
+
+  @Test
+  public void countBitBrutalForce() {
+    int[] array = mSolution.countBitsBrutalForce(4);
+    int[] expected = new int[]{0, 1, 1, 2, 1};
+    Assert.assertNotNull(array);
+    Assert.assertEquals(5, array.length);
+//    Assert.assertEquals(expected, array);
+    Assert.assertTrue(Arrays.equals(expected, array));
+  }
 }
