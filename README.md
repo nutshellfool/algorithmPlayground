@@ -108,6 +108,7 @@ We use junit as the project unit test framework, as for the maven project struct
 ### Greedy
 
 - [ ] [Candy](https://leetcode.com/problems/candy/)
+- [ ] [Divide Chocolate](https://leetcode-cn.com/problems/divide-chocolate/)
 
 ### Backtracking
 
