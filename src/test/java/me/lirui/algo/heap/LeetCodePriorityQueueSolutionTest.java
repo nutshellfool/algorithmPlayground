@@ -207,6 +207,16 @@ public class LeetCodePriorityQueueSolutionTest {
   }
 
   @Test
+  public void maxSlidingWindowDeque1() {
+    int[] expect = {7, 4};
+    int[] array = {7, 2, 4};
+    int[] result = mSolution.maxSlidingWindowDeque(array, 2);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(2, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
   public void maxSlidingWindowDequeExtremeBoundaryCase() {
     int[] expect = {1, -1};
     int[] array = {1, -1};

@@ -77,6 +77,9 @@ class LeetCodePriorityQueueSolution {
   //  Sliding Window Maximum -
   // https://leetcode.com/problems/sliding-window-maximum/
   //
+
+  //  Time complexity : $O(N)$
+  //  Space complexity : $O(k)$
   int[] maxSlidingWindowDeque(int[] nums, int k) {
     if (nums == null || nums.length == 0 || k < 0) {
       return nums;
@@ -97,23 +100,26 @@ class LeetCodePriorityQueueSolution {
     int resultIndex = 0;
     for (int i = 0; i < nums.length; i++) {
       while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
-        deque.pop();
-      }
-      deque.push(i);
-
-      if (deque.peekLast() == i - k) {
         deque.pollLast();
       }
 
+      deque.offerLast(i);
+
+      if (deque.peek() == i - k) {
+        deque.poll();
+      }
+
       if (i >= k - 1) {
-        result[resultIndex] = nums[deque.peekLast()];
-        resultIndex++;
+        result[resultIndex++] = nums[deque.peek()];
       }
     }
 
     return result;
   }
 
+
+  //  Time Complexity: $O(N*log^k)$
+  //  Space Complexity: $O(k)$
   int[] maxSlidingWindowHeap(int[] nums, int k) {
     if (nums == null || nums.length == 0 || k < 0) {
       return nums;
@@ -147,6 +153,8 @@ class LeetCodePriorityQueueSolution {
     return result;
   }
 
+  //  Time Complexity: $O(N*k)$
+  //  Space Complexity: $O(1)$
   int[] maxSlidingWindowBrutalForce(int[] nums, int k) {
     if (nums == null || nums.length == 0 || k < 0) {
       return nums;
