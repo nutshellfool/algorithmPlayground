@@ -37,6 +37,10 @@ We use junit as the project unit test framework, as for the maven project struct
 - [ ] [Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)
 - [ ] [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
 
+### deque
+
+- [x] [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
+
 ### Skip-list
 
 ### HashMap & Set
