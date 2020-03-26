@@ -22,7 +22,7 @@ public class LeetCodePriorityQueueSolutionTest {
   //
   @Test
   public void testKthLargest() {
-    int[] array = new int[] {4, 5, 8, 2};
+    int[] array = new int[]{4, 5, 8, 2};
     KthLargest kthLargest = mSolution.new KthLargest(2, array);
 
     int kthLargest1 = kthLargest.add(3);
@@ -128,7 +128,7 @@ public class LeetCodePriorityQueueSolutionTest {
 
   @Test
   public void maxSlidingWindowEmpty() {
-    int[] array = new int[] {};
+    int[] array = new int[]{};
     int[] result = mSolution.maxSlidingWindowHeap(array, 0);
     Assert.assertTrue(Arrays.equals(array, result));
   }
@@ -138,6 +138,112 @@ public class LeetCodePriorityQueueSolutionTest {
     int[] expect = {7};
     int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
     int[] result = mSolution.maxSlidingWindowHeap(array, 9);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(1, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void maxSlidingWindowBrutalForce() {
+    int[] expect = {3, 3, 5, 5, 6, 7};
+    int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
+    int[] result = mSolution.maxSlidingWindowBrutalForce(array, 3);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(6, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void maxSlidingWindowBrutalForceExtremeBoundaryCase() {
+    int[] expect = {1, -1};
+    int[] array = {1, -1};
+    int[] result = mSolution.maxSlidingWindowBrutalForce(array, 1);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(2, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void maxSlidingWindowBrutalForceBoundaryCase() {
+    int[] expect = {7};
+    int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
+    int[] result = mSolution.maxSlidingWindowBrutalForce(array, 8);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(1, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void maxSlidingWindowBrutalForceNull() {
+    int[] result = mSolution.maxSlidingWindowBrutalForce(null, 0);
+    Assert.assertNull(result);
+  }
+
+  @Test
+  public void maxSlidingWindowBrutalForceEmpty() {
+    int[] array = new int[]{};
+    int[] result = mSolution.maxSlidingWindowBrutalForce(array, 0);
+    Assert.assertTrue(Arrays.equals(array, result));
+  }
+
+  @Test
+  public void maxSlidingWindowKBrutalForceSizeOverFlow() {
+    int[] expect = {7};
+    int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
+    int[] result = mSolution.maxSlidingWindowBrutalForce(array, 9);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(1, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void maxSlidingWindowDeque() {
+    int[] expect = {3, 3, 5, 5, 6, 7};
+    int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
+    int[] result = mSolution.maxSlidingWindowDeque(array, 3);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(6, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void maxSlidingWindowDequeExtremeBoundaryCase() {
+    int[] expect = {1, -1};
+    int[] array = {1, -1};
+    int[] result = mSolution.maxSlidingWindowDeque(array, 1);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(2, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void maxSlidingWindowDequeBoundaryCase() {
+    int[] expect = {7};
+    int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
+    int[] result = mSolution.maxSlidingWindowDeque(array, 8);
+    Assert.assertNotNull(result);
+    Assert.assertEquals(1, result.length);
+    Assert.assertTrue(Arrays.equals(expect, result));
+  }
+
+  @Test
+  public void maxSlidingWindowDequeNull() {
+    int[] result = mSolution.maxSlidingWindowDeque(null, 0);
+    Assert.assertNull(result);
+  }
+
+  @Test
+  public void maxSlidingWindowDequeEmpty() {
+    int[] array = new int[]{};
+    int[] result = mSolution.maxSlidingWindowDeque(array, 0);
+    Assert.assertTrue(Arrays.equals(array, result));
+  }
+
+  @Test
+  public void maxSlidingWindowDequeKSizeOverFlow() {
+    int[] expect = {7};
+    int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
+    int[] result = mSolution.maxSlidingWindowDeque(array, 9);
     Assert.assertNotNull(result);
     Assert.assertEquals(1, result.length);
     Assert.assertTrue(Arrays.equals(expect, result));
@@ -205,15 +311,15 @@ public class LeetCodePriorityQueueSolutionTest {
   public void medianSlidingWindowNull() {
     double[] result = mSolution.medianSlidingWindow(null, 0);
     Assert.assertNotNull(result);
-    Assert.assertTrue(Arrays.equals(new double[] {}, result));
+    Assert.assertTrue(Arrays.equals(new double[]{}, result));
   }
 
   @Test
   public void medianSlidingWindowEmpty() {
-    int[] array = new int[] {};
+    int[] array = new int[]{};
     double[] result = mSolution.medianSlidingWindow(array, 0);
     Assert.assertNotNull(result);
-    Assert.assertTrue(Arrays.equals(new double[] {}, result));
+    Assert.assertTrue(Arrays.equals(new double[]{}, result));
   }
 
   @Test
@@ -221,8 +327,9 @@ public class LeetCodePriorityQueueSolutionTest {
     int[] array = {1, 3, -1, -3, 5, 3, 6, 7};
     double[] result = mSolution.medianSlidingWindow(array, 9);
     Assert.assertNotNull(result);
-    Assert.assertTrue(Arrays.equals(new double[] {}, result));
+    Assert.assertTrue(Arrays.equals(new double[]{}, result));
   }
+
   //
   //  Sliding Window Median -
   // https://leetcode.com/problems/sliding-window-median/
