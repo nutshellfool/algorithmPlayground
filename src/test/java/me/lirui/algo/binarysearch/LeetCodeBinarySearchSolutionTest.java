@@ -174,4 +174,67 @@ public class LeetCodeBinarySearchSolutionTest {
   public void divideMinInteger() {
     mSolution.divide(Integer.MIN_VALUE, -1);
   }
+
+  @Test
+  public void myPow() {
+    double result = mSolution.myPow(2, 10);
+    double expect = 1024.0;
+    Assert.assertTrue(Math.abs(result - expect) <= 0.00001);
+  }
+
+  @Test
+  public void myPow1() {
+    double result = mSolution.myPow(1.1, 2);
+    double expect = 1.21;
+    Assert.assertTrue(Math.abs(result - expect) <= 0.00001);
+  }
+
+  @Test
+  public void myPow2() {
+    double result = mSolution.myPow(2, -2);
+    double expect = 0.25;
+    Assert.assertTrue(Math.abs(result - expect) <= 0.00001);
+  }
+
+  @Test
+  public void myPowRecursion() {
+    double result = mSolution.myPowRecursion(2, 10);
+    double expect = 1024.0;
+    Assert.assertTrue(Math.abs(result - expect) <= 0.00001);
+  }
+
+  @Test
+  public void myPowRecursion1() {
+    double result = mSolution.myPowRecursion(1.1, 2);
+    double expect = 1.21;
+    Assert.assertTrue(Math.abs(result - expect) <= 0.00001);
+  }
+
+  @Test
+  public void myPowRecursion2() {
+    double result = mSolution.myPowRecursion(2, -2);
+    double expect = 0.25;
+    Assert.assertTrue(Math.abs(result - expect) <= 0.00001);
+  }
+
+  @Test
+  public void myPowBrutalForce() {
+    double result = mSolution.myPowBrutalForce(2, 10);
+    double expect = 1024.0;
+    Assert.assertTrue(Math.abs(result - expect) <= 0.00001);
+  }
+
+  @Test
+  public void myPowBrutalForce1() {
+    double result = mSolution.myPowBrutalForce(1.1, 2);
+    double expect = 1.21;
+    Assert.assertTrue(Math.abs(result - expect) <= 0.00001);
+  }
+
+  @Test
+  public void myPowBrutalForce2() {
+    double result = mSolution.myPowBrutalForce(2, -2);
+    double expect = 0.25;
+    Assert.assertTrue(Math.abs(result - expect) <= 0.00001);
+  }
 }

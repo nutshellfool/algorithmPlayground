@@ -231,4 +231,65 @@ class LeetCodeBinarySearchSolution {
   //  https://leetcode.com/problems/divide-two-integers/
   // End
 
+  //  Pow(x, n)
+  //  https://leetcode.com/problems/powx-n/
+  double myPow(double x, int n) {
+    return _myPow(x, n);
+  }
+
+  private double _myPow(double x, long n) {
+    if (n == 0) {
+      return 1;
+    }
+    if (n < 0) {
+      n = -n;
+      x = 1.0 / x;
+    }
+
+    double powResult = 1.0;
+    while (n > 0) {
+      if (n % 2 == 1) {
+        powResult *= x;
+      }
+      x *= x;
+      n /= 2;
+    }
+
+    return powResult;
+  }
+
+  double myPowRecursion(double x, int n) {
+    if (n == 0) {
+      return 1;
+    }
+
+    if (n < 0) {
+      return myPowRecursion(1.0 / x, -n);
+    }
+
+    return myPowRecursion(x * x, n / 2);
+  }
+
+  double myPowBrutalForce(double x, int n) {
+    if (n == 0) {
+      return 1;
+    }
+
+    if (n < 0) {
+      n = -n;
+      x = 1.0 / x;
+    }
+
+    double result = 1;
+    if (n > 0) {
+      for (int i = 1; i <= n; i++) {
+        result *= x;
+      }
+    }
+
+    return result;
+  }
+  //  Pow(x, n)
+  //  https://leetcode.com/problems/powx-n/
+  //  End
 }
