@@ -78,6 +78,7 @@ We use junit as the project unit test framework, as for the maven project struct
 
 - [x] [Pow(x, n)](https://leetcode.com/problems/powx-n/)
 - [x] [Sqrt(x)](https://leetcode.com/problems/sqrtx/)
+- [x] [Divide Two Integers](https://leetcode.com/problems/divide-two-integers/)
 - [ ] [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
 ### Breath First Search
