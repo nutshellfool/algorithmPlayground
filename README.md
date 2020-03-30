@@ -81,7 +81,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Divide Two Integers](https://leetcode.com/problems/divide-two-integers/)
 - [ ] [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
-### Breath First Search
+### Breadth First Search
 
 - [x] [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
 - [x] [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
