@@ -134,4 +134,39 @@ public class BinarySearchTest {
     int position = mSolution.binarySearchBelowLowerBound(array, 0);
     Assert.assertEquals(-1, position);
   }
+
+  @Test
+  public void binarySearchOverHigherBound() {
+    int[] array = {1, 2, 3, 4, 5, 7, 8};
+    int position = mSolution.binarySearchOverHigherBound(array, 6);
+    Assert.assertEquals(5, position);
+  }
+
+  @Test
+  public void binarySearchOverHigherBoundFront() {
+    int[] array = {1, 2, 3, 4, 5, 7, 8};
+    int position = mSolution.binarySearchOverHigherBound(array, 1);
+    Assert.assertEquals(0, position);
+  }
+
+  @Test
+  public void binarySearchOverHigherBoundEnd() {
+    int[] array = {1, 2, 3, 4, 5, 7, 8};
+    int position = mSolution.binarySearchOverHigherBound(array, 8);
+    Assert.assertEquals(6, position);
+  }
+
+  @Test
+  public void binarySearchOverHigherBoundEndOver() {
+    int[] array = {1, 2, 3, 4, 5, 7, 8};
+    int position = mSolution.binarySearchOverHigherBound(array, 0);
+    Assert.assertEquals(0, position);
+  }
+
+  @Test
+  public void binarySearchOverHigherBoundNotExists() {
+    int[] array = {1, 2, 3, 4, 5, 7, 8};
+    int position = mSolution.binarySearchOverHigherBound(array, 9);
+    Assert.assertEquals(-1, position);
+  }
 }

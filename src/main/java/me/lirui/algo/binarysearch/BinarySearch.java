@@ -101,4 +101,26 @@ class BinarySearch {
 
     return -1;
   }
+
+  int binarySearchOverHigherBound(int[] array, int target) {
+    if (array == null || array.length == 0) {
+      return -1;
+    }
+
+    int left = 0, right = array.length - 1;
+    while (left <= right) {
+      int mid = left + (right - left) / 2;
+      if (array[mid] < target) {
+        left = mid + 1;
+      } else {
+        if (mid == 0 || array[mid - 1] < target) {
+          return mid;
+        } else {
+          right = mid - 1;
+        }
+      }
+    }
+
+    return -1;
+  }
 }
