@@ -193,7 +193,35 @@ public class LeetCodeDynamicProgrammingSolutionTest {
   @Test
   public void maxProduct4() {
     int[] array = {0, 0};
-    int max = mSolution.maxProduct(array);
+    int max = mSolution.maxProductStandDP(array);
+    Assert.assertEquals(0, max);
+  }
+
+  @Test
+  public void maxProductStandDP() {
+    int[] array = {2, 3, -1, 4};
+    int max = mSolution.maxProductStandDP(array);
+    Assert.assertEquals(6, max);
+  }
+
+  @Test
+  public void maxProductStandDP1() {
+    int[] array = {-2, -3, -1, -4};
+    int max = mSolution.maxProductStandDP(array);
+    Assert.assertEquals(24, max);
+  }
+
+  @Test
+  public void maxProductStandDP3() {
+    int[] array = {0, 2};
+    int max = mSolution.maxProductStandDP(array);
+    Assert.assertEquals(2, max);
+  }
+
+  @Test
+  public void maxProductStandDP4() {
+    int[] array = {0, 0};
+    int max = mSolution.maxProductStandDP(array);
     Assert.assertEquals(0, max);
   }
   // Maximum Product Subarray

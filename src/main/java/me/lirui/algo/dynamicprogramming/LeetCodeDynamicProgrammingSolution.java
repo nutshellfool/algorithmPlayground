@@ -3,6 +3,7 @@ package me.lirui.algo.dynamicprogramming;
 import java.util.List;
 
 class LeetCodeDynamicProgrammingSolution {
+
   // Fibonacci Number
   // https://leetcode.com/problems/fibonacci-number/
   int fib(int N) {
@@ -148,7 +149,9 @@ class LeetCodeDynamicProgrammingSolution {
   // Maximum Product Subarray
   // https://leetcode.com/problems/maximum-product-subarray/
   int maxProduct(int[] nums) {
-    if (nums == null || nums.length == 0) return -1;
+    if (nums == null || nums.length == 0) {
+      return -1;
+    }
 
     int[] dpPositive = new int[nums.length];
     int[] dpNegative = new int[nums.length];
@@ -166,6 +169,32 @@ class LeetCodeDynamicProgrammingSolution {
 
     return result;
   }
+
+  int maxProductStandDP(int[] nums) {
+    if (nums == null || nums.length == 0) {
+      return -1;
+    }
+    int rowLen = nums.length;
+    int columnLen = 2;
+    int[][] dp = new int[rowLen][columnLen];
+    dp[0][0] = nums[0];
+    dp[0][1] = nums[0];
+    int result = nums[0];
+
+    for (int i = 1; i < rowLen; i++) {
+      if (nums[i] >= 0) {
+        dp[i][0] = Math.max(nums[i], dp[i - 1][0] * nums[i]);
+        dp[i][1] = Math.min(nums[i], dp[i - 1][1] * nums[i]);
+      } else {
+        dp[i][0] = Math.max(nums[i], dp[i - 1][1] * nums[i]);
+        dp[i][1] = Math.min(nums[i], dp[i - 1][0] * nums[i]);
+      }
+      result = Math.max(dp[i][0], result);
+    }
+
+    return result;
+  }
+
   // Maximum Product Subarray
   // https://leetcode.com/problems/maximum-product-subarray/
   // End
@@ -194,6 +223,7 @@ class LeetCodeDynamicProgrammingSolution {
 
     return result;
   }
+
   //  Longest Increasing Subsequence
   // https://leetcode.com/problems/longest-increasing-subsequence/
   // End
@@ -221,6 +251,7 @@ class LeetCodeDynamicProgrammingSolution {
 
     return dp[amount] > amount ? -1 : dp[amount];
   }
+
   // Coin Change
   // https://leetcode.com/problems/coin-change/
   // End
