@@ -372,4 +372,32 @@ class LeetCodeDynamicProgrammingSolution {
     return maxProfitResult;
   }
 
+  int maxProfitklimitedTransaction(int k, int[] prices) {
+
+    if (prices == null || prices.length == 0) {
+      return 0;
+    }
+
+    int[][][] maxProfit = new int[prices.length][2][k + 1];
+    for (int l = 0; l < k + 1; l++) {
+      maxProfit[0][0][l] = 0;
+      maxProfit[0][1][l] = -prices[0];
+    }
+
+    for (int i = 1; i < prices.length; i++) {
+      for (int l = 1; l < k + 1; l++) {
+        maxProfit[i][0][l] = Math.max(maxProfit[i - 1][0][l], maxProfit[i - 1][1][l] + prices[i]);
+        maxProfit[i][1][l] = Math
+            .max(maxProfit[i - 1][1][l], maxProfit[i - 1][0][l - 1] - prices[i]);
+      }
+    }
+
+    int maxProfitResult = 0;
+    for (int l = 0; l < k + 1; l++) {
+      maxProfitResult = Math.max(maxProfitResult, maxProfit[prices.length - 1][0][l]);
+    }
+
+    return maxProfitResult;
+  }
+
 }
