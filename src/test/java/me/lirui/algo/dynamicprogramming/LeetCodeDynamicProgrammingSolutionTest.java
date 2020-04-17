@@ -401,4 +401,25 @@ public class LeetCodeDynamicProgrammingSolutionTest {
     int maxProfit = mSolution.maxProfitUnlimitedTransactionOnePass(prices);
     Assert.assertEquals(0, maxProfit);
   }
+
+  @Test
+  public void maxProfit2limitedTransaction() {
+    int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
+    int maxProfit = mSolution.maxProfit2limitedTransaction(prices);
+    Assert.assertEquals(6, maxProfit);
+  }
+
+  @Test
+  public void maxProfit2limitedTransactionAscend() {
+    int[] prices = {1, 2, 3, 4, 5};
+    int maxProfit = mSolution.maxProfit2limitedTransaction(prices);
+    Assert.assertEquals(4, maxProfit);
+  }
+
+  @Test
+  public void maxProfit2limitedTransactionDescend() {
+    int[] prices = {5, 4, 3, 2, 1};
+    int maxProfit = mSolution.maxProfit2limitedTransaction(prices);
+    Assert.assertEquals(0, maxProfit);
+  }
 }
