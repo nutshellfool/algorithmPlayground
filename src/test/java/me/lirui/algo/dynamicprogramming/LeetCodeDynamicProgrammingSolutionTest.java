@@ -356,7 +356,49 @@ public class LeetCodeDynamicProgrammingSolutionTest {
     int maxProfit = mSolution.maxProfitOnePass(prices);
     Assert.assertEquals(0, maxProfit);
   }
+
   // Best Time to Buy and Sell Stock
   // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
   // End
+  @Test
+  public void maxProfitUnlimitedTransaction() {
+    int[] prices = {7, 1, 5, 3, 6, 4};
+    int maxProfit = mSolution.maxProfitUnlimitedTransaction(prices);
+    Assert.assertEquals(7, maxProfit);
+  }
+
+  @Test
+  public void maxProfitUnlimitedTransactionAscend() {
+    int[] prices = {1, 2, 3, 4, 5};
+    int maxProfit = mSolution.maxProfitUnlimitedTransaction(prices);
+    Assert.assertEquals(4, maxProfit);
+  }
+
+  @Test
+  public void maxProfitUnlimitedTransactionNoResult() {
+    int[] prices = {7, 6, 5, 4, 3, 1};
+    int maxProfit = mSolution.maxProfitUnlimitedTransaction(prices);
+    Assert.assertEquals(0, maxProfit);
+  }
+
+  @Test
+  public void maxProfitUnlimitedTransactionOnePass() {
+    int[] prices = {7, 1, 5, 3, 6, 4};
+    int maxProfit = mSolution.maxProfitUnlimitedTransactionOnePass(prices);
+    Assert.assertEquals(7, maxProfit);
+  }
+
+  @Test
+  public void maxProfitUnlimitedTransactionOnePassAscend() {
+    int[] prices = {1, 2, 3, 4, 5};
+    int maxProfit = mSolution.maxProfitUnlimitedTransactionOnePass(prices);
+    Assert.assertEquals(4, maxProfit);
+  }
+
+  @Test
+  public void maxProfitUnlimitedTransactionOnePassNoResult() {
+    int[] prices = {7, 6, 5, 4, 3, 1};
+    int maxProfit = mSolution.maxProfitUnlimitedTransactionOnePass(prices);
+    Assert.assertEquals(0, maxProfit);
+  }
 }

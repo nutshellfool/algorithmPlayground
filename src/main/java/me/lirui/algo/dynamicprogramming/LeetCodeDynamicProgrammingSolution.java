@@ -285,7 +285,7 @@ class LeetCodeDynamicProgrammingSolution {
     }
 
     int maxProfit = 0;
-    for (int i =0; i < prices.length; i++) {
+    for (int i = 0; i < prices.length; i++) {
       for (int j = i + 1; j < prices.length; j++) {
         maxProfit = Math.max(maxProfit, (prices[j] - prices[i]));
       }
@@ -309,7 +309,39 @@ class LeetCodeDynamicProgrammingSolution {
     }
     return maxProfit;
   }
+
   // Best Time to Buy and Sell Stock
   // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
   // End
+  int maxProfitUnlimitedTransaction(int[] prices) {
+    if (prices == null || prices.length == 0) {
+      return 0;
+    }
+
+    int[][] maxProfit = new int[prices.length][2];
+    maxProfit[0][0] = 0;
+    maxProfit[0][1] = -prices[0];
+
+    for (int i = 1; i < prices.length; i++) {
+      maxProfit[i][0] = Math.max(maxProfit[i - 1][1] + prices[i], maxProfit[i - 1][0]);
+      maxProfit[i][1] = Math.max(maxProfit[i - 1][1], maxProfit[i - 1][0] - prices[i]);
+    }
+
+    return maxProfit[prices.length - 1][0];
+  }
+
+  int maxProfitUnlimitedTransactionOnePass(int[] prices) {
+    if (prices == null || prices.length == 0) {
+      return 0;
+    }
+
+    int maxProfit = 0;
+    for (int i = 0; i < prices.length - 1; i++) {
+      if (prices[i + 1] > prices[i]) {
+        maxProfit += prices[i + 1] - prices[i];
+      }
+    }
+    return maxProfit;
+  }
+
 }
