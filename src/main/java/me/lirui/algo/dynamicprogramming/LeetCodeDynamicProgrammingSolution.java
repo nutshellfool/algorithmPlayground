@@ -278,6 +278,37 @@ class LeetCodeDynamicProgrammingSolution {
 
     return res;
   }
+
+  int maxProfitInstinct(int[] prices) {
+    if (prices == null || prices.length == 0) {
+      return 0;
+    }
+
+    int maxProfit = 0;
+    for (int i =0; i < prices.length; i++) {
+      for (int j = i + 1; j < prices.length; j++) {
+        maxProfit = Math.max(maxProfit, (prices[j] - prices[i]));
+      }
+    }
+    return maxProfit;
+  }
+
+  int maxProfitOnePass(int[] prices) {
+    if (prices == null || prices.length == 0) {
+      return 0;
+    }
+
+    int maxProfit = 0;
+    int minPrice = Integer.MAX_VALUE;
+    for (int price : prices) {
+      if (price < minPrice) {
+        minPrice = price;
+      }
+
+      maxProfit = Math.max(maxProfit, price - minPrice);
+    }
+    return maxProfit;
+  }
   // Best Time to Buy and Sell Stock
   // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
   // End

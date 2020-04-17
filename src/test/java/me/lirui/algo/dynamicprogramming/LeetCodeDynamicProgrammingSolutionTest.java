@@ -328,6 +328,34 @@ public class LeetCodeDynamicProgrammingSolutionTest {
     int maxProfit = mSolution.maxProfit(prices);
     Assert.assertEquals(0, maxProfit);
   }
+
+  @Test
+  public void maxProfitInstinct() {
+    int[] prices = {7, 1, 5, 3, 6, 4};
+    int maxProfit = mSolution.maxProfitInstinct(prices);
+    Assert.assertEquals(5, maxProfit);
+  }
+
+  @Test
+  public void maxProfitInstinctNoResult() {
+    int[] prices = {7, 6, 5, 4, 3, 1};
+    int maxProfit = mSolution.maxProfitInstinct(prices);
+    Assert.assertEquals(0, maxProfit);
+  }
+
+  @Test
+  public void maxProfitOnePass() {
+    int[] prices = {7, 1, 5, 3, 6, 4};
+    int maxProfit = mSolution.maxProfitOnePass(prices);
+    Assert.assertEquals(5, maxProfit);
+  }
+
+  @Test
+  public void maxProfitOnePassNoResult() {
+    int[] prices = {7, 6, 5, 4, 3, 1};
+    int maxProfit = mSolution.maxProfitOnePass(prices);
+    Assert.assertEquals(0, maxProfit);
+  }
   // Best Time to Buy and Sell Stock
   // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
   // End
