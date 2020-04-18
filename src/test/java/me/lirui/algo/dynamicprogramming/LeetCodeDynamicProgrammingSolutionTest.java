@@ -457,4 +457,38 @@ public class LeetCodeDynamicProgrammingSolutionTest {
     int maxProfit = mSolution.maxProfitWithCooldown(prices);
     Assert.assertEquals(1, maxProfit);
   }
+
+  @Test
+  public void maxProfitWithTransactionFee() {
+    int[] prices = {1, 3, 2, 8, 4, 9};
+    int maxProfit = mSolution.maxProfitWithTransactionFee(prices, 2);
+    Assert.assertEquals(8, maxProfit);
+  }
+
+  @Test
+  public void maxProfitWithTransactionFeeDescend() {
+    int[] prices = {5, 4, 3, 2, 1};
+    int maxProfit = mSolution.maxProfitWithTransactionFee(prices, 2);
+    Assert.assertEquals(0, maxProfit);
+  }
+
+  @Test
+  public void maxProfitWithTransactionFeeEmpty() {
+    int[] prices = {};
+    int maxProfit = mSolution.maxProfitWithTransactionFee(prices, 2);
+    Assert.assertEquals(0, maxProfit);
+  }
+
+  @Test
+  public void maxProfitWithTransactionFeeNone() {
+    int maxProfit = mSolution.maxProfitWithTransactionFee(null, 2);
+    Assert.assertEquals(0, maxProfit);
+  }
+
+  @Test
+  public void maxProfitWithTransactionFeeNegativeFee() {
+    int[] prices = {1, 3, 2, 8, 4, 9};
+    int maxProfit = mSolution.maxProfitWithTransactionFee(prices, -2);
+    Assert.assertEquals(0, maxProfit);
+  }
 }

@@ -405,7 +405,7 @@ class LeetCodeDynamicProgrammingSolution {
       return 0;
     }
 
-    int [][] maxProfit = new int[prices.length][3];
+    int[][] maxProfit = new int[prices.length][3];
     // maxProfit(i, j, k)
     //  i: 0, 1, ... prices.length
     //  j: 0, 1
@@ -413,7 +413,7 @@ class LeetCodeDynamicProgrammingSolution {
     //  j means stock holding status, 0 Not holding, 1 holding, 2 Cool down
     for (int j = 0; j < 3; j++) {
       maxProfit[0][0] = 0;
-      maxProfit[0][1] = - prices[0];
+      maxProfit[0][1] = -prices[0];
       maxProfit[0][2] = 0;
     }
 
@@ -429,6 +429,24 @@ class LeetCodeDynamicProgrammingSolution {
     }
 
     return maxProfitResult;
+  }
+
+  int maxProfitWithTransactionFee(int[] prices, int fee) {
+    if (prices == null || prices.length == 0 || fee < 0) {
+      return 0;
+    }
+
+    int[][] maxProfit = new int[prices.length][2];
+
+    maxProfit[0][0] = 0;
+    maxProfit[0][1] = -prices[0];
+
+    for (int i = 1; i < prices.length; i++) {
+      maxProfit[i][0] = Math.max(maxProfit[i - 1][0], maxProfit[i - 1][1] + prices[i] - fee);
+      maxProfit[i][1] = Math.max(maxProfit[i - 1][1], maxProfit[i - 1][0] - prices[i]);
+    }
+
+    return maxProfit[prices.length - 1][0];
   }
 
 }
