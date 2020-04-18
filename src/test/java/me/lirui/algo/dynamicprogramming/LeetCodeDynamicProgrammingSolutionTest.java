@@ -443,4 +443,18 @@ public class LeetCodeDynamicProgrammingSolutionTest {
     int maxProfit = mSolution.maxProfitklimitedTransaction(2, prices);
     Assert.assertEquals(0, maxProfit);
   }
+
+  @Test
+  public void maxProfitWithCooldown() {
+    int[] prices = {1, 2, 3, 0, 2};
+    int maxProfit = mSolution.maxProfitWithCooldown(prices);
+    Assert.assertEquals(3, maxProfit);
+  }
+
+  @Test
+  public void maxProfitWithCooldownBoundaryCase() {
+    int[] prices = {1, 2};
+    int maxProfit = mSolution.maxProfitWithCooldown(prices);
+    Assert.assertEquals(1, maxProfit);
+  }
 }
