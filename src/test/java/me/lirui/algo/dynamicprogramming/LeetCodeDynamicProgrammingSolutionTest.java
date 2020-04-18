@@ -491,4 +491,22 @@ public class LeetCodeDynamicProgrammingSolutionTest {
     int maxProfit = mSolution.maxProfitWithTransactionFee(prices, -2);
     Assert.assertEquals(0, maxProfit);
   }
+
+  @Test
+  public void minDistance() {
+    int minEditDistance = mSolution.minDistance("horse", "ros");
+    Assert.assertEquals(3, minEditDistance);
+  }
+
+  @Test
+  public void minDistance1() {
+    int minEditDistance = mSolution.minDistance("intention", "execution");
+    Assert.assertEquals(5, minEditDistance);
+  }
+
+  @Test
+  public void minDistance2() {
+    int minEditDistance = mSolution.minDistance("intention", "nation");
+    Assert.assertEquals(4, minEditDistance);
+  }
 }

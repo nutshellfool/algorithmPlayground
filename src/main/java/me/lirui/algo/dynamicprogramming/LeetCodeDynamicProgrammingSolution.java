@@ -449,4 +449,39 @@ class LeetCodeDynamicProgrammingSolution {
     return maxProfit[prices.length - 1][0];
   }
 
+  int minDistance(String word1, String word2) {
+    if (word1 == null && word2 == null) {
+      return 0;
+    } else if (word1 == null && word1 != null) {
+      return word2.length();
+    }
+
+    int[][] minEditDistance = new int[word1.length() + 1][word2.length() + 1];
+
+    // minEditDistance (i, j) :
+    // word1 pre i char edit change to word2 pre j sub-string minEditDistance
+
+    for (int i = 0; i < word1.length() + 1; i++) {
+      minEditDistance[i][0] = i;
+    }
+
+    for (int j = 0; j < word2.length() + 1; j++) {
+      minEditDistance[0][j] = j;
+    }
+
+    for (int i = 1; i < word1.length() + 1; i++) {
+      for (int j = 1; j < word2.length() + 1; j++) {
+
+        if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
+          minEditDistance[i][j] = minEditDistance[i - 1][j - 1];
+        } else {
+          minEditDistance[i][j] = Math.min(minEditDistance[i - 1][j],
+              Math.min(minEditDistance[i][j - 1], minEditDistance[i - 1][j - 1])) + 1;
+        }
+      }
+    }
+
+    return minEditDistance[word1.length()][word2.length()];
+  }
+
 }

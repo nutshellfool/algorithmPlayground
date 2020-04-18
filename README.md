@@ -124,7 +124,7 @@ We use junit as the project unit test framework, as for the maven project struct
 
 - [x] [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)
 - [x] [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
-- [ ] [Edit Distance](https://leetcode.com/problems/edit-distance/)
+- [x] [Edit Distance](https://leetcode.com/problems/edit-distance/)
 - [x] [Triangle](https://leetcode.com/problems/triangle/)
 - [x] [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)
 - [x] [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
