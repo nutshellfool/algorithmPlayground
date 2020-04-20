@@ -113,28 +113,18 @@ class LeetCodeUnionFindSolution {
     }
 
     int rowLength = M.length;
-    int columnLength = M[0].length;
+//    int columnLength = M[0].length;
 
-    GridIntUnionFind _unionFind = new GridIntUnionFind(M);
+    UnionFind _unionFind = new UnionFind(rowLength);
 
     for (int i = 0; i < rowLength; i++) {
-      for (int j = 0; j < columnLength; j++) {
-        if (M[i][j] == 0) {
-          continue;
-        }
-
-        for (int k = 0; k < 4; k++) {
-          int newRowIndex = i + DX[k];
-          int newColumnIndex = j + DY[k];
-          if (newRowIndex >= 0 && newRowIndex < rowLength && newColumnIndex >= 0
-              && newColumnIndex < columnLength && M[newRowIndex][newColumnIndex] == 1) {
-            _unionFind.union(i * columnLength + j, newRowIndex * columnLength + newColumnIndex);
-          }
+      for (int j = 0; j < i; j++) {
+        if (M[i][j] == 1) {
+          _unionFind.union(i, j);
         }
       }
     }
 
     return _unionFind.getCount();
-
   }
 }

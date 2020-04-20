@@ -2,16 +2,22 @@ package me.lirui.algo.unionfind;
 
 /**
  * An implementation of UnionFind data structure
+ * With path compression and path pruning by rank optimization.
  */
 class UnionFind {
 
   private int[] roots;
+  private int mCount;
+  private int[] mRank;
 
   UnionFind(int n) {
+    mCount = n;
     roots = new int[n];
+    mRank = new int[n];
 
     for (int i = 0; i < n; i++) {
       roots[i] = i;
+      mRank[i] = 1;
     }
   }
 
@@ -23,8 +29,20 @@ class UnionFind {
    */
   void union(int p, int q) {
     int rootP = findRoot(p);
-    int rootq = findRoot(q);
-    roots[rootP] = rootq;
+    int rootQ = findRoot(q);
+
+    if (rootP != rootQ) {
+      if (mRank[rootP] < mRank[rootQ]) {
+        roots[rootP] = rootQ;
+        mRank[rootQ] += mRank[rootP];
+      } else {
+        roots[rootQ] = rootP;
+        mRank[rootP] += mRank[rootQ];
+      }
+      mCount--;
+    }
+
+
   }
 
   /**
@@ -36,6 +54,10 @@ class UnionFind {
    */
   boolean connected(int p, int q) {
     return findRoot(p) == findRoot(q);
+  }
+
+  int getCount() {
+    return mCount;
   }
 
   private int findRoot(int i) {
