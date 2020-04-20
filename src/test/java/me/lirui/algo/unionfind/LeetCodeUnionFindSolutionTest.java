@@ -14,6 +14,28 @@ public class LeetCodeUnionFindSolutionTest {
   }
 
   @Test
+  public void numIslands() {
+    char[][] grid = {
+        {'1', '1', '1', '1', '0'},
+        {'1', '1', '0', '1', '0'},
+        {'1', '1', '0', '0', '0'},
+        {'0', '0', '0', '0', '0'}};
+    int numOfIslands = this.mSolution.numIslands(grid);
+    Assert.assertEquals(1, numOfIslands);
+  }
+
+  @Test
+  public void numIslands1() {
+    char[][] grid = {
+        {'1', '1', '0', '0', '0'},
+        {'1', '1', '0', '0', '0'},
+        {'0', '0', '1', '0', '0'},
+        {'0', '0', '0', '1', '1'}};
+    int numOfIslands = this.mSolution.numIslands(grid);
+    Assert.assertEquals(3, numOfIslands);
+  }
+
+  @Test
   public void numIslandsDFS() {
     char[][] grid = {
         {'1', '1', '1', '1', '0'},

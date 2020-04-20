@@ -9,6 +9,37 @@ class LeetCodeUnionFindSolution {
   private static final int[] DX = {0, 0, 1, -1};
   private static final int[] DY = {1, -1, 0, 0};
 
+  int numIslands(char[][] grid) {
+    if (grid == null || grid.length == 0) {
+      return 0;
+    }
+
+    int rowLength = grid.length;
+    int columnLength = grid[0].length;
+
+    GridUnionFind _unionFind = new GridUnionFind(grid);
+
+    for (int i = 0; i < rowLength; i++) {
+      for (int j = 0; j < columnLength; j++) {
+        if (grid[i][j] == '0') {
+          continue;
+        }
+
+        for (int k = 0; k < 4; k++) {
+          int newRowIndex = i + DX[k];
+          int newColumnIndex = j + DY[k];
+          if (newRowIndex >= 0 && newRowIndex < rowLength && newColumnIndex >= 0
+              && newColumnIndex < columnLength && grid[newRowIndex][newColumnIndex] == '1') {
+            _unionFind.union(i * columnLength + j, newRowIndex * columnLength + newColumnIndex);
+          }
+        }
+      }
+    }
+
+    return _unionFind.getCount();
+
+  }
+
   int numIslandsDFS(char[][] grid) {
     if (grid == null || grid.length == 0) {
       return 0;

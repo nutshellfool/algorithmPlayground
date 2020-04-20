@@ -147,7 +147,7 @@ We use junit as the project unit test framework, as for the maven project struct
 
 ### Union-find
 
-- [ ] [Number of Islands](https://leetcode.com/problems/number-of-islands/)
+- [x] [Number of Islands](https://leetcode.com/problems/number-of-islands/)
 - [ ] [Friend Circles](https://leetcode.com/problems/friend-circles/)
 
 ### Bitmap
