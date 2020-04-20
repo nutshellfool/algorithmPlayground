@@ -78,4 +78,26 @@ public class LeetCodeUnionFindSolutionTest {
     int numOfIslands = this.mSolution.numIslandsDFSNoMoreExtraSpace(grid);
     Assert.assertEquals(3, numOfIslands);
   }
+
+  @Test
+  public void findCircleNum() {
+    int[][] grid = {
+        {1, 1, 1, 1, 0},
+        {1, 1, 0, 1, 0},
+        {1, 1, 0, 0, 0},
+        {0, 0, 0, 0, 0}};
+    int numOfIslands = this.mSolution.findCircleNum(grid);
+    Assert.assertEquals(1, numOfIslands);
+  }
+
+  @Test
+  public void findCircleNum1() {
+    int[][] grid = {
+        {1, 1, 0, 0, 0},
+        {1, 1, 0, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 0, 1, 1}};
+    int numOfIslands = this.mSolution.findCircleNum(grid);
+    Assert.assertEquals(3, numOfIslands);
+  }
 }
