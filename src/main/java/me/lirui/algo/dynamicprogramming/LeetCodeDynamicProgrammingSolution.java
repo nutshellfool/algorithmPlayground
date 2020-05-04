@@ -418,7 +418,7 @@ class LeetCodeDynamicProgrammingSolution {
     }
 
     for (int i = 1; i < prices.length; i++) {
-      maxProfit[i][0] = Math.max(maxProfit[i - 1][1] + prices[i], maxProfit[i - 1][0]);
+      maxProfit[i][0] = Math.max(maxProfit[i - 1][1] + prices[i], Math.max(maxProfit[i - 1][0], maxProfit[i - 1][2]));
       maxProfit[i][1] = Math.max(maxProfit[i - 1][1], maxProfit[i - 1][2] - prices[i]);
       maxProfit[i][2] = maxProfit[i - 1][0];
     }
