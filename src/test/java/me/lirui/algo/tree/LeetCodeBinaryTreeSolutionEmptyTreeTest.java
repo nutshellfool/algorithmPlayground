@@ -65,4 +65,19 @@ public class LeetCodeBinaryTreeSolutionEmptyTreeTest {
     int minDepth = mSolution.minDepthDFS(mTree.root);
     Assert.assertEquals(0, minDepth);
   }
+
+  @Test
+  public void rightSideView() {
+    List<Integer> rightSideViewList = mSolution.rightSideView(mTree.root);
+    Assert.assertNotNull(rightSideViewList);
+    Assert.assertEquals(0, rightSideViewList.size());
+  }
+
+  @Test
+  public void rightSideViewDFS() {
+    List<Integer> rightSideViewList = mSolution.rightSideViewDFS(mTree.root);
+    Assert.assertNotNull(rightSideViewList);
+    Assert.assertEquals(0, rightSideViewList.size());
+  }
+
 }

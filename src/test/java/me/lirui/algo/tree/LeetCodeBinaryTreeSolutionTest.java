@@ -177,4 +177,24 @@ public class LeetCodeBinaryTreeSolutionTest {
     Assert.assertEquals(5, traversalList.get(1));
     Assert.assertEquals(4, traversalList.get(2));
   }
+
+  @Test
+  public void rightSideView() {
+    List<Integer> rightSideViewList = mSolution.rightSideView(mTree.root);
+    Assert.assertNotNull(rightSideViewList);
+    Assert.assertEquals(3, rightSideViewList.size());
+    Assert.assertEquals(2, rightSideViewList.get(0));
+    Assert.assertEquals(4, rightSideViewList.get(1));
+    Assert.assertEquals(5, rightSideViewList.get(2));
+  }
+
+  @Test
+  public void rightSideViewDFS() {
+    List<Integer> rightSideViewList = mSolution.rightSideViewDFS(mTree.root);
+    Assert.assertNotNull(rightSideViewList);
+    Assert.assertEquals(3, rightSideViewList.size());
+    Assert.assertEquals(2, rightSideViewList.get(0));
+    Assert.assertEquals(4, rightSideViewList.get(1));
+    Assert.assertEquals(5, rightSideViewList.get(2));
+  }
 }

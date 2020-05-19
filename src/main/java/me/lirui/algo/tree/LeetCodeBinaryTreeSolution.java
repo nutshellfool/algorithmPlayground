@@ -355,4 +355,61 @@ class LeetCodeBinaryTreeSolution {
   // Binary Tree Postorder Traversal
   // https://leetcode.com/problems/binary-tree-postorder-traversal/
   // End
+
+  // Binary Tree Right Side View
+  // https://leetcode.com/problems/binary-tree-right-side-view/
+  List<Integer> rightSideView(TreeNode root) {
+    if (root == null) {
+      return new ArrayList<>();
+    }
+
+    ArrayList<Integer> result = new ArrayList<>();
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
+    while (!queue.isEmpty()) {
+      int batchSize = queue.size();
+      for (int i = 0; i < batchSize; i++) {
+        TreeNode node = queue.poll();
+        if (node.leftChild != null) {
+          queue.offer(node.leftChild);
+        }
+        if (node.rightChild != null) {
+          queue.offer(node.rightChild);
+        }
+
+        if (i == batchSize - 1) {
+          result.add(node.data);
+        }
+      }
+    }
+
+    return result;
+  }
+
+  List<Integer> rightSideViewDFS(TreeNode root) {
+    if (root == null) {
+      return new ArrayList<>();
+    }
+
+    ArrayList<Integer> result = new ArrayList<>();
+    _rightSideViewDFS(root, 0, result);
+    return result;
+  }
+
+  private void _rightSideViewDFS(TreeNode root, int level, ArrayList<Integer> list) {
+    if (root == null) {
+      return;
+    }
+
+    if (level == list.size()) {
+      list.add(root.data);
+    }
+
+    _rightSideViewDFS(root.rightChild, level + 1, list);
+    _rightSideViewDFS(root.leftChild, level + 1, list);
+  }
+  // Binary Tree Right Side View
+  // https://leetcode.com/problems/binary-tree-right-side-view/
+  // End
+
 }

@@ -86,7 +86,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
 - [x] [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
 - [x] [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
-- [ ] [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
+- [x] [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
 
 ### Depth First Search
 
@@ -95,7 +95,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
 - [x] [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
 - [x] [Number of Islands](https://leetcode.com/problems/number-of-islands/)
-- [ ] [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
+- [x] [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
 
 ## Basic algorithm thinking
 
