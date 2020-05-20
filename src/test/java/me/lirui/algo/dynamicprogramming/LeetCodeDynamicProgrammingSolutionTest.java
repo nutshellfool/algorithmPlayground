@@ -509,4 +509,28 @@ public class LeetCodeDynamicProgrammingSolutionTest {
     int minEditDistance = mSolution.minDistance("intention", "nation");
     Assert.assertEquals(4, minEditDistance);
   }
+
+  @Test
+  public void superEggDrop() {
+    int certainty = mSolution.superEggDrop(2, 100);
+    Assert.assertEquals(14, certainty);
+  }
+
+  @Test
+  public void superEggDrop1() {
+    int certainty = mSolution.superEggDrop(1, 2);
+    Assert.assertEquals(2, certainty);
+  }
+
+  @Test
+  public void superEggDrop2() {
+    int certainty = mSolution.superEggDrop(2, 6);
+    Assert.assertEquals(3, certainty);
+  }
+
+  @Test
+  public void superEggDrop3() {
+    int certainty = mSolution.superEggDrop(3, 14);
+    Assert.assertEquals(4, certainty);
+  }
 }

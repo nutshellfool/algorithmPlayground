@@ -137,6 +137,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
 - [x] [Coin Change](https://leetcode.com/problems/coin-change/)
 - [x] [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
+- [x] [Super Egg Drop](https://leetcode.com/problems/super-egg-drop/)
 - [ ] [Android Unlock Patterns](https://leetcode.com/problems/android-unlock-patterns/)
 
 ## Advanced data structure & algorithm

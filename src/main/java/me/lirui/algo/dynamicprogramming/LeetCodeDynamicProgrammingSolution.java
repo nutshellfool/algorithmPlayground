@@ -418,7 +418,8 @@ class LeetCodeDynamicProgrammingSolution {
     }
 
     for (int i = 1; i < prices.length; i++) {
-      maxProfit[i][0] = Math.max(maxProfit[i - 1][1] + prices[i], Math.max(maxProfit[i - 1][0], maxProfit[i - 1][2]));
+      maxProfit[i][0] = Math
+          .max(maxProfit[i - 1][1] + prices[i], Math.max(maxProfit[i - 1][0], maxProfit[i - 1][2]));
       maxProfit[i][1] = Math.max(maxProfit[i - 1][1], maxProfit[i - 1][2] - prices[i]);
       maxProfit[i][2] = maxProfit[i - 1][0];
     }
@@ -482,6 +483,18 @@ class LeetCodeDynamicProgrammingSolution {
     }
 
     return minEditDistance[word1.length()][word2.length()];
+  }
+
+  int superEggDrop(int k, int n) {
+    int[][] dp = new int[n + 1][k + 1];
+    int m = 0;
+    while (dp[m][k] < n) {
+      m++;
+      for (int l = 1; l <= k; ++l) {
+        dp[m][l] = dp[m - 1][l - 1] + dp[m - 1][l] + 1;
+      }
+    }
+    return m;
   }
 
 }
