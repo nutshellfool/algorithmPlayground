@@ -375,4 +375,42 @@ public class LeetCodePriorityQueueSolutionTest {
   //   Find Median from Data Stream -
   // https://leetcode.com/problems/find-median-from-data-stream/
   // End
+
+  @Test
+  public void topKFrequent() {
+    int[] array = {1, 1, 1, 2, 2, 3};
+    int[] topKFreq = mSolution.topKFrequent(array, 2);
+    Assert.assertNotNull(topKFreq);
+    Assert.assertEquals(2, topKFreq.length);
+    Assert.assertEquals(1, topKFreq[0]);
+    Assert.assertEquals(2, topKFreq[1]);
+  }
+
+  @Test
+  public void topKFrequent1() {
+    int[] array = {1};
+    int[] topKFreq = mSolution.topKFrequent(array, 1);
+    Assert.assertNotNull(topKFreq);
+    Assert.assertEquals(1, topKFreq.length);
+    Assert.assertEquals(1, topKFreq[0]);
+  }
+
+  @Test
+  public void topKFrequentInstinct() {
+    int[] array = {1, 1, 1, 2, 2, 3};
+    int[] topKFreq = mSolution.topKFrequentInstinct(array, 2);
+    Assert.assertNotNull(topKFreq);
+    Assert.assertEquals(2, topKFreq.length);
+    Assert.assertEquals(1, topKFreq[0]);
+    Assert.assertEquals(2, topKFreq[1]);
+  }
+
+  @Test
+  public void topKFrequentInstinct1() {
+    int[] array = {1};
+    int[] topKFreq = mSolution.topKFrequentInstinct(array, 1);
+    Assert.assertNotNull(topKFreq);
+    Assert.assertEquals(1, topKFreq.length);
+    Assert.assertEquals(1, topKFreq[0]);
+  }
 }

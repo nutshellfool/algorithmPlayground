@@ -1,9 +1,14 @@
 package me.lirui.algo.heap;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Deque;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.PriorityQueue;
 
@@ -293,4 +298,69 @@ class LeetCodePriorityQueueSolution {
   //   Find Median from Data Stream -
   // https://leetcode.com/problems/find-median-from-data-stream/
   // End
+
+  int[] topKFrequent(int[] nums, int k) {
+    if (nums == null || nums.length == 0 || k <= 0 || k > nums.length) {
+      return new int[]{};
+    }
+
+    int[] topK = new int[k];
+    HashMap<Integer, Integer> numFrequencyMap = new HashMap<>();
+    for (int num : nums) {
+      numFrequencyMap.put(num, numFrequencyMap.get(num) == null ? 0 : numFrequencyMap.get(num) + 1);
+    }
+
+    PriorityQueue<Entry<Integer, Integer>> maxHeap =
+        new PriorityQueue<>(k, new Comparator<Entry<Integer, Integer>>() {
+          @Override
+          public int compare(Entry<Integer, Integer> o1, Entry<Integer, Integer> o2) {
+            return o2.getValue() - o1.getValue();
+          }
+        });
+    maxHeap.addAll(numFrequencyMap.entrySet());
+
+    for (int i = 0; i < k; i++) {
+      Entry<Integer, Integer> entry = maxHeap.poll();
+      if (entry != null) {
+        topK[i] = entry.getKey();
+      }
+    }
+
+    return topK;
+  }
+
+  @SuppressWarnings("unchecked")
+  int[] topKFrequentInstinct(int[] nums, int k) {
+    if (nums == null || nums.length == 0 || k <= 0 || k > nums.length) {
+      return new int[]{};
+    }
+
+    int[] topK = new int[k];
+    HashMap<Integer, Integer> numFrequencyMap = new HashMap<>();
+    for (int num : nums) {
+      numFrequencyMap.put(num, numFrequencyMap.get(num) == null ? 0 : numFrequencyMap.get(num) + 1);
+    }
+
+    List[] bucket = new List[nums.length + 1];
+    for (Entry<Integer, Integer> entry : numFrequencyMap.entrySet()) {
+      if (bucket[entry.getValue()] == null) {
+        bucket[entry.getValue()] = new ArrayList<>();
+      }
+      bucket[entry.getValue()].add(entry.getKey());
+    }
+
+    List<Integer> res = new ArrayList<>();
+
+    for (int pos = bucket.length - 1; pos >= 0 && res.size() < k; pos--) {
+      if (bucket[pos] != null) {
+        res.addAll(bucket[pos]);
+      }
+    }
+
+    for (int i = 0; i < k; i++) {
+      topK[i] = res.get(i);
+    }
+
+    return topK;
+  }
 }
