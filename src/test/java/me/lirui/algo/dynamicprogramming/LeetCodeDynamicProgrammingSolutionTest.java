@@ -533,4 +533,18 @@ public class LeetCodeDynamicProgrammingSolutionTest {
     int certainty = mSolution.superEggDrop(3, 14);
     Assert.assertEquals(4, certainty);
   }
+
+  @Test
+  public void maxSubArray() {
+    int[] array = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    int largestSubArraySum = mSolution.maxSubArray(array);
+    Assert.assertEquals(6, largestSubArraySum);
+  }
+
+  @Test
+  public void maxSubArrayEmptyArray() {
+    int[] array = {};
+    int largestSubArraySum = mSolution.maxSubArray(array);
+    Assert.assertEquals(0, largestSubArraySum);
+  }
 }
