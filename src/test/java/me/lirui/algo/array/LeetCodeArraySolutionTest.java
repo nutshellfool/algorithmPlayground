@@ -1,5 +1,6 @@
 package me.lirui.algo.array;
 
+import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -184,4 +185,41 @@ public class LeetCodeArraySolutionTest {
     int unitOfTrappedWater = mSolution.trap(height);
     Assert.assertEquals(2, unitOfTrappedWater);
   }
+
+  @Test
+  public void sortColor() {
+    int[] colorArray = {2, 0, 2, 1, 1, 0};
+    mSolution.sortColors(colorArray);
+    Assert.assertNotNull(colorArray);
+    Assert.assertEquals(6, colorArray.length);
+    Assert.assertTrue(Arrays.equals(new int[]{0, 0, 1, 1, 2, 2}, colorArray));
+  }
+
+  @Test
+  public void sortColorEmpty() {
+    int[] colorArray = {};
+    mSolution.sortColors(colorArray);
+    Assert.assertNotNull(colorArray);
+    Assert.assertEquals(0, colorArray.length);
+    Assert.assertTrue(Arrays.equals(new int[]{}, colorArray));
+  }
+
+  @Test
+  public void sortColorInstinct() {
+    int[] colorArray = {2, 0, 2, 1, 1, 0};
+    mSolution.sortColorsInstinct(colorArray);
+    Assert.assertNotNull(colorArray);
+    Assert.assertEquals(6, colorArray.length);
+    Assert.assertTrue(Arrays.equals(new int[]{0, 0, 1, 1, 2, 2}, colorArray));
+  }
+
+  @Test
+  public void sortColorInstinctEmpty() {
+    int[] colorArray = {};
+    mSolution.sortColorsInstinct(colorArray);
+    Assert.assertNotNull(colorArray);
+    Assert.assertEquals(0, colorArray.length);
+    Assert.assertTrue(Arrays.equals(new int[]{}, colorArray));
+  }
+
 }

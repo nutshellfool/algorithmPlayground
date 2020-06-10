@@ -1,5 +1,7 @@
 package me.lirui.algo.array;
 
+import java.util.Arrays;
+
 class LeetCodeArraySolution {
 
   // Container With Most Water
@@ -155,4 +157,41 @@ class LeetCodeArraySolution {
   // Trapping Rain Water
   // https://leetcode.com/problems/trapping-rain-water/
   // End
+
+  void sortColors(int[] nums) {
+    if (nums == null || nums.length == 0) {
+      return;
+    }
+    int pointerFront = 0;
+    int pointerRear = nums.length - 1;
+    int current = 0;
+    while (current <= pointerRear) {
+      if (nums[current] == 0) {
+        swap(nums, current, pointerFront);
+        current++;
+        pointerFront++;
+      } else if (nums[current] == 2) {
+        swap(nums, current, pointerRear);
+        pointerRear--;
+      } else {
+        current++;
+      }
+    }
+  }
+
+  private void swap(int[] array, int indexSwap1, int indexSwap2) {
+    int temp = array[indexSwap1];
+    array[indexSwap1] = array[indexSwap2];
+    array[indexSwap2] = temp;
+
+  }
+
+
+  void sortColorsInstinct(int[] nums) {
+    if (nums == null || nums.length == 0) {
+      return;
+    }
+
+    Arrays.sort(nums);
+  }
 }
