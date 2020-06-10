@@ -240,4 +240,20 @@ public class LeetCodeArraySolutionTest {
     Assert.assertTrue(Arrays.equals(new int[]{3, 1, 12, 0, 0}, array));
   }
 
+  @Test
+  public void removeDuplicates() {
+    int[] array = {1, 1, 2};
+    int size = mSolution.removeDuplicates(array);
+    Assert.assertNotNull(array);
+    Assert.assertEquals(2, size);
+  }
+
+  @Test
+  public void removeDuplicates1() {
+    int[] array = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+    int size = mSolution.removeDuplicates(array);
+    Assert.assertNotNull(array);
+    Assert.assertEquals(5, size);
+  }
+
 }

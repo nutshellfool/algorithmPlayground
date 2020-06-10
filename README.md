@@ -16,6 +16,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [ ] [Maximum Swap](https://leetcode.com/problems/maximum-swap/)
 - [x] [Sort Colors](https://leetcode.com/problems/sort-colors/)
 - [x] [Move Zeroes](https://leetcode.com/problems/move-zeroes/)
+- [x] [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 
 
 ###Linked List
