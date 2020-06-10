@@ -183,7 +183,6 @@ class LeetCodeArraySolution {
     int temp = array[indexSwap1];
     array[indexSwap1] = array[indexSwap2];
     array[indexSwap2] = temp;
-
   }
 
 
@@ -193,5 +192,21 @@ class LeetCodeArraySolution {
     }
 
     Arrays.sort(nums);
+  }
+
+  void moveZeroes(int[] nums) {
+    if (nums == null || nums.length == 0) {
+      return;
+    }
+
+    int lastNotZeroIndex = 0;
+    int current = 0;
+    while (current < nums.length) {
+      if (nums[current] != 0) {
+        swap(nums, current, lastNotZeroIndex);
+        lastNotZeroIndex++;
+      }
+      current++;
+    }
   }
 }

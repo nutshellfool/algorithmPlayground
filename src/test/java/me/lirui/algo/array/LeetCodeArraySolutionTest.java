@@ -222,4 +222,22 @@ public class LeetCodeArraySolutionTest {
     Assert.assertTrue(Arrays.equals(new int[]{}, colorArray));
   }
 
+  @Test
+  public void moveZeroes() {
+    int[] array = {0, 1, 0, 3, 12};
+    mSolution.moveZeroes(array);
+    Assert.assertNotNull(array);
+    Assert.assertEquals(5, array.length);
+    Assert.assertTrue(Arrays.equals(new int[]{1, 3, 12, 0, 0}, array));
+  }
+
+  @Test
+  public void moveZeroes1() {
+    int[] array = {0, 3, 0, 1, 12};
+    mSolution.moveZeroes(array);
+    Assert.assertNotNull(array);
+    Assert.assertEquals(5, array.length);
+    Assert.assertTrue(Arrays.equals(new int[]{3, 1, 12, 0, 0}, array));
+  }
+
 }
