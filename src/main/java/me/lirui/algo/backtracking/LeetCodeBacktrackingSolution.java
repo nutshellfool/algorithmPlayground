@@ -19,7 +19,7 @@ class LeetCodeBacktrackingSolution {
       return;
     }
 
-    for (int i = start; i <= n; i++) {
+    for (int i = start; i <= n - (k - tempList.size()) + 1; i++) {
       tempList.add(i);
       _combine(result, tempList, i + 1, n, k);
       tempList.remove(tempList.size() - 1);
