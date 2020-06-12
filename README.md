@@ -18,6 +18,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Move Zeroes](https://leetcode.com/problems/move-zeroes/)
 - [x] [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 - [x] [Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes/)
+- [x] [Merge Intervals](https://leetcode.com/problems/merge-intervals/)
 
 
 ###Linked List

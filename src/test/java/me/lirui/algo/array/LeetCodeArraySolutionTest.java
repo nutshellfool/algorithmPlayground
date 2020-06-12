@@ -1,6 +1,8 @@
 package me.lirui.algo.array;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -258,9 +260,70 @@ public class LeetCodeArraySolutionTest {
 
   @Test
   public void maxEnvelopes() {
-    int[][] envelopes = {{5,4},{6,4},{6,7},{2,3}};
+    int[][] envelopes = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
     int maxRussianEnvelopes = mSolution.maxEnvelopes(envelopes);
     Assert.assertEquals(3, maxRussianEnvelopes);
   }
 
+  @Test
+  public void merge() {
+    int[][] expected = {{1, 6}, {8, 10}, {15, 18}};
+    int[][] intervals = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+    int[][] merged = mSolution.merge(intervals);
+    Assert.assertNotNull(merged);
+    Assert.assertEquals(expected.length, merged.length);
+    Assert.assertTrue(convert2DArrayToNestedList(expected).containsAll(convert2DArrayToNestedList(merged)));
+    Assert.assertTrue(convert2DArrayToNestedList(merged).containsAll(convert2DArrayToNestedList(expected)));
+  }
+
+  @Test
+  public void merge1() {
+    int[][] expected = {{1, 5}};
+    int[][] intervals = {{1, 4}, {4, 5}};
+    int[][] merged = mSolution.merge(intervals);
+    Assert.assertNotNull(merged);
+    Assert.assertEquals(expected.length, merged.length);
+    Assert.assertTrue(convert2DArrayToNestedList(expected).containsAll(convert2DArrayToNestedList(merged)));
+    Assert.assertTrue(convert2DArrayToNestedList(merged).containsAll(convert2DArrayToNestedList(expected)));
+  }
+
+  @Test
+  public void mergeNull() {
+    int[][] merged = mSolution.merge(null);
+    Assert.assertNull(merged);
+  }
+
+  @Test
+  public void mergeEmpty() {
+    int[][] interval = {};
+    int[][] merged = mSolution.merge(interval);
+    Assert.assertNull(merged);
+  }
+
+  @Test
+  public void mergeInvalidEmpty() {
+    int[][] interval = {{}};
+    int[][] merged = mSolution.merge(interval);
+    Assert.assertNull(merged);
+  }
+
+  @Test
+  public void mergeInvalidEntryLength() {
+    int[][] interval = {{1}};
+    int[][] merged = mSolution.merge(interval);
+    Assert.assertNull(merged);
+  }
+
+  private List<List<Integer>> convert2DArrayToNestedList(int[][] arrays) {
+    List<List<Integer>> result = new ArrayList<>(arrays.length);
+    for (int[] array : arrays) {
+      List<Integer> itemList = new ArrayList<>(2);
+      for (int arrayItem : array) {
+        itemList.add(arrayItem);
+      }
+      result.add(itemList);
+    }
+
+    return result;
+  }
 }

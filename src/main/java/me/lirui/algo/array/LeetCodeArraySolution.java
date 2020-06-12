@@ -2,6 +2,7 @@ package me.lirui.algo.array;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.LinkedList;
 
 class LeetCodeArraySolution {
 
@@ -268,5 +269,36 @@ class LeetCodeArraySolution {
     }
 
     return maxLength;
+  }
+
+  // Merge Intervals
+  // https://leetcode.com/problems/merge-intervals/
+  private class IntervalComparator implements Comparator<int[]> {
+
+    @Override
+    public int compare(int[] o1, int[] o2) {
+      return o1[0] == o2[0] ? o2[1] - o1[1] : o1[0] - o2[0];
+    }
+  }
+
+  int[][] merge(int[][] intervals) {
+
+    if (intervals == null || intervals.length == 0 || intervals[0] == null
+        || intervals[0].length < 2) {
+      return null;
+    }
+
+    Arrays.sort(intervals, new IntervalComparator());
+    LinkedList<int[]> mergedList = new LinkedList<>();
+
+    for (int[] interval : intervals) {
+      if (mergedList.size() == 0 || mergedList.getLast()[1] < interval[0]) {
+        mergedList.add(interval);
+      } else {
+        mergedList.getLast()[1] = Math.max(mergedList.getLast()[1], interval[1]);
+      }
+    }
+
+    return mergedList.toArray(new int[mergedList.size()][2]);
   }
 }
