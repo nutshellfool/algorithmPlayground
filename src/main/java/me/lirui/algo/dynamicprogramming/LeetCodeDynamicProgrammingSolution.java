@@ -1,5 +1,6 @@
 package me.lirui.algo.dynamicprogramming;
 
+import java.util.Arrays;
 import java.util.List;
 
 class LeetCodeDynamicProgrammingSolution {
@@ -209,9 +210,7 @@ class LeetCodeDynamicProgrammingSolution {
     int result = 1;
     int[] dp = new int[nums.length];
     int length = nums.length;
-    for (int i = 0; i < nums.length; i++) {
-      dp[i] = 1;
-    }
+    Arrays.fill(dp, 1);
     for (int i = 0; i < length; i++) {
       for (int j = 0; j < i; j++) {
         if (nums[i] > nums[j]) {
