@@ -1,6 +1,7 @@
 package me.lirui.algo.array;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 class LeetCodeArraySolution {
 
@@ -223,5 +224,49 @@ class LeetCodeArraySolution {
       }
     }
     return i + 1;
+  }
+
+  int maxEnvelopes(int[][] envelopes) {
+    if (envelopes == null || envelopes.length == 0 || envelopes[0] == null
+        || envelopes[0].length < 2) {
+      return 0;
+    }
+
+    int maxLength = 0;
+    // sort the width dimension (envelopes(w,h))
+    Arrays.sort(envelopes, new Comparator<int[]>() {
+      public int compare(int[] arr1, int[] arr2) {
+        if (arr1[0] == arr2[0]) {
+          return arr2[1] - arr1[1];
+        } else {
+          return arr1[0] - arr2[0];
+        }
+      }
+    });
+
+    // LIS the height dimension
+    int[] dp = new int[envelopes.length + 1];
+
+    for (int[] envelop : envelopes) {
+      int left = 0;
+      int right = maxLength;
+      int middle;
+      while (left < right) {
+        //
+        middle = left + (right - left) / 2;
+        if (dp[middle] < envelop[1]) {
+          left = middle + 1;
+        } else {
+          right = middle;
+        }
+      }
+
+      dp[left] = envelop[1];
+      if (maxLength == left) {
+        maxLength++;
+      }
+    }
+
+    return maxLength;
   }
 }

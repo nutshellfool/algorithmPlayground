@@ -256,4 +256,11 @@ public class LeetCodeArraySolutionTest {
     Assert.assertEquals(5, size);
   }
 
+  @Test
+  public void maxEnvelopes() {
+    int[][] envelopes = {{5,4},{6,4},{6,7},{2,3}};
+    int maxRussianEnvelopes = mSolution.maxEnvelopes(envelopes);
+    Assert.assertEquals(3, maxRussianEnvelopes);
+  }
+
 }
