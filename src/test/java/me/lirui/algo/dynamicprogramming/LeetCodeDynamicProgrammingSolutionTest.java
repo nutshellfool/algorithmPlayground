@@ -263,6 +263,40 @@ public class LeetCodeDynamicProgrammingSolutionTest {
     int lengthLIS = mSolution.lengthOfLIS(null);
     Assert.assertEquals(0, lengthLIS);
   }
+
+  @Test
+  public void lengthOfLISBinarySearch() {
+    int[] array = {10, 9, 2, 5, 3, 7, 101, 18};
+    int lengthLIS = mSolution.lengthOfLISBinarySearch(array);
+    Assert.assertEquals(4, lengthLIS);
+  }
+
+  @Test
+  public void lengthOfLISBinarySearchDES() {
+    int[] array = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    int lengthLIS = mSolution.lengthOfLISBinarySearch(array);
+    Assert.assertEquals(1, lengthLIS);
+  }
+
+  @Test
+  public void lengthOfLISBinarySearchSame() {
+    int[] array = {9, 9, 9, 9, 9, 9, 9, 9, 9, 9};
+    int lengthLIS = mSolution.lengthOfLISBinarySearch(array);
+    Assert.assertEquals(1, lengthLIS);
+  }
+
+  @Test
+  public void lengthOfLISBinarySearchEmpty() {
+    int[] array = {};
+    int lengthLIS = mSolution.lengthOfLISBinarySearch(array);
+    Assert.assertEquals(0, lengthLIS);
+  }
+
+  @Test
+  public void lengthOfLISBinarySearchNull() {
+    int lengthLIS = mSolution.lengthOfLISBinarySearch(null);
+    Assert.assertEquals(0, lengthLIS);
+  }
   //  Longest Increasing Subsequence
   // https://leetcode.com/problems/longest-increasing-subsequence/
   // End

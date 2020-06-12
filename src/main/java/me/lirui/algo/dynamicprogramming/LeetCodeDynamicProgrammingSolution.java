@@ -224,6 +224,36 @@ class LeetCodeDynamicProgrammingSolution {
     return result;
   }
 
+  int lengthOfLISBinarySearch(int[] nums) {
+    if (nums == null || nums.length == 0) {
+      return 0;
+    }
+
+    int[] dp = new int[nums.length];
+    int size = 0;
+
+    for (int num : nums) {
+      // binary search
+      int left = 0;
+      int right = size, middle;     // right = size
+      while (left < right) {
+        middle = left + (right - left) / 2;
+        if (dp[middle] < num) {
+          left = middle + 1;
+        } else {
+          right = middle;
+        }
+      }
+
+      // left is the right position to 'replace' in dp array
+      dp[left] = num;
+      if (left == size) {
+        size++;
+      }
+    }
+    return size;
+  }
+
   //  Longest Increasing Subsequence
   // https://leetcode.com/problems/longest-increasing-subsequence/
   // End
