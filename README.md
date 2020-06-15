@@ -130,6 +130,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [ ] [Android Unlock Patterns](https://leetcode.com/problems/android-unlock-patterns/)
 - [x] [Combinations](https://leetcode.com/problems/combinations/)
 - [x] [Subsets](https://leetcode.com/problems/subsets/)
+- [x] [Subsets II](https://leetcode.com/problems/subsets-ii/)
 
 ### Dynamic Programming
 

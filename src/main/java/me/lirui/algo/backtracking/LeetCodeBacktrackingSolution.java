@@ -1,6 +1,7 @@
 package me.lirui.algo.backtracking;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class LeetCodeBacktrackingSolution {
@@ -41,6 +42,33 @@ class LeetCodeBacktrackingSolution {
     for (int i = start; i < nums.length; i++) {
       steps.add(nums[i]);
       _subsets(nums, i + 1, steps, result);
+      steps.remove(steps.size() - 1);
+    }
+  }
+
+  List<List<Integer>> subsetsWithDup(int[] nums) {
+    if (nums == null || nums.length == 0) {
+      return new ArrayList<>();
+    }
+
+    Arrays.sort(nums);
+
+    List<Integer> steps = new ArrayList<>();
+    List<List<Integer>> resultSet = new ArrayList<>();
+    _subsetWithDup(nums, 0, steps, resultSet);
+    return new ArrayList<>(resultSet);
+  }
+
+  private void _subsetWithDup(int[] nums, int start, List<Integer> steps,
+      List<List<Integer>> result) {
+    result.add(new ArrayList<>(steps));
+    for (int i = start; i < nums.length; i++) {
+      if (i > start && nums[i] == nums[i - 1]) {
+        continue;
+      }
+
+      steps.add(nums[i]);
+      _subsetWithDup(nums, i + 1, steps, result);
       steps.remove(steps.size() - 1);
     }
   }
