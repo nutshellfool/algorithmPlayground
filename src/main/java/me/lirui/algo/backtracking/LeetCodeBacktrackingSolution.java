@@ -25,4 +25,23 @@ class LeetCodeBacktrackingSolution {
       tempList.remove(tempList.size() - 1);
     }
   }
+
+  List<List<Integer>> subsets(int[] nums) {
+    if (nums == null || nums.length == 0) {
+      return new ArrayList<>();
+    }
+    List<Integer> steps = new ArrayList<>();
+    List<List<Integer>> result = new ArrayList<>();
+    _subsets(nums, 0, steps, result);
+    return result;
+  }
+
+  private void _subsets(int[] nums, int start, List<Integer> steps, List<List<Integer>> result) {
+    result.add(new ArrayList<>(steps));
+    for (int i = start; i < nums.length; i++) {
+      steps.add(nums[i]);
+      _subsets(nums, i + 1, steps, result);
+      steps.remove(steps.size() - 1);
+    }
+  }
 }

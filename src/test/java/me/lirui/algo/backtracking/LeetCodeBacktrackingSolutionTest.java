@@ -43,4 +43,38 @@ public class LeetCodeBacktrackingSolutionTest {
     Assert.assertEquals(expectList.size(), resultList.size());
     Assert.assertTrue(expectList.containsAll(resultList) && resultList.containsAll(expectList));
   }
+
+  @Test
+  public void subsets() {
+    int[] nums = {1, 2, 3};
+    List<List<Integer>> subsets = mSolution.subsets(nums);
+    List<List<Integer>> expected = new ArrayList<>(8);
+    List<Integer> itemList0 = new ArrayList<>();
+    Collections.addAll(itemList0, 3);
+    expected.add(itemList0);
+    List<Integer> itemList1 = new ArrayList<>();
+    Collections.addAll(itemList1, 1);
+    expected.add(itemList1);
+    List<Integer> itemList2 = new ArrayList<>();
+    Collections.addAll(itemList2, 2);
+    expected.add(itemList2);
+    List<Integer> itemList3 = new ArrayList<>();
+    Collections.addAll(itemList3, 1, 2, 3);
+    expected.add(itemList3);
+    List<Integer> itemList4 = new ArrayList<>();
+    Collections.addAll(itemList4, 1, 3);
+    expected.add(itemList4);
+    List<Integer> itemList5 = new ArrayList<>();
+    Collections.addAll(itemList5, 2, 3);
+    expected.add(itemList5);
+    List<Integer> itemList6 = new ArrayList<>();
+    Collections.addAll(itemList6, 1, 2);
+    expected.add(itemList6);
+    List<Integer> itemList7 = new ArrayList<>();
+    expected.add(itemList7);
+    Assert.assertNotNull(subsets);
+    Assert.assertEquals(expected.size(), subsets.size());
+    Assert.assertTrue(expected.containsAll(subsets));
+    Assert.assertTrue(subsets.containsAll(expected));
+  }
 }
