@@ -138,4 +138,50 @@ public class LeetCodeBacktrackingSolutionTest {
     Assert.assertNotNull(addresses);
     Assert.assertEquals(0, addresses.size());
   }
+
+  @Test
+  public void exist() {
+    char[][] board = {
+        {'A', 'B', 'C', 'E' },
+        {'F', 'S', 'C', 'S'},
+        {'A', 'D', 'E', 'E'}
+    };
+    boolean exist = mSolution.exist(board, "ABCCED");
+    Assert.assertTrue(exist);
+  }
+
+  @Test
+  public void exist1() {
+    char[][] board = {
+        {'A', 'B', 'C', 'E' },
+        {'F', 'S', 'C', 'S'},
+        {'A', 'D', 'E', 'E'}
+    };
+    boolean exist = mSolution.exist(board, "SEE");
+    Assert.assertTrue(exist);
+  }
+
+  @Test
+  public void exist2() {
+    char[][] board = {
+        {'A', 'B', 'C', 'E' },
+        {'F', 'S', 'C', 'S'},
+        {'A', 'D', 'E', 'E'}
+    };
+    boolean exist = mSolution.exist(board, "ABCB");
+    Assert.assertFalse(exist);
+  }
+  //[["C","A","A"],["A","A","A"],["B","C","D"]]
+  //"AAB"
+
+  @Test
+  public void exist3() {
+    char[][] board = {
+        {'C', 'A', 'A' },
+        {'A', 'A', 'A'},
+        {'B', 'C', 'D'}
+    };
+    boolean exist = mSolution.exist(board, "AAB");
+    Assert.assertTrue(exist);
+  }
 }

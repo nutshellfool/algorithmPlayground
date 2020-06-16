@@ -110,4 +110,52 @@ class LeetCodeBacktrackingSolution {
     int intVal = Integer.parseInt(segment);
     return intVal >= 0 && intVal <= 255;
   }
+
+  boolean exist(char[][] board, String word) {
+    if (board == null || board.length == 0) {
+      return false;
+    }
+
+    boolean[][] visited = new boolean[board.length][board[0].length];
+
+    for (int i = 0; i < board.length; i++) {
+      for (int j = 0; j < board[0].length; j++) {
+        if (_exist(board, i, j, word, 0, visited)) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
+  private static final int[] DX = {0, 1, 0, -1};
+  private static final int[] DY = {1, 0, -1, 0};
+
+
+  private boolean _exist(char[][] board, int i, int j, String word, int wordCharIndex,
+      boolean[][] visited) {
+    if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) {
+      return false;
+    }
+
+    if (visited[i][j] || board[i][j] != word.charAt(wordCharIndex)) {
+      return false;
+    }
+
+    if (wordCharIndex == word.length() - 1) {
+      return true;
+    }
+
+    visited[i][j] = true;
+    boolean exist = false;
+    for (int directionIndex = 0; directionIndex < 4; directionIndex++) {
+      exist |= _exist(board, i + DX[directionIndex], j + DY[directionIndex], word,
+          wordCharIndex + 1, visited);
+    }
+    if (!exist) {
+      visited[i][j] = false;
+    }
+    return exist;
+  }
 }
