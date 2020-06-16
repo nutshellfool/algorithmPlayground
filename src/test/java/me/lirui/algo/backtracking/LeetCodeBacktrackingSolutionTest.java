@@ -1,6 +1,7 @@
 package me.lirui.algo.backtracking;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import org.junit.Assert;
@@ -104,5 +105,37 @@ public class LeetCodeBacktrackingSolutionTest {
     Assert.assertEquals(expected.size(), subsets.size());
     Assert.assertTrue(expected.containsAll(subsets));
     Assert.assertTrue(subsets.containsAll(expected));
+  }
+
+  @Test
+  public void restoreIpAddresses() {
+    String[] addressArray = {"255.255.11.135", "255.255.111.35"};
+    List<String> expectedAddressList = Arrays.asList(addressArray);
+    String ipAddressString = "25525511135";
+    List<String> addresses = mSolution.restoreIpAddresses(ipAddressString);
+    Assert.assertNotNull(addresses);
+    Assert.assertEquals(2, addresses.size());
+    Assert.assertTrue(expectedAddressList.containsAll(addresses));
+    Assert.assertTrue(addresses.containsAll(expectedAddressList));
+  }
+
+  @Test
+  public void restoreIpAddresses1() {
+    String[] addressArray = {"0.0.0.0"};
+    List<String> expectedAddressList = Arrays.asList(addressArray);
+    String ipAddressString = "0000";
+    List<String> addresses = mSolution.restoreIpAddresses(ipAddressString);
+    Assert.assertNotNull(addresses);
+    Assert.assertEquals(1, addresses.size());
+    Assert.assertTrue(expectedAddressList.containsAll(addresses));
+    Assert.assertTrue(addresses.containsAll(expectedAddressList));
+  }
+
+  @Test
+  public void restoreIpAddresses2() {
+    String ipAddressString = "11111111111111";
+    List<String> addresses = mSolution.restoreIpAddresses(ipAddressString);
+    Assert.assertNotNull(addresses);
+    Assert.assertEquals(0, addresses.size());
   }
 }

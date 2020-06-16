@@ -72,4 +72,42 @@ class LeetCodeBacktrackingSolution {
       steps.remove(steps.size() - 1);
     }
   }
+
+  List<String> restoreIpAddresses(String s) {
+    if (s == null || s.length() == 0 || s.length() > 12) {
+      return new ArrayList<>();
+    }
+
+    List<String> result = new ArrayList<>();
+    _restoreIpAddress(s, 0, 4, "", result);
+
+    return result;
+  }
+
+  private void _restoreIpAddress(String s, int start, int leftPartCount, String digitalPart,
+      List<String> result) {
+    if (leftPartCount == 0 && start == s.length()) {
+      //
+      result.add(digitalPart.substring(0, digitalPart.length() - 1));
+      return;
+    }
+
+    for (int i = 1; i < 4; i++) {
+      if (s.length() - start >= i) {
+        String segment = s.substring(start, start + i);
+        if (isValid(segment)) {
+          _restoreIpAddress(s, start + i,
+              leftPartCount - 1, digitalPart + segment + ".", result);
+        }
+      }
+    }
+  }
+
+  private boolean isValid(String segment) {
+    if (segment.length() == 0 || (segment.length() > 1 && segment.charAt(0) == '0')) {
+      return false;
+    }
+    int intVal = Integer.parseInt(segment);
+    return intVal >= 0 && intVal <= 255;
+  }
 }

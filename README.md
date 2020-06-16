@@ -126,7 +126,7 @@ We use junit as the project unit test framework, as for the maven project struct
 
 ### Backtracking
 
-- [ ] [Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/)
+- [x] [Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/)
 - [ ] [Android Unlock Patterns](https://leetcode.com/problems/android-unlock-patterns/)
 - [x] [Combinations](https://leetcode.com/problems/combinations/)
 - [x] [Subsets](https://leetcode.com/problems/subsets/)
