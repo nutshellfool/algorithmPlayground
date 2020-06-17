@@ -209,4 +209,34 @@ public class LeetCodeBacktrackingSolutionTest {
     Assert.assertTrue(expected.containsAll(combinations));
     Assert.assertTrue(combinations.containsAll(expected));
   }
+
+  @Test
+  public void combinationSum2() {
+    int[] candidates = {10, 1, 2, 7, 6, 1, 5};
+    List<List<Integer>> combinations = mSolution.combinationSum2(candidates, 8);
+    List<List<Integer>> expected = new ArrayList<List<Integer>>() {{
+      add(Arrays.asList(1, 7));
+      add(Arrays.asList(1, 2, 5));
+      add(Arrays.asList(2, 6));
+      add(Arrays.asList(1, 1, 6));
+    }};
+    Assert.assertNotNull(combinations);
+    Assert.assertEquals(expected.size(), combinations.size());
+    Assert.assertTrue(expected.containsAll(combinations));
+    Assert.assertTrue(combinations.containsAll(expected));
+  }
+
+  @Test
+  public void combinationSum2Case1() {
+    int[] candidates = {2, 5, 2, 1, 2};
+    List<List<Integer>> combinations = mSolution.combinationSum2(candidates, 5);
+    List<List<Integer>> expected = new ArrayList<List<Integer>>() {{
+      add(Arrays.asList(1, 2, 2));
+      add(Collections.singletonList(5));
+    }};
+    Assert.assertNotNull(combinations);
+    Assert.assertEquals(expected.size(), combinations.size());
+    Assert.assertTrue(expected.containsAll(combinations));
+    Assert.assertTrue(combinations.containsAll(expected));
+  }
 }

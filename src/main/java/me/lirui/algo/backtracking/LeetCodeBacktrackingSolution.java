@@ -223,4 +223,37 @@ class LeetCodeBacktrackingSolution {
       steps.remove(steps.size() - 1);
     }
   }
+
+
+  List<List<Integer>> combinationSum2(int[] candidates, int target) {
+    if (candidates == null || candidates.length == 0) {
+      return new ArrayList<>();
+    }
+
+    Arrays.sort(candidates);
+    List<Integer> steps = new ArrayList<>();
+    List<List<Integer>> result = new ArrayList<>();
+    _combinationSum2(candidates, 0, target, steps, result);
+    return result;
+  }
+
+  private void _combinationSum2(int[] candidates, int start, int remain, List<Integer> steps,
+      List<List<Integer>> result) {
+    if (remain < 0) {
+      return;
+    }
+    if (remain == 0) {
+      result.add(new ArrayList<>(steps));
+      return;
+    }
+
+    for (int i = start; i < candidates.length; i++) {
+      if (i > start && candidates[i] == candidates[i - 1]) {
+        continue;
+      }
+      steps.add(candidates[i]);
+      _combinationSum2(candidates, i + 1, remain - candidates[i], steps, result);
+      steps.remove(steps.size() - 1);
+    }
+  }
 }
