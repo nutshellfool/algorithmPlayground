@@ -131,7 +131,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [ ] [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/)
 - [x] [Word Search](https://leetcode.com/problems/word-search/)
 - [x] [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
-- [ ] [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+- [x] [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
 - [ ] [Combination Sum](https://leetcode.com/problems/combination-sum/)
 - [x] [Subsets](https://leetcode.com/problems/subsets/)
 - [x] [Subsets II](https://leetcode.com/problems/subsets-ii/)

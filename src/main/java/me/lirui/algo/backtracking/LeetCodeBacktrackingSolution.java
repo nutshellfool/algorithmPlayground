@@ -2,7 +2,9 @@ package me.lirui.algo.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class LeetCodeBacktrackingSolution {
 
@@ -157,5 +159,39 @@ class LeetCodeBacktrackingSolution {
       visited[i][j] = false;
     }
     return exist;
+  }
+
+  List<String> letterCombinations(String digits) {
+    if (digits == null || digits.length() == 0) {
+      return new ArrayList<>();
+    }
+    Map<String, String> phone = new HashMap<String, String>() {{
+      put("2", "abc");
+      put("3", "def");
+      put("4", "ghi");
+      put("5", "jkl");
+      put("6", "mno");
+      put("7", "pqrs");
+      put("8", "tuv");
+      put("9", "wxyz");
+    }};
+    List<String> result = new ArrayList<>();
+    backtrack("", digits, phone, result);
+    return result;
+  }
+
+
+  private void backtrack(String combination, String next_digits, Map<String, String> phoneMap,
+      List<String> result) {
+    if (next_digits.length() == 0) {
+      result.add(combination);
+      return;
+    }
+    String digit = next_digits.substring(0, 1);
+    String letters = phoneMap.get(digit);
+    for (int i = 0; i < letters.length(); i++) {
+      String letter = phoneMap.get(digit).substring(i, i + 1);
+      backtrack(combination + letter, next_digits.substring(1), phoneMap, result);
+    }
   }
 }

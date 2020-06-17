@@ -184,4 +184,15 @@ public class LeetCodeBacktrackingSolutionTest {
     boolean exist = mSolution.exist(board, "AAB");
     Assert.assertTrue(exist);
   }
+
+  @Test
+  public void letterCombinations() {
+    String[] expectedArray = {"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"};
+    List<String> expectedList = Arrays.asList(expectedArray);
+    List<String> combinations = mSolution.letterCombinations("23");
+    Assert.assertNotNull(combinations);
+    Assert.assertEquals(9, combinations.size());
+    Assert.assertTrue(expectedList.containsAll(combinations));
+    Assert.assertTrue(combinations.containsAll(expectedList));
+  }
 }
