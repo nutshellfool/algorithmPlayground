@@ -256,4 +256,32 @@ class LeetCodeBacktrackingSolution {
       steps.remove(steps.size() - 1);
     }
   }
+
+  List<List<Integer>> permute(int[] nums) {
+    if (nums == null || nums.length == 0) {
+      return new ArrayList<>();
+    }
+
+    List<List<Integer>> result = new ArrayList<>();
+    List<Integer> steps = new ArrayList<>();
+    _permute_backtrack(nums, steps, result);
+    return result;
+  }
+
+  private void _permute_backtrack(int[] nums, List<Integer> steps,
+      List<List<Integer>> result) {
+    if (steps.size() == nums.length) {
+      result.add(new ArrayList<>(steps));
+      return;
+    }
+
+    for (int num : nums) {
+      if (steps.contains(num)) {
+        continue;
+      }
+      steps.add(num);
+      _permute_backtrack(nums, steps, result);
+      steps.remove(steps.size() - 1);
+    }
+  }
 }

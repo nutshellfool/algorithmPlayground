@@ -239,4 +239,22 @@ public class LeetCodeBacktrackingSolutionTest {
     Assert.assertTrue(expected.containsAll(combinations));
     Assert.assertTrue(combinations.containsAll(expected));
   }
+
+  @Test
+  public void permute() {
+    List<List<Integer>> expected = new ArrayList<List<Integer>>() {{
+      add(Arrays.asList(1, 2, 3));
+      add(Arrays.asList(1, 3, 2));
+      add(Arrays.asList(2, 1, 3));
+      add(Arrays.asList(2, 3, 1));
+      add(Arrays.asList(3, 1, 2));
+      add(Arrays.asList(3, 2, 1));
+    }};
+    int[] nums = {1, 2, 3};
+    List<List<Integer>> permute = mSolution.permute(nums);
+    Assert.assertNotNull(permute);
+    Assert.assertEquals(expected.size(), permute.size());
+    Assert.assertTrue(expected.containsAll(permute));
+    Assert.assertTrue(permute.containsAll(expected));
+  }
 }
