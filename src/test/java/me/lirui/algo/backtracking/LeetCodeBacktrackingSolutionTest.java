@@ -257,4 +257,35 @@ public class LeetCodeBacktrackingSolutionTest {
     Assert.assertTrue(expected.containsAll(permute));
     Assert.assertTrue(permute.containsAll(expected));
   }
+
+  @Test
+  public void permuteUnique() {
+    List<List<Integer>> expected = new ArrayList<List<Integer>>() {{
+      add(Arrays.asList(1, 1, 2));
+      add(Arrays.asList(1, 2, 1));
+      add(Arrays.asList(2, 1, 1));
+    }};
+    int[] nums = {1, 1, 2};
+    List<List<Integer>> permute = mSolution.permuteUnique(nums);
+    Assert.assertNotNull(permute);
+    Assert.assertEquals(expected.size(), permute.size());
+    Assert.assertTrue(expected.containsAll(permute));
+    Assert.assertTrue(permute.containsAll(expected));
+  }
+
+  @Test
+  public void permuteUniqueCase1() {
+    List<List<Integer>> expected = new ArrayList<List<Integer>>() {{
+      add(Arrays.asList(0, 3, 3, 3));
+      add(Arrays.asList(3, 0, 3, 3));
+      add(Arrays.asList(3, 3, 0, 3));
+      add(Arrays.asList(3, 3, 3, 0));
+    }};
+    int[] nums = {3, 3, 0, 3};
+    List<List<Integer>> permute = mSolution.permuteUnique(nums);
+    Assert.assertNotNull(permute);
+    Assert.assertEquals(expected.size(), permute.size());
+    Assert.assertTrue(expected.containsAll(permute));
+    Assert.assertTrue(permute.containsAll(expected));
+  }
 }

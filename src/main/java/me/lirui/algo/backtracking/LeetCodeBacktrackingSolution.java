@@ -264,11 +264,11 @@ class LeetCodeBacktrackingSolution {
 
     List<List<Integer>> result = new ArrayList<>();
     List<Integer> steps = new ArrayList<>();
-    _permute_backtrack(nums, steps, result);
+    _permuteBacktrack(nums, steps, result);
     return result;
   }
 
-  private void _permute_backtrack(int[] nums, List<Integer> steps,
+  private void _permuteBacktrack(int[] nums, List<Integer> steps,
       List<List<Integer>> result) {
     if (steps.size() == nums.length) {
       result.add(new ArrayList<>(steps));
@@ -280,8 +280,40 @@ class LeetCodeBacktrackingSolution {
         continue;
       }
       steps.add(num);
-      _permute_backtrack(nums, steps, result);
+      _permuteBacktrack(nums, steps, result);
       steps.remove(steps.size() - 1);
+    }
+  }
+
+  List<List<Integer>> permuteUnique(int[] nums) {
+    if (nums == null || nums.length == 0) {
+      return new ArrayList<>();
+    }
+    Arrays.sort(nums);
+    List<Integer> steps = new ArrayList<>();
+    List<List<Integer>> result = new ArrayList<>();
+    boolean[] used = new boolean[nums.length];
+    _permuteUniqueBacktrack(nums, used, steps, result);
+    return result;
+  }
+
+  private void _permuteUniqueBacktrack(int[] nums, boolean[] used, List<Integer> steps,
+      List<List<Integer>> result) {
+    if (steps.size() == nums.length) {
+      result.add(new ArrayList<>(steps));
+      return;
+    }
+
+    for (int i = 0; i < nums.length; i++) {
+      if (used[i] || (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])) {
+        continue;
+      }
+
+      used[i] = true;
+      steps.add(nums[i]);
+      _permuteUniqueBacktrack(nums, used, steps, result);
+      steps.remove(steps.size() - 1);
+      used[i] = false;
     }
   }
 }
