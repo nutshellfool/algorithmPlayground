@@ -200,7 +200,7 @@ class LeetCodeBacktrackingSolution {
       return new ArrayList<>();
     }
 
-    Arrays.sort(candidates);
+//    Arrays.sort(candidates);
     List<Integer> steps = new ArrayList<>();
     List<List<Integer>> result = new ArrayList<>();
     _combinationSum(candidates, 0, target, steps, result);
