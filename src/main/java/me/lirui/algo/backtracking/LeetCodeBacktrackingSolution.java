@@ -194,4 +194,33 @@ class LeetCodeBacktrackingSolution {
       backtrack(combination + letter, next_digits.substring(1), phoneMap, result);
     }
   }
+
+  List<List<Integer>> combinationSum(int[] candidates, int target) {
+    if (candidates == null || candidates.length == 0) {
+      return new ArrayList<>();
+    }
+
+    Arrays.sort(candidates);
+    List<Integer> steps = new ArrayList<>();
+    List<List<Integer>> result = new ArrayList<>();
+    _combinationSum(candidates, 0, target, steps, result);
+    return result;
+  }
+
+  private void _combinationSum(int[] candidates, int start, int remain, List<Integer> steps,
+      List<List<Integer>> result) {
+    if (remain < 0) {
+      return;
+    }
+    if (remain == 0) {
+      result.add(new ArrayList<>(steps));
+      return;
+    }
+
+    for (int i = start; i < candidates.length; i++) {
+      steps.add(candidates[i]);
+      _combinationSum(candidates, i, remain - candidates[i], steps, result);
+      steps.remove(steps.size() - 1);
+    }
+  }
 }

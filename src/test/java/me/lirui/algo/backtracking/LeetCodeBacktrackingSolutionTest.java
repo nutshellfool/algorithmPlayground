@@ -142,7 +142,7 @@ public class LeetCodeBacktrackingSolutionTest {
   @Test
   public void exist() {
     char[][] board = {
-        {'A', 'B', 'C', 'E' },
+        {'A', 'B', 'C', 'E'},
         {'F', 'S', 'C', 'S'},
         {'A', 'D', 'E', 'E'}
     };
@@ -153,7 +153,7 @@ public class LeetCodeBacktrackingSolutionTest {
   @Test
   public void exist1() {
     char[][] board = {
-        {'A', 'B', 'C', 'E' },
+        {'A', 'B', 'C', 'E'},
         {'F', 'S', 'C', 'S'},
         {'A', 'D', 'E', 'E'}
     };
@@ -164,7 +164,7 @@ public class LeetCodeBacktrackingSolutionTest {
   @Test
   public void exist2() {
     char[][] board = {
-        {'A', 'B', 'C', 'E' },
+        {'A', 'B', 'C', 'E'},
         {'F', 'S', 'C', 'S'},
         {'A', 'D', 'E', 'E'}
     };
@@ -177,7 +177,7 @@ public class LeetCodeBacktrackingSolutionTest {
   @Test
   public void exist3() {
     char[][] board = {
-        {'C', 'A', 'A' },
+        {'C', 'A', 'A'},
         {'A', 'A', 'A'},
         {'B', 'C', 'D'}
     };
@@ -194,5 +194,19 @@ public class LeetCodeBacktrackingSolutionTest {
     Assert.assertEquals(9, combinations.size());
     Assert.assertTrue(expectedList.containsAll(combinations));
     Assert.assertTrue(combinations.containsAll(expectedList));
+  }
+
+  @Test
+  public void combinationSum() {
+    int[] candidates = {2, 3, 6, 7};
+    List<List<Integer>> combinations = mSolution.combinationSum(candidates, 7);
+    List<List<Integer>> expected = new ArrayList<List<Integer>>() {{
+      add(Collections.singletonList(7));
+      add(Arrays.asList(2, 2, 3));
+    }};
+    Assert.assertNotNull(combinations);
+    Assert.assertEquals(expected.size(), combinations.size());
+    Assert.assertTrue(expected.containsAll(combinations));
+    Assert.assertTrue(combinations.containsAll(expected));
   }
 }
