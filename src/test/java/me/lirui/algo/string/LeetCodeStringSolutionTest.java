@@ -34,4 +34,40 @@ public class LeetCodeStringSolutionTest {
     Assert.assertEquals(2, result.size());
     Assert.assertEquals(new HashSet<>(expect), new HashSet<>(result));
   }
+
+  @Test
+  public void strStr() {
+    int index = mSolution.strStr("hello", "ll");
+    Assert.assertEquals(2, index);
+  }
+
+  @Test
+  public void strStr1() {
+    int index = mSolution.strStr("aaaaa", "bba");
+    Assert.assertEquals(-1, index);
+  }
+
+  @Test
+  public void strStr2() {
+    int index = mSolution.strStr("aaaa", "");
+    Assert.assertEquals(0,index);
+  }
+
+  @Test
+  public void strStrInstinct() {
+    int index = mSolution.strStrInstinct("hello", "ll");
+    Assert.assertEquals(2, index);
+  }
+
+  @Test
+  public void strStrInstinct1() {
+    int index = mSolution.strStrInstinct("aaaaa", "bba");
+    Assert.assertEquals(-1, index);
+  }
+
+  @Test
+  public void strStrInstinct2() {
+    int index = mSolution.strStrInstinct("aaaa", "");
+    Assert.assertEquals(0,index);
+  }
 }

@@ -184,6 +184,10 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Counting Bits](https://leetcode.com/problems/counting-bits/)
 - [ ] [UTF-8 Validation](https://leetcode.com/problems/utf-8-validation/)
 
+### String
+
+- [x] [Implement strStr()](https://leetcode.com/problems/implement-strstr/)
+
 ## System design Problem / Solution sets
 
 ### Basic components
