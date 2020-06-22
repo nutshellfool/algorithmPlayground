@@ -40,8 +40,8 @@ We use junit as the project unit test framework, as for the maven project struct
 ### Stack & Queue
 
 - [x] [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
-- [ ] [Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)
-- [ ] [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
+- [x] [Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)
+- [x] [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
 
 ### deque
 
