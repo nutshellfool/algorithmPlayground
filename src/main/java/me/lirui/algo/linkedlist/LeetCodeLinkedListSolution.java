@@ -176,4 +176,27 @@ class LeetCodeLinkedListSolution {
 
     return head;
   }
+
+  SingleLinkedNode deleteDuplicates2(SingleLinkedNode head) {
+    SingleLinkedNode currentNode = head;
+    SingleLinkedNode preNode = null;
+    while (currentNode != null && currentNode.next != null) {
+      if (currentNode.next.getValue() == currentNode.getValue()) {
+        while (currentNode.next != null && currentNode.next.getValue() == currentNode.getValue()) {
+          currentNode = currentNode.next;
+        }
+        if (preNode != null) {
+          preNode.next = currentNode.next;
+        } else {
+          head = currentNode.next;
+        }
+      } else {
+        preNode = currentNode;
+      }
+
+      currentNode = currentNode.next;
+    }
+
+    return head;
+  }
 }
