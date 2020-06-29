@@ -125,8 +125,12 @@ class LeetCodeLinkedListSolution {
     SingleLinkedNode end = dummy;
 
     while (end.next != null) {
-      for (int i = 0; i < k && end != null; i++) end = end.next;
-      if (end == null) break;
+      for (int i = 0; i < k && end != null; i++) {
+        end = end.next;
+      }
+      if (end == null) {
+        break;
+      }
       SingleLinkedNode start = pre.next;
       SingleLinkedNode next = end.next;
       end.next = null;
@@ -159,4 +163,17 @@ class LeetCodeLinkedListSolution {
   // Reverse Nodes in k-Group
   // https://leetcode.com/problems/reverse-nodes-in-k-group/
   // End
+
+  SingleLinkedNode deleteDuplicates(SingleLinkedNode head) {
+    SingleLinkedNode currentNode = head;
+    while (currentNode != null && currentNode.next != null) {
+      if (currentNode.next.getValue() == currentNode.getValue()) {
+        currentNode.next = currentNode.next.next;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+
+    return head;
+  }
 }

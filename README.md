@@ -35,6 +35,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
 - [x] [Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)
 - [ ] [Reorder List](https://leetcode.com/problems/reorder-list/)
+- [x] [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
 
 
 ### Stack & Queue

@@ -189,4 +189,17 @@ public class LeetCodeLinkedListSolutionTest {
     Assert.assertEquals(1, head.next.next.next.next.getValue());
     Assert.assertNull(head.next.next.next.next.next);
   }
+
+  @Test
+  public void deleteDuplicates() {
+    SingleLinkedList list = new SingleLinkedList();
+    list.appendNodeToTail(1);
+    list.appendNodeToTail(1);
+    list.appendNodeToTail(2);
+    SingleLinkedNode head = mSolution.deleteDuplicates(list.getHeadNode().next);
+    Assert.assertNotNull(head);
+    Assert.assertEquals(1, head.getValue());
+    Assert.assertEquals(2, head.next.getValue());
+    Assert.assertNull(head.next.next);
+  }
 }
