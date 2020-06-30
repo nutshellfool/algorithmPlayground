@@ -581,4 +581,32 @@ public class LeetCodeDynamicProgrammingSolutionTest {
     int largestSubArraySum = mSolution.maxSubArray(array);
     Assert.assertEquals(0, largestSubArraySum);
   }
+
+  @Test
+  public void rob() {
+    int[] nums = {1, 2, 3, 1};
+    int max = mSolution.rob(nums);
+    Assert.assertEquals(4, max);
+  }
+
+  @Test
+  public void rob1() {
+    int[] nums = {2, 7, 9, 3, 1};
+    int rob = mSolution.rob(nums);
+    Assert.assertEquals(12, rob);
+  }
+
+  @Test
+  public void robDP() {
+    int[] nums = {1, 2, 3, 1};
+    int max = mSolution.robStandardDP(nums);
+    Assert.assertEquals(4, max);
+  }
+
+  @Test
+  public void robDP1() {
+    int[] nums = {2, 7, 9, 3, 1};
+    int rob = mSolution.robStandardDP(nums);
+    Assert.assertEquals(12, rob);
+  }
 }
