@@ -80,6 +80,8 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
 
 **possible**
+### lexicographical 
+
 - [ ] [Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers/)
 - [ ] [K-th Smallest in Lexicographical Order](https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/)
 
