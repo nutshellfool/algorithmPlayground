@@ -20,7 +20,7 @@ public class TwitterTest {
     List<Integer> feedIds = mTwitter.getNewsFeed(1);
     Assert.assertNotNull(feedIds);
     Assert.assertEquals(1, feedIds.size());
-    Assert.assertEquals(5, feedIds.get(0));
+    Assert.assertEquals(5, (int) feedIds.get(0));
 
     mTwitter.follow(1, 2);
     mTwitter.postTweet(2, 6);
@@ -28,8 +28,8 @@ public class TwitterTest {
     List<Integer> feedIds1 = mTwitter.getNewsFeed(1);
     Assert.assertNotNull(feedIds1);
     Assert.assertEquals(2, feedIds1.size());
-    Assert.assertEquals(6, feedIds1.get(0));
-    Assert.assertEquals(5, feedIds1.get(1));
+    Assert.assertEquals(6, (int) feedIds1.get(0));
+    Assert.assertEquals(5, (int) feedIds1.get(1));
   }
 
   @Test
@@ -67,8 +67,8 @@ public class TwitterTest {
     List<Integer> feeds = mTwitter.getNewsFeed(1);
     Assert.assertNotNull(feeds);
     Assert.assertEquals(10, feeds.size());
-    Assert.assertEquals(20, feeds.get(0));
-    Assert.assertEquals(19, feeds.get(1));
+    Assert.assertEquals(20, (int) feeds.get(0));
+    Assert.assertEquals(19, (int) feeds.get(1));
   }
 
   @Test
@@ -83,7 +83,7 @@ public class TwitterTest {
 
     Assert.assertNotNull(feedIds2);
     Assert.assertEquals(1, feedIds2.size());
-    Assert.assertEquals(5, feedIds2.get(0));
+    Assert.assertEquals(5, (int) feedIds2.get(0));
   }
 
   @Test
@@ -93,6 +93,6 @@ public class TwitterTest {
     List<Integer> feeds = mTwitter.getNewsFeed(2);
     Assert.assertNotNull(feeds);
     Assert.assertEquals(1, feeds.size());
-    Assert.assertEquals(5, feeds.get(0));
+    Assert.assertEquals(5, (int) feeds.get(0));
   }
 }

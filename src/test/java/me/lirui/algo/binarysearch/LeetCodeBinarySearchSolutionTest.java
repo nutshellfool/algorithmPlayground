@@ -132,7 +132,7 @@ public class LeetCodeBinarySearchSolutionTest {
   @Test
   public void myNewtonSqrtFragInvalid() {
     float sqr = mSolution.sqrtNewton(-1, 0.00001);
-    Assert.assertEquals(Float.NaN, sqr);
+    Assert.assertEquals(Float.NaN, sqr, 0.00001);
   }
 
   @Test

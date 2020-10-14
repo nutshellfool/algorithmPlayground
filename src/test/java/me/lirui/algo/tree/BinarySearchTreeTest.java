@@ -217,9 +217,9 @@ public class BinarySearchTreeTest {
 
     Assert.assertNotNull(theInOutArray);
     Assert.assertEquals(3, theInOutArray.size());
-    Assert.assertEquals(1, theInOutArray.get(0));
-    Assert.assertEquals(2, theInOutArray.get(1));
-    Assert.assertEquals(3, theInOutArray.get(2));
+    Assert.assertEquals(1, (int)theInOutArray.get(0));
+    Assert.assertEquals(2, (int)theInOutArray.get(1));
+    Assert.assertEquals(3, (int)theInOutArray.get(2));
   }
 
   @Test
@@ -234,9 +234,9 @@ public class BinarySearchTreeTest {
 
     Assert.assertNotNull(theInOutArray);
     Assert.assertEquals(3, theInOutArray.size());
-    Assert.assertEquals(2, theInOutArray.get(0));
-    Assert.assertEquals(1, theInOutArray.get(1));
-    Assert.assertEquals(3, theInOutArray.get(2));
+    Assert.assertEquals(2, (int)theInOutArray.get(0));
+    Assert.assertEquals(1, (int)theInOutArray.get(1));
+    Assert.assertEquals(3, (int)theInOutArray.get(2));
   }
 
   @Test
@@ -251,9 +251,9 @@ public class BinarySearchTreeTest {
 
     Assert.assertNotNull(theInOutArray);
     Assert.assertEquals(3, theInOutArray.size());
-    Assert.assertEquals(1, theInOutArray.get(0));
-    Assert.assertEquals(3, theInOutArray.get(1));
-    Assert.assertEquals(2, theInOutArray.get(2));
+    Assert.assertEquals(1, (int)theInOutArray.get(0));
+    Assert.assertEquals(3, (int)theInOutArray.get(1));
+    Assert.assertEquals(2, (int)theInOutArray.get(2));
   }
 
   @Test
@@ -290,9 +290,9 @@ public class BinarySearchTreeTest {
 
     ArrayList<Integer> result = new ArrayList<>();
     mTree.breathFirstSearch(result);
-    Assert.assertEquals(result.get(0), 3);
-    Assert.assertEquals(result.get(1), 1);
-    Assert.assertEquals(result.get(2), 5);
+    Assert.assertEquals(3, (int)result.get(0));
+    Assert.assertEquals(1, (int)result.get(1));
+    Assert.assertEquals(5, (int)result.get(2));
   }
 
   @Test
@@ -300,9 +300,9 @@ public class BinarySearchTreeTest {
     generateCompleteBinarySearchTree(mTree);
     ArrayList<Integer> result = new ArrayList<>();
     mTree.depthFirstSearch(result);
-    Assert.assertEquals(result.get(0), 3);
-    Assert.assertEquals(result.get(1), 5);
-    Assert.assertEquals(result.get(2), 6);
+    Assert.assertEquals(3, (int)result.get(0));
+    Assert.assertEquals(5, (int)result.get(1));
+    Assert.assertEquals(6, (int)result.get(2));
   }
 
   @Test
@@ -310,13 +310,13 @@ public class BinarySearchTreeTest {
     generateCompleteBinarySearchTree(mTree);
     ArrayList<Integer> result = new ArrayList<>();
     mTree.weightFirstSearch(result);
-    Assert.assertEquals(result.get(0), 3);
-    Assert.assertEquals(result.get(1), 5);
-    Assert.assertEquals(result.get(2), 6);
-    Assert.assertEquals(result.get(3), 4);
-    Assert.assertEquals(result.get(4), 1);
-    Assert.assertEquals(result.get(5), 2);
-    Assert.assertEquals(result.get(6), 0);
+    Assert.assertEquals(3, (int)result.get(0));
+    Assert.assertEquals(5, (int)result.get(1));
+    Assert.assertEquals(6, (int)result.get(2));
+    Assert.assertEquals(4, (int)result.get(3));
+    Assert.assertEquals(1, (int)result.get(4));
+    Assert.assertEquals(2, (int)result.get(5));
+    Assert.assertEquals(0, (int)result.get(6));
   }
 
   private void generateCompleteBinarySearchTree(BinarySearchTree tree) {

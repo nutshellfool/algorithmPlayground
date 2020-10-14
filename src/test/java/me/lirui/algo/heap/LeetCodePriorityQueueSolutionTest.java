@@ -356,8 +356,8 @@ public class LeetCodePriorityQueueSolutionTest {
     double median1 = finder.findMedian();
     finder.addNum(3);
     double median2 = finder.findMedian();
-    Assert.assertEquals(1.5, median1);
-    Assert.assertEquals(2.0, median2);
+    Assert.assertEquals(1.5, median1, 0.01);
+    Assert.assertEquals(2.0, median2, 0.01);
   }
 
   @Test
@@ -368,8 +368,8 @@ public class LeetCodePriorityQueueSolutionTest {
     double median1 = finder.findMedian();
     finder.addNum(2147483647);
     double median2 = finder.findMedian();
-    Assert.assertEquals(2147483647.0, median1);
-    Assert.assertEquals(2147483647.0, median2);
+    Assert.assertEquals(2147483647.0, median1, 0.1);
+    Assert.assertEquals(2147483647.0, median2, 0.1);
   }
   //
   //   Find Median from Data Stream -

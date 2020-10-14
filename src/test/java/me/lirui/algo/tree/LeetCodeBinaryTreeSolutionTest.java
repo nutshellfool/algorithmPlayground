@@ -42,13 +42,13 @@ public class LeetCodeBinaryTreeSolutionTest {
     Assert.assertNotNull(orderList);
     Assert.assertEquals(3, orderList.size());
     Assert.assertEquals(1, orderList.get(0).size());
-    Assert.assertEquals(2, orderList.get(0).get(0));
+    Assert.assertEquals(2, (int)orderList.get(0).get(0));
     Assert.assertEquals(2, orderList.get(1).size());
-    Assert.assertEquals(1, orderList.get(1).get(0));
-    Assert.assertEquals(4, orderList.get(1).get(1));
+    Assert.assertEquals(1, (int)orderList.get(1).get(0));
+    Assert.assertEquals(4, (int)orderList.get(1).get(1));
     Assert.assertEquals(2, orderList.get(2).size());
-    Assert.assertEquals(3, orderList.get(2).get(0));
-    Assert.assertEquals(5, orderList.get(2).get(1));
+    Assert.assertEquals(3, (int)orderList.get(2).get(0));
+    Assert.assertEquals(5, (int)orderList.get(2).get(1));
   }
 
   @Test
@@ -57,13 +57,13 @@ public class LeetCodeBinaryTreeSolutionTest {
     Assert.assertNotNull(orderList);
     Assert.assertEquals(3, orderList.size());
     Assert.assertEquals(1, orderList.get(0).size());
-    Assert.assertEquals(2, orderList.get(0).get(0));
+    Assert.assertEquals(2, (int)orderList.get(0).get(0));
     Assert.assertEquals(2, orderList.get(1).size());
-    Assert.assertEquals(1, orderList.get(1).get(0));
-    Assert.assertEquals(4, orderList.get(1).get(1));
+    Assert.assertEquals(1, (int)orderList.get(1).get(0));
+    Assert.assertEquals(4, (int)orderList.get(1).get(1));
     Assert.assertEquals(2, orderList.get(2).size());
-    Assert.assertEquals(3, orderList.get(2).get(0));
-    Assert.assertEquals(5, orderList.get(2).get(1));
+    Assert.assertEquals(3, (int)orderList.get(2).get(0));
+    Assert.assertEquals(5, (int)orderList.get(2).get(1));
   }
 
   @Test
@@ -124,7 +124,7 @@ public class LeetCodeBinaryTreeSolutionTest {
     Assert.assertNotNull(traversalList);
     Assert.assertEquals(5, traversalList.size());
     for (int i = 0; i < traversalList.size(); i++) {
-      Assert.assertEquals(i + 1, traversalList.get(i));
+      Assert.assertEquals(i + 1, (int)traversalList.get(i));
     }
   }
 
@@ -134,7 +134,7 @@ public class LeetCodeBinaryTreeSolutionTest {
     Assert.assertNotNull(traversalList);
     Assert.assertEquals(5, traversalList.size());
     for (int i = 0; i < traversalList.size(); i++) {
-      Assert.assertEquals(i + 1, traversalList.get(i));
+      Assert.assertEquals(i + 1, (int)traversalList.get(i));
     }
   }
 
@@ -143,9 +143,9 @@ public class LeetCodeBinaryTreeSolutionTest {
     List<Integer> traversalList = mSolution.preOrderTraversal(mTree.root.rightChild);
     Assert.assertNotNull(traversalList);
     Assert.assertEquals(3, traversalList.size());
-    Assert.assertEquals(4, traversalList.get(0));
-    Assert.assertEquals(3, traversalList.get(1));
-    Assert.assertEquals(5, traversalList.get(2));
+    Assert.assertEquals(4, (int)traversalList.get(0));
+    Assert.assertEquals(3, (int)traversalList.get(1));
+    Assert.assertEquals(5, (int)traversalList.get(2));
   }
 
   @Test
@@ -153,9 +153,9 @@ public class LeetCodeBinaryTreeSolutionTest {
     List<Integer> traversalList = mSolution.preOrderTraversalIteration(mTree.root.rightChild);
     Assert.assertNotNull(traversalList);
     Assert.assertEquals(3, traversalList.size());
-    Assert.assertEquals(4, traversalList.get(0));
-    Assert.assertEquals(3, traversalList.get(1));
-    Assert.assertEquals(5, traversalList.get(2));
+    Assert.assertEquals(4, (int)traversalList.get(0));
+    Assert.assertEquals(3, (int)traversalList.get(1));
+    Assert.assertEquals(5, (int)traversalList.get(2));
   }
 
   @Test
@@ -163,9 +163,9 @@ public class LeetCodeBinaryTreeSolutionTest {
     List<Integer> traversalList = mSolution.postOrderTraversal(mTree.root.rightChild);
     Assert.assertNotNull(traversalList);
     Assert.assertEquals(3, traversalList.size());
-    Assert.assertEquals(3, traversalList.get(0));
-    Assert.assertEquals(5, traversalList.get(1));
-    Assert.assertEquals(4, traversalList.get(2));
+    Assert.assertEquals(3, (int)traversalList.get(0));
+    Assert.assertEquals(5, (int)traversalList.get(1));
+    Assert.assertEquals(4, (int)traversalList.get(2));
   }
 
   @Test
@@ -173,9 +173,9 @@ public class LeetCodeBinaryTreeSolutionTest {
     List<Integer> traversalList = mSolution.postOrderTraversalIteration(mTree.root.rightChild);
     Assert.assertNotNull(traversalList);
     Assert.assertEquals(3, traversalList.size());
-    Assert.assertEquals(3, traversalList.get(0));
-    Assert.assertEquals(5, traversalList.get(1));
-    Assert.assertEquals(4, traversalList.get(2));
+    Assert.assertEquals(3, (int)traversalList.get(0));
+    Assert.assertEquals(5, (int)traversalList.get(1));
+    Assert.assertEquals(4, (int)traversalList.get(2));
   }
 
   @Test
@@ -183,9 +183,9 @@ public class LeetCodeBinaryTreeSolutionTest {
     List<Integer> rightSideViewList = mSolution.rightSideView(mTree.root);
     Assert.assertNotNull(rightSideViewList);
     Assert.assertEquals(3, rightSideViewList.size());
-    Assert.assertEquals(2, rightSideViewList.get(0));
-    Assert.assertEquals(4, rightSideViewList.get(1));
-    Assert.assertEquals(5, rightSideViewList.get(2));
+    Assert.assertEquals(2, (int)rightSideViewList.get(0));
+    Assert.assertEquals(4, (int)rightSideViewList.get(1));
+    Assert.assertEquals(5, (int)rightSideViewList.get(2));
   }
 
   @Test
@@ -193,8 +193,8 @@ public class LeetCodeBinaryTreeSolutionTest {
     List<Integer> rightSideViewList = mSolution.rightSideViewDFS(mTree.root);
     Assert.assertNotNull(rightSideViewList);
     Assert.assertEquals(3, rightSideViewList.size());
-    Assert.assertEquals(2, rightSideViewList.get(0));
-    Assert.assertEquals(4, rightSideViewList.get(1));
-    Assert.assertEquals(5, rightSideViewList.get(2));
+    Assert.assertEquals(2, (int)rightSideViewList.get(0));
+    Assert.assertEquals(4, (int)rightSideViewList.get(1));
+    Assert.assertEquals(5, (int)rightSideViewList.get(2));
   }
 }
