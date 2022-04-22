@@ -168,6 +168,7 @@ We use junit as the project unit test framework, as for the maven project struct
 - [x] [House Robber](https://leetcode.com/problems/house-robber/)
 - [ ] [House Robber II](https://leetcode.com/problems/house-robber-ii/)
 - [ ] [House Robber III](https://leetcode.com/problems/house-robber-iii/)
+- [x] [Factorial of a number - NOT a LeetCode problem](https://leetcode.com/discuss/interview-question/498376/Amazon-or-Phone-or-Factorial-of-a-Number)
 
 ## Advanced data structure & algorithm
 
